@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insertar pais</title>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <h1 style="text-align: center;">
+          Registro de paises
+        </h1>
+      </div>
+      <form [formGroup]="form" (submit)="aceptar()">
+        <!--componente para input para el id-->
+        <mat-form-field class="example-full-width">
+          <mat-label>ID</mat-label>
+          <input matInput placeholder="Id" formControlName="id" />
+        </mat-form-field>
+        <br />
+        <!--componente para input para el ingresar el nombre-->
+        <mat-form-field class="example-full-width">
+          <mat-label>Pais</mat-label>
+          <input
+            matInput
+            placeholder="Ingrese pais"
+            formControlName="nombrePais"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Capital</mat-label>
+          <input
+            matInput
+            placeholder="Ingrese capital"
+            formControlName="capitalPais"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Moneda Oficial</mat-label>
+          <input
+            matInput
+            placeholder="Ingrese moneda oficial"
+            formControlName="monedaPais"
+          />
+        </mat-form-field>
+
+        <br />
+        <!--Botones para enviar o cancelar-->
+        <button mat-raised-button color="primary">Aceptar</button>
+        <button mat-raised-button color="warn" routerLink="/paises">Cancelar</button>
+
+        <!--Para mostrar mensaje cuando se produce error en el ingreso de datos-->
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>
