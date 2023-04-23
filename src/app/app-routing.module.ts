@@ -5,16 +5,23 @@ import { PaisInsertarComponent } from './component/pais/pais-insertar/pais-inser
 
 const routes: Routes = [
   {
-    path:'paises',component:PaisComponent,children:[
+    path: 'paises',
+    component: PaisComponent,
+    children: [
       {
-        path:'paisesinsertar',component:PaisInsertarComponent,
+        path: 'paisesinsertar',
+        component: PaisInsertarComponent,
       },
+      {
+        path:'edicion/:id',
+        component:PaisInsertarComponent
+      }
     ],
   },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

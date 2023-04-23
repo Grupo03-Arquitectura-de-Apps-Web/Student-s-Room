@@ -1,53 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  <div class="container">
-    <div style="text-align: center;">
-      <h1>Lista de Paises</h1>
-    </div>
-    <!--agregamos el boton para agregar un nuevo elemento-->
-    <div>
-      <button mat-raised-button color="warn" routerLink="/paises/paisesinsertar">Nuevo</button>
-    </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div style="text-align: center">
+        <h1>Lista de Paises</h1>
+      </div>
+      <!--agregamos el boton para agregar un nuevo elemento-->
+      <div>
+        <button
+          mat-raised-button
+          color="warn"
+          routerLink="/paises/paisesinsertar"
+        >
+          Nuevo
+        </button>
+      </div>
+      <!--input para buscar-->
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
+      </mat-form-field>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" class="table table-bordered">
-
-      <!--- Note that these columns can be defined in any order.
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+        class="table table-bordered"
+      >
+        <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
 
-      <!-- Position Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-      </ng-container>
+        <!-- Position Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+        </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="nombrePais">
-        <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let element"> {{element.nombrePais}} </td>
-      </ng-container>
+        <!-- Name Column -->
+        <ng-container matColumnDef="nombrePais">
+          <th mat-header-cell *matHeaderCellDef>Nombre</th>
+          <td mat-cell *matCellDef="let element">{{ element.nombrePais }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="capitalPais">
-        <th mat-header-cell *matHeaderCellDef> Capital </th>
-        <td mat-cell *matCellDef="let element"> {{element.capitalPais}} </td>
-      </ng-container>
+        <ng-container matColumnDef="capitalPais">
+          <th mat-header-cell *matHeaderCellDef>Capital</th>
+          <td mat-cell *matCellDef="let element">{{ element.capitalPais }}</td>
+        </ng-container>
 
-      <ng-container matColumnDef="monedaPais">
-        <th mat-header-cell *matHeaderCellDef> Moneda Oficial </th>
-        <td mat-cell *matCellDef="let element"> {{element.monedaPais}} </td>
-      </ng-container>
+        <ng-container matColumnDef="monedaPais">
+          <th mat-header-cell *matHeaderCellDef>Moneda Oficial</th>
+          <td mat-cell *matCellDef="let element">{{ element.monedaPais }}</td>
+        </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
+        <!--update part-->
+        <ng-container matColumnDef="ceditar">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              [routerLink]="['edicion', element.id]"
+            >
+              Actualizar
+            </button>
+          </td>
+        </ng-container>
 
-  </div>
-</body>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </body>
 </html>
-

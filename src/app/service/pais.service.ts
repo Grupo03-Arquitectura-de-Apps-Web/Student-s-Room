@@ -34,4 +34,11 @@ export class PaisService {
   setList(listaNueva:Pais[]){
       this.listaCambio.next(listaNueva);
   }
+  //update part
+  listId(id:number){
+    return this.http.get<Pais>(`${this.url}/${id}`);
+  }
+  update(p:Pais){
+    return this.http.put(this.url+'/'+p.id,p);
+  }
 }
