@@ -18,12 +18,14 @@ import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 
 import { MatButtonModule } from '@angular/material/button';
+import { HomeComponent } from './component/home/home.component';
 @NgModule({
   declarations: [
     AppComponent,
     PaisComponent,
     PaisListarComponent,
-    PaisInsertarComponent
+    PaisInsertarComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
