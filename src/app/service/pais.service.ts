@@ -3,7 +3,9 @@ import { environment } from 'src/environments/environment';
 import {HttpClient} from '@angular/common/http';
 import { Pais } from '../model/pais';
 
-//
+
+
+
 import { Subject } from 'rxjs';
 const base_url=environment.base
 @Injectable({
@@ -14,7 +16,8 @@ export class PaisService {
   //corregir escribiendo luego de agregar xd
 
   private listaCambio=new Subject<Pais[]>();
-
+  //delete
+  private confirmaEliminacion = new Subject<Boolean>();
   constructor(private http:HttpClient) {}
 
   list(){
@@ -40,5 +43,20 @@ export class PaisService {
   }
   update(p:Pais){
     return this.http.put(this.url+'/'+p.id,p);
+  }
+
+  //delete part
+  listarId(id: number) {
+    return this.http.get<Pais>(`${this.url}/${id}`);
+  }
+  eliminar(id: number) {
+
+    return this.http.delete(`${this.url}/${id}`);
+  }
+  getConfirmaEliminacion() {
+    return this.confirmaEliminacion.asObservable();
+  }
+  setConfirmaEliminacion(estado: Boolean) {
+    this.confirmaEliminacion.next(estado);
   }
 }

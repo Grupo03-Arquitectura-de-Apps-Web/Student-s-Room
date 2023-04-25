@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
     <title>Document</title>
   </head>
   <body>
@@ -17,6 +20,8 @@
           mat-raised-button
           color="warn"
           routerLink="/paises/paisesinsertar"
+          class="button"
+          id="nuevo"
         >
           Nuevo
         </button>
@@ -59,15 +64,26 @@
 
         <!--update part-->
         <ng-container matColumnDef="ceditar">
-          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <th mat-header-cell *matHeaderCellDef>Actualizar</th>
           <td mat-cell *matCellDef="let element">
             <button
               mat-raised-button
-              color="warn"
+
               [routerLink]="['edicion', element.id]"
+              id="actualizar"
+              class="button"
             >
-              Actualizar
+            <span class="material-icons">edit</span>
             </button>
+
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="celiminar">
+          <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+          <td mat-cell *matCellDef="let element">
+
+            <button mat-raised-button (click)="confirmar(element.id)" id="eliminar"class="button"><span class="material-icons">delete</span></button>
           </td>
         </ng-container>
 

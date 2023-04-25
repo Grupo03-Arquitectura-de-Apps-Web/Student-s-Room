@@ -1,0 +1,30 @@
+body{
+  font-family: 'Quicksand', sans-serif;
+}
+.button{
+  font-size: 0.5em;
+  font-weight: bold;
+  padding:10px 20px;
+  border-radius: 10px;
+  color: white;
+
+}
+#actualizar{
+  color: #fff;
+  background-color: #ff6c00;
+}
+#eliminar{
+  background-color: #000;
+  color: #fff;
+}
+#nuevo{
+  background-color: #0b3ad1;
+}
+h1{font-size: 3.5em;}
+h2{font-size: 2.7em;}
+h3{font-size: 2em;}
+p{font-size: 1.25em;}
+ul{list-style: none;}
+button:hover{
+  background-color: #ff9a3e;
+}

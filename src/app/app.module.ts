@@ -28,13 +28,19 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
+
+import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/pais-dialogo.component';
+
+//delete
+
 @NgModule({
   declarations: [
     AppComponent,
     PaisComponent,
     PaisListarComponent,
     PaisInsertarComponent,
-    HomeComponent
+    HomeComponent,
+    PaisDialogoComponent
   ],
   imports: [
     BrowserModule,
