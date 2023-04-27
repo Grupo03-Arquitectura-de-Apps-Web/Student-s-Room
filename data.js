@@ -153,7 +153,30 @@ module.exports = function () {
             }
           }
         }
-    ]
+    ],
+    plans: [
+      {
+        id: 1,
+        nombre_plan: "Gratuito",
+        precio: "S/. 0",
+        descripcion:
+          "1 anuncio en la web. 3 dias como publicacion destacada. Alcance de 100 personas.",
+      },
+      {
+        id: 2,
+        nombre_plan: "Basico",
+        precio: "S/. 15",
+        descripcion:
+          "Hasta 5 anuncios en la web. 15 dias como publicacion destacada. Alcance de 500 personas",
+      },
+      {
+        id: 3,
+        nombre_plan: "Premium",
+        precio: "S/. 25",
+        descripcion:
+          "Anuncios ilimitados en la web. 30 dias como publicacion destacada. Alcance de 1000 personas",
+      },
+    ],
   }
   return data
 }

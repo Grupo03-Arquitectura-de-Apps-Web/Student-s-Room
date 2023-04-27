@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container" style="text-align: center">
+      <h1>REGISTRO DE PLANES</h1>
+      <form [formGroup]="form" (submit)="aceptar()">
+        <mat-form-field class="example-full-width">
+          <mat-label style="font-family: 'Quicksand', sans-serif;">Código</mat-label>
+          <input matInput required placeholder="Código" formControlName="id" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label style="font-family: 'Quicksand', sans-serif;" >Nombre</mat-label>
+          <input
+            matInput
+            required
+            placeholder="Nombre"
+            formControlName="nombre_plan"
+          />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label style="font-family: 'Quicksand', sans-serif;">Precio</mat-label>
+          <input matInput required placeholder="Precio" formControlName="precio" />
+        </mat-form-field>
+        <br />
+        <mat-form-field class="example-full-width">
+          <mat-label style="font-family: 'Quicksand', sans-serif;">Descripción</mat-label>
+          <input
+            matInput
+            required
+            placeholder="Descripción"
+            formControlName="descripcion"
+          />
+        </mat-form-field>
+
+        <br />
+        <button mat-raised-button color="primary" style="margin-right: 20px">
+          <span class="material-icons">save</span>
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          routerLink="/plans"
+          style="background-color: #ff6c00"
+        >
+          <span class="material-icons">cancel</span>
+        </button>
+        <br />
+
+        <p>{{ mensaje }}</p>
+      </form>
+    </div>
+  </body>
+</html>
