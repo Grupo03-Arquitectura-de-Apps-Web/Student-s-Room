@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="estudiante-listar.component.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Document</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <!--titulo-->
+      <div style="text-align: center; ">
+        <h1 style="text-align: center; color: black">Lista de Estudiantes</h1>
+      </div>
+
+      <div style="text-align: right;">
+        <button mat-raised-button color="warn" routerLink="/estudiante/estudianteinsertar" style="background-color: #0b3ad1;">Nuevo</button>
+      </div>
+      <br>
+
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder ="Buscar"/>
+      </mat-form-field>
+
+      <br>
+      <!--tabla-->
+      <table mat-table [dataSource]="dataSource" class="table table-striped">
+          <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="numero">
+            <th mat-header-cell *matHeaderCellDef > ID</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.id }}
+            </td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="Nombre">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+
+            >
+              Estudiante
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.nombre }}</td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Correo Institucional">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+
+            >
+              Correo Institucional
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.correo_institucional }}
+            </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Fecha de Nacimiento" class="titulo">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+
+            >
+              Fecha de Nacimiento
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.fecha_nacimiento|date:'dd//MM/yyyy' }}
+            </td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Telefono">
+            <th
+              mat-header-cell
+              *matHeaderCellDef
+
+            >
+              Teléfono
+            </th>
+            <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="ceditar" style="text-align: center;">
+            <th mat-header-cell *matHeaderCellDef >Acciones</th>
+            <td mat-cell *matCellDef="let element">
+
+                <button mat-raised-button color="warn" [routerLink]="['edicion',element.id]" style="background-color: #ff6c00;">
+                  <span class="material-icons">edit_note</span>
+                </button>
+
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="celiminar" style="text-align: center;" >
+            <th mat-header-cell *matHeaderCellDef >Eliminar</th>
+            <td mat-cell *matCellDef="let element">
+
+                <button mat-raised-button color="accent" (click)="confirmar(element.id)" style="background-color: black; " class="eliminar" >
+                  <span class="material-icons" >delete</span>
+                </button>
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+  </body>
+</html>

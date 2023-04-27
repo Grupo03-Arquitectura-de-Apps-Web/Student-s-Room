@@ -38,6 +38,12 @@ import { TipoComponent } from './component/tipo/tipo.component';
 import { TipoListarComponent } from './component/tipo/tipo-listar/tipo-listar.component';
 import { TipoInsertarComponent } from './component/tipo/tipo-insertar/tipo-insertar.component';
 import { TipoEliminarComponent } from './component/tipo/tipo-listar/tipo-eliminar/tipo-eliminar.component';
+import { EstudianteComponent } from './component/estudiante/estudiante.component';
+import { EstudianteListarComponent } from './component/estudiante/estudiante-listar/estudiante-listar.component';
+import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
+import { EstudianteEliminarComponent } from './component/estudiante/estudiante-eliminar/estudiante-eliminar.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 //delete
 
@@ -56,7 +62,13 @@ import { TipoEliminarComponent } from './component/tipo/tipo-listar/tipo-elimina
     TipoComponent,
     TipoListarComponent,
     TipoInsertarComponent,
-    TipoEliminarComponent
+    TipoEliminarComponent,
+    EstudianteComponent,
+    EstudianteListarComponent,
+    EstudianteInsertarComponent,
+    EstudianteEliminarComponent,
+
+
   ],
   imports: [
     BrowserModule,
@@ -75,12 +87,11 @@ import { TipoEliminarComponent } from './component/tipo/tipo-listar/tipo-elimina
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
-
-
-
     MatSidenavModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

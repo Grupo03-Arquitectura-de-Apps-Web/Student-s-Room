@@ -7,6 +7,8 @@ import { PlanComponent } from './component/plan/plan.component';
 import { PlanInsertarComponent } from './component/plan/plan-insertar/plan-insertar.component';
 import { TipoComponent } from './component/tipo/tipo.component';
 import { TipoInsertarComponent } from './component/tipo/tipo-insertar/tipo-insertar.component';
+import { EstudianteComponent } from './component/estudiante/estudiante.component';
+import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
 
 const routes: Routes = [
   {
@@ -47,6 +49,14 @@ const routes: Routes = [
     children: [
       {  path: 'tipoinsertar',component: TipoInsertarComponent},
       {path: 'edicion/:id', component:TipoInsertarComponent}
+    ],
+  },
+  {
+    path:'estudiante',
+    component:EstudianteComponent,
+    children:[
+      {path:'estudianteinsertar', component:EstudianteInsertarComponent},
+      {path:'edicion/:id',component:EstudianteInsertarComponent}
     ],
   },
 

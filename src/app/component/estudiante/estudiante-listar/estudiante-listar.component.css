@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+h1{
+  padding-bottom: 25px;
+  padding-top: 40px;
+  font-size: 50px;
+  font-family: 'Montserrat', sans-serif;
+
+}
+th,td,button{
+  font-family: 'Montserrat', sans-serif;
+}
+
