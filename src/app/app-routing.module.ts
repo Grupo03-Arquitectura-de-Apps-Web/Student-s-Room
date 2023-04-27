@@ -9,6 +9,8 @@ import { TipoComponent } from './component/tipo/tipo.component';
 import { TipoInsertarComponent } from './component/tipo/tipo-insertar/tipo-insertar.component';
 import { EstudianteComponent } from './component/estudiante/estudiante.component';
 import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
+import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
+import { UniversidadComponent } from './component/universidad/universidad.component';
 
 const routes: Routes = [
   {
@@ -57,6 +59,15 @@ const routes: Routes = [
     children:[
       {path:'estudianteinsertar', component:EstudianteInsertarComponent},
       {path:'edicion/:id',component:EstudianteInsertarComponent}
+    ],
+  },
+
+  {
+    path: 'universidad',
+    component: UniversidadComponent,
+    children: [
+      {  path: 'universidadinsertar',component: UniversidadInsertarComponent},
+      {path: 'edicion/:id', component:UniversidadInsertarComponent}
     ],
   },
 
