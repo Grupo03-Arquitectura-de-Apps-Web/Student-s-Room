@@ -177,6 +177,28 @@ module.exports = function () {
           "Anuncios ilimitados en la web. 30 dias como publicacion destacada. Alcance de 1000 personas",
       },
     ],
+    tipo: [
+      {
+        id:1,
+        tipo: "Habitación individual",
+        descripcion: "Tamaño de la habitación 10 m² \nEsta habitación individual dispone de TV por cable y baño privado \nPolítica de humo: no se puede fumar   ",
+      },
+      {
+        id:2,
+        tipo: "Habitación doble",
+        descripcion: "Tamaño de la habitación 15 m² \nEsta habitación doble cuenta con baño privado y TV por cable \nPolítica de humo: no se puede fumar",
+      },
+      {
+        id:3,
+        tipo: "Suite",
+        descripcion: "Tamaño de la habitación 30 m² \n Esta suite cuenta con baño privado, TV por cable y minibar \n Politica de humo: no se puede fumar",
+      },
+      {
+        id:4,
+        tipo: "Habitación Doble Superior 2 camas",
+        descripcion: "Tamaño de la habitación 25 m² \n Esta habitación con 2 camas individuales tiene balcón, TV de pantalla plana y sofá \n Vistas a: Vistas a la ciudad \nPolítica de humo: no se puede fumar",
+      }
+    ],
   }
   return data
 }

@@ -34,6 +34,10 @@ import { PlanComponent } from './component/plan/plan.component';
 import { PlanListarComponent } from './component/plan/plan-listar/plan-listar.component';
 import { PlanInsertarComponent } from './component/plan/plan-insertar/plan-insertar.component';
 import { PlanDialogoComponent } from './component/plan/plan-listar/plan-dialogo/plan-dialogo.component';
+import { TipoComponent } from './component/tipo/tipo.component';
+import { TipoListarComponent } from './component/tipo/tipo-listar/tipo-listar.component';
+import { TipoInsertarComponent } from './component/tipo/tipo-insertar/tipo-insertar.component';
+import { TipoEliminarComponent } from './component/tipo/tipo-listar/tipo-eliminar/tipo-eliminar.component';
 
 //delete
 
@@ -48,7 +52,11 @@ import { PlanDialogoComponent } from './component/plan/plan-listar/plan-dialogo/
     PlanComponent,
     PlanListarComponent,
     PlanInsertarComponent,
-    PlanDialogoComponent
+    PlanDialogoComponent,
+    TipoComponent,
+    TipoListarComponent,
+    TipoInsertarComponent,
+    TipoEliminarComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,8 @@ import { PaisInsertarComponent } from './component/pais/pais-insertar/pais-inser
 import { HomeComponent } from './component/home/home.component';
 import { PlanComponent } from './component/plan/plan.component';
 import { PlanInsertarComponent } from './component/plan/plan-insertar/plan-insertar.component';
+import { TipoComponent } from './component/tipo/tipo.component';
+import { TipoInsertarComponent } from './component/tipo/tipo-insertar/tipo-insertar.component';
 
 const routes: Routes = [
   {
@@ -39,6 +41,15 @@ const routes: Routes = [
       },
     ],
   },
+  {
+    path: 'tipo',
+    component: TipoComponent,
+    children: [
+      {  path: 'tipoinsertar',component: TipoInsertarComponent},
+      {path: 'edicion/:id', component:TipoInsertarComponent}
+    ],
+  },
+
 ];
 
 @NgModule({
