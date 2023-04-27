@@ -199,6 +199,34 @@ module.exports = function () {
         descripcion: "Tamaño de la habitación 25 m² \n Esta habitación con 2 camas individuales tiene balcón, TV de pantalla plana y sofá \n Vistas a: Vistas a la ciudad \nPolítica de humo: no se puede fumar",
       }
     ],
+
+    universidad: [
+      {
+        id:1,
+        nombre: "Universidad Peruana de Ciencias Aplicadas - UPC",
+        sede: "Monterrico",
+        ubicacion:"Prol. Primavera",
+      },
+      {
+        id:2,
+        nombre: "Universidad Tecnológica del Perú - UTP",
+        sede: "Lima Centro",
+        ubicacion:"Av. Arequipa 265, Lima",
+      },
+      {
+        id:3,
+        nombre: "Universidad Privada del Norte - UPN",
+        sede: "Chorrillos",
+        ubicacion:"Av. Guardia Peruana 890, Chorrillos",
+      },
+      {
+        id:4,
+        nombre: "Universidad Científica del Sur",
+        sede: "Ate",
+        ubicacion:"Av. Nicolás Ayllón 7208",
+      }
+    ],
+
   }
   return data
 }

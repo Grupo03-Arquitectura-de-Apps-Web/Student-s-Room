@@ -38,6 +38,10 @@ import { TipoComponent } from './component/tipo/tipo.component';
 import { TipoListarComponent } from './component/tipo/tipo-listar/tipo-listar.component';
 import { TipoInsertarComponent } from './component/tipo/tipo-insertar/tipo-insertar.component';
 import { TipoEliminarComponent } from './component/tipo/tipo-listar/tipo-eliminar/tipo-eliminar.component';
+import { UniversidadComponent } from './component/universidad/universidad.component';
+import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
+import { UniversidadListarComponent } from './component/universidad/universidad-listar/universidad-listar.component';
+import { UniversidadDialogoComponent } from './component/universidad/universidad-listar/universidad-dialogo/universidad-dialogo.component';
 
 //delete
 
@@ -56,7 +60,11 @@ import { TipoEliminarComponent } from './component/tipo/tipo-listar/tipo-elimina
     TipoComponent,
     TipoListarComponent,
     TipoInsertarComponent,
-    TipoEliminarComponent
+    TipoEliminarComponent,
+    UniversidadComponent,
+    UniversidadInsertarComponent,
+    UniversidadListarComponent,
+    UniversidadDialogoComponent
   ],
   imports: [
     BrowserModule,
