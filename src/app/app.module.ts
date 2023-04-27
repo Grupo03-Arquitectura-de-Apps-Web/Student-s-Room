@@ -30,6 +30,10 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/pais-dialogo.component';
+import { PlanComponent } from './component/plan/plan.component';
+import { PlanListarComponent } from './component/plan/plan-listar/plan-listar.component';
+import { PlanInsertarComponent } from './component/plan/plan-insertar/plan-insertar.component';
+import { PlanDialogoComponent } from './component/plan/plan-listar/plan-dialogo/plan-dialogo.component';
 
 //delete
 
@@ -40,7 +44,11 @@ import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/
     PaisListarComponent,
     PaisInsertarComponent,
     HomeComponent,
-    PaisDialogoComponent
+    PaisDialogoComponent,
+    PlanComponent,
+    PlanListarComponent,
+    PlanInsertarComponent,
+    PlanDialogoComponent
   ],
   imports: [
     BrowserModule,
