@@ -30,6 +30,24 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
 import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/pais-dialogo.component';
+import { PlanComponent } from './component/plan/plan.component';
+import { PlanListarComponent } from './component/plan/plan-listar/plan-listar.component';
+import { PlanInsertarComponent } from './component/plan/plan-insertar/plan-insertar.component';
+import { PlanDialogoComponent } from './component/plan/plan-listar/plan-dialogo/plan-dialogo.component';
+import { TipoComponent } from './component/tipo/tipo.component';
+import { TipoListarComponent } from './component/tipo/tipo-listar/tipo-listar.component';
+import { TipoInsertarComponent } from './component/tipo/tipo-insertar/tipo-insertar.component';
+import { TipoEliminarComponent } from './component/tipo/tipo-listar/tipo-eliminar/tipo-eliminar.component';
+import { EstudianteComponent } from './component/estudiante/estudiante.component';
+import { EstudianteListarComponent } from './component/estudiante/estudiante-listar/estudiante-listar.component';
+import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
+import { EstudianteEliminarComponent } from './component/estudiante/estudiante-eliminar/estudiante-eliminar.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { UniversidadComponent } from './component/universidad/universidad.component';
+import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
+import { UniversidadListarComponent } from './component/universidad/universidad-listar/universidad-listar.component';
+import { UniversidadDialogoComponent } from './component/universidad/universidad-listar/universidad-dialogo/universidad-dialogo.component';
 
 //delete
 
@@ -40,7 +58,25 @@ import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/
     PaisListarComponent,
     PaisInsertarComponent,
     HomeComponent,
-    PaisDialogoComponent
+    PaisDialogoComponent,
+    PlanComponent,
+    PlanListarComponent,
+    PlanInsertarComponent,
+    PlanDialogoComponent,
+    TipoComponent,
+    TipoListarComponent,
+    TipoInsertarComponent,
+    TipoEliminarComponent,
+    EstudianteComponent,
+    EstudianteListarComponent,
+    EstudianteInsertarComponent,
+    EstudianteEliminarComponent,
+
+
+    UniversidadComponent,
+    UniversidadInsertarComponent,
+    UniversidadListarComponent,
+    UniversidadDialogoComponent
   ],
   imports: [
     BrowserModule,
@@ -59,12 +95,11 @@ import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/
     MatMenuModule,
     MatIconModule,
     MatToolbarModule,
-
-
-
     MatSidenavModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
