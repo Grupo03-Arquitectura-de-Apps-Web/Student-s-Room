@@ -12,7 +12,7 @@ import { PlanService } from 'src/app/service/plan.service';
 export class PlanInsertarComponent {
 //
 id: number = 0;
-edicion: boolean = true;
+edicion: boolean = false;
 
 form: FormGroup = new FormGroup({});
 plan: Plan = new Plan();
