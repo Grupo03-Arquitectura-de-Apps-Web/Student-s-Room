@@ -1,12 +1,14 @@
 import { PaisService } from './../../../service/pais.service';
 import { Pais } from './../../../model/pais';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 //
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 
 //delete
 import { PaisDialogoComponent } from './pais-dialogo/pais-dialogo.component';
+
+import { MatPaginator } from '@angular/material/paginator';
 @Component({
   selector: 'app-pais-listar',
   templateUrl: './pais-listar.component.html',
@@ -31,9 +33,11 @@ export class PaisListarComponent implements OnInit {
   ];
   constructor(private paisS: PaisService, private dialog: MatDialog) {}
 
+
   ngOnInit(): void {
     this.paisS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 
     this.paisS.getList().subscribe((data) => {
@@ -45,6 +49,7 @@ export class PaisListarComponent implements OnInit {
       data == true ? this.eliminar(this.idMayor) : false;
     });
   }
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   //funciona para filtrar
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim();
