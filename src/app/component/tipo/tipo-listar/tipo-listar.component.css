@@ -7,6 +7,58 @@ th, td, button{
   font-family: 'Quicksand', sans-serif;
 }
 
+body{
+  margin-top: 120px;
+}
+
+
 th{
  text-align: center;
 }
+
+.header{
+  width: 100%;
+  min-height: 75px;
+  background: white;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+}
+
+.container-menu{
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo{
+  float: left;
+  line-height: 75px;
+}
+
+.logo h1{
+  color: black;
+  font-weight: 400;
+  font-size: 24px;
+  cursor: default;
+  line-height: 75px;
+}
+
+.menu{
+  float: right;
+  line-height: 75px;
+}
+
+.menu ul{
+  display: inline-block;
+  padding: 10px 15px;
+  line-height: normal;
+}
+
+.menu ul button:hover{
+  color: #0b3ad1;
+  font-weight: bold;
+}
+
