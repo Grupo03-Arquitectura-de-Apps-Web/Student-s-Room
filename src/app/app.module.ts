@@ -48,7 +48,7 @@ import { UniversidadComponent } from './component/universidad/universidad.compon
 import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
 import { UniversidadListarComponent } from './component/universidad/universidad-listar/universidad-listar.component';
 import { UniversidadDialogoComponent } from './component/universidad/universidad-listar/universidad-dialogo/universidad-dialogo.component';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 //delete
 
 @NgModule({
@@ -100,6 +100,7 @@ import { UniversidadDialogoComponent } from './component/universidad/universidad
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

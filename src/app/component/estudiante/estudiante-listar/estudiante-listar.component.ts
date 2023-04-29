@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { EstudianteService } from 'src/app/service/estudiante.service';
 import { estudiante } from 'src/app/model/estudiante';
 import { EstudianteEliminarComponent } from '../estudiante-eliminar/estudiante-eliminar.component';
 import { MatDialog } from '@angular/material/dialog';
-
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-estudiante-listar',
@@ -20,10 +20,10 @@ export class EstudianteListarComponent implements OnInit {
   //para el eliminar
   private idMayor: number = 0;
 
-  constructor(private pS: EstudianteService, private dialog: MatDialog) {}
   ngOnInit(): void {
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 
     this.pS.getlist().subscribe((data) => {
@@ -35,6 +35,11 @@ export class EstudianteListarComponent implements OnInit {
       data == true ? this.eliminar(this.idMayor) : false;
     });
   }
+
+  constructor(private pS: EstudianteService, private dialog: MatDialog) {}
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
 
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim();
@@ -48,6 +53,7 @@ export class EstudianteListarComponent implements OnInit {
     this.pS.eliminar(id).subscribe(() => {
       this.pS.list().subscribe(data => {
         this.pS.setlist(data);/* se ejecuta la línea 27 */
+        this.dataSource.paginator = this.paginator;
       });
     });
   }
