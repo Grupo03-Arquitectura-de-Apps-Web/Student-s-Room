@@ -5,11 +5,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+
+  <style>
+    .centrar{
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      font-size: 50px;
+    }
+  </style>
+
 </head>
 <body>
 <div class="container">
   <div style="text-align: center;">
- <h1>REGISTRAR TIPOS DE HABITACIÓN</h1>
+ <h1 class="centrar" style="margin-top: 50px;">REGISTRAR TIPO DE HABITACIÓN</h1>
 </div>
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field class="example-full-width">
