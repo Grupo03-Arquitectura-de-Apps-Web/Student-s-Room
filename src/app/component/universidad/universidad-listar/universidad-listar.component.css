@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
-
-table {
-  width: 90%;
-}
-
-h1{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand&display=swap');
+th,h1{
   font-family: 'Montserrat', sans-serif;
-  font-size: 50px;
+}
+td, button{
+  font-family: 'Quicksand', sans-serif;
 }
 
+th{
+ text-align: center;
+}
