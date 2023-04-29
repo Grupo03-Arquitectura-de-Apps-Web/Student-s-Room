@@ -1,59 +1,74 @@
-<mat-toolbar class="mat-elevation-z8">
-  <button
-    mat-icon-button
-    *ngIf="sidenav.mode === 'over'"
-    (click)="sidenav.toggle()"
-  >
-    <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
-    <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
-  </button>
-  Students-Room
-</mat-toolbar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div class="imagen">
 
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8"class="sidenav" class="sidenav" opened="true" mode="side" >
-    <img
-      class="avatar mat-elevation-z8"
-      src="https://source.unsplash.com/c_GmwfHBDzk/200x200"
-    />
 
-    <h4 class="name">Student - room</h4>
-    <p class="designation">Software Engineer</p>
 
-    <mat-divider></mat-divider>
-
-    <button mat-button class="menu-button" >
-      <mat-icon>home</mat-icon>
-      <span>Home</span>
+  </div>
+  <mat-toolbar class="mat-elevation-z8">
+    <button
+      mat-icon-button
+      *ngIf="sidenav.mode === 'over'"
+      (click)="sidenav.toggle()"
+    >
+      <mat-icon *ngIf="!sidenav.opened"> menu </mat-icon>
+      <mat-icon *ngIf="sidenav.opened"> close </mat-icon>
     </button>
+    Students-Room
+  </mat-toolbar>
 
-    <button mat-button class="menu-button" routerLink="/estudiante">
-      <mat-icon>group</mat-icon>
-      <span>Estudiante</span>
-    </button>
-    <button mat-button class="menu-button" routerLink="/paises">
-      <mat-icon>location_city</mat-icon>
-      <span>Pais</span>
-    </button>
-    <button mat-button class="menu-button" routerLink="/plans">
-      <mat-icon>payment</mat-icon>
-      <span>Plan</span>
-    </button>
-    <button mat-button class="menu-button" routerLink="/tipo">
-      <mat-icon>domain</mat-icon>
-      <span>Tipos de habitación</span>
-    </button>
-    <button mat-button class="menu-button" routerLink="/universidad">
-      <mat-icon>school</mat-icon>
-      <span>Universidad</span>
-    </button>
+  <mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8"class="sidenav" class="sidenav" opened="true" mode="side" >
+      <div class="content-logo">
+        <img class="images-logo">
+      </div>
+
+      <h4 class="name">Student - room</h4>
+
+      <mat-divider></mat-divider>
+
+      <button mat-button class="menu-button" >
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </button>
+
+      <button mat-button class="menu-button" routerLink="/estudiante">
+        <mat-icon>group</mat-icon>
+        <span>Estudiante</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/paises">
+        <mat-icon>location_city</mat-icon>
+        <span>Pais</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/plans">
+        <mat-icon>payment</mat-icon>
+        <span>Plan</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/tipo">
+        <mat-icon>domain</mat-icon>
+        <span>Tipos de habitación</span>
+      </button>
+      <button mat-button class="menu-button" routerLink="/universidad">
+        <mat-icon>school</mat-icon>
+        <span>Universidad</span>
+      </button>
 
 
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div id="html-content">
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div id="html-content">
 
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
 
+
+</body>
+</html>

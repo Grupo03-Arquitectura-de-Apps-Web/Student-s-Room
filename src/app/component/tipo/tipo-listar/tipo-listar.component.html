@@ -20,9 +20,57 @@
 
 
 </head>
+
+<header class="header">
+  <div class="container-menu">
+    <div class="logo">
+      <h1>Student's Room</h1>
+    </div>
+    <nav class="menu">
+      <ul>
+        <button mat-button class="menu-button"  routerLink="" >
+          <mat-icon>home</mat-icon>
+          <span>Home</span>
+        </button>
+      </ul>
+      <ul>
+        <button mat-button class="menu-button" routerLink="/estudiante">
+          <mat-icon>group</mat-icon>
+          <span>Estudiante</span>
+        </button>
+      </ul>
+      <ul>
+        <button mat-button class="menu-button" routerLink="/paises">
+          <mat-icon>location_city</mat-icon>
+          <span>Pais</span>
+        </button>
+      </ul>
+      <ul>
+        <button mat-button class="menu-button" routerLink="/plans">
+          <mat-icon>payment</mat-icon>
+          <span>Plan</span>
+        </button>
+      </ul>
+      <ul>
+        <button mat-button class="menu-button" routerLink="/tipo">
+          <mat-icon>domain</mat-icon>
+          <span>Tipos de habitación</span>
+        </button>
+      </ul>
+      <ul>
+        <button mat-button class="menu-button" routerLink="/universidad">
+          <mat-icon>school</mat-icon>
+          <span>Universidad</span>
+        </button>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
 <body class="body">
   <div class="container">
-    <h1 class="centrar" style="margin-top: 50px;">TIPOS DE HABITACIÓN</h1>
+    <h1 class="centrar">LISTA DE TIPOS DE HABITACIÓN</h1>
 
     <div style="text-align: right;" class="example-button-row">
       <button mat-raised-button style="background-color: #0b3ad1; color: white;"  routerLink="/tipo/tipoinsertar">Nuevo</button>
@@ -34,7 +82,7 @@
 
 
 
-    <table mat-table [dataSource]="dataSource" class="table table-striped">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
@@ -60,7 +108,7 @@
       <ng-container matColumnDef="ceditar">
         <th mat-header-cell *matHeaderCellDef> ACTUALIZAR </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary" style="background-color: #ff6c00;"
+          <button mat-raised-button color="primary" style="background-color: #0b3ad1;"
             [routerLink]="['edicion', element.id]"><span class="material-icons">edit_note</span>
           </button>
         </td>
@@ -69,15 +117,18 @@
       <ng-container matColumnDef="celiminar">
         <th mat-header-cell *matHeaderCellDef> ELIMINAR </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button style="background-color: black;" (click)="confirmar(element.id)"><span style="color: white;" class="material-icons">delete</span></button>
+          <button mat-raised-button style="background-color:  #ff6c00;;" (click)="confirmar(element.id)"><span style="color: white;" class="material-icons">delete</span></button>
         </td>
       </ng-container>
-
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
+    <br>
+
+    <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons>
+    </mat-paginator>
   </div>
 </body>
 </html>
