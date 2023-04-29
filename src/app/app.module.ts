@@ -44,13 +44,10 @@ import { EstudianteInsertarComponent } from './component/estudiante/estudiante-i
 import { EstudianteEliminarComponent } from './component/estudiante/estudiante-eliminar/estudiante-eliminar.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-<<<<<<< HEAD
-=======
 import { UniversidadComponent } from './component/universidad/universidad.component';
 import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
 import { UniversidadListarComponent } from './component/universidad/universidad-listar/universidad-listar.component';
 import { UniversidadDialogoComponent } from './component/universidad/universidad-listar/universidad-dialogo/universidad-dialogo.component';
->>>>>>> master
 import {MatPaginatorModule} from '@angular/material/paginator';
 //delete
 

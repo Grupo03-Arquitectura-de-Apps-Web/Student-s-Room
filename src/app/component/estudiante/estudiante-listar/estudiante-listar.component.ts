@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { Component, OnInit, ViewChild  } from '@angular/core';
-=======
 import { Component, OnInit, ViewChild } from '@angular/core';
->>>>>>> master
 import { MatTableDataSource } from '@angular/material/table';
 import { EstudianteService } from 'src/app/service/estudiante.service';
 import { estudiante } from 'src/app/model/estudiante';
@@ -44,10 +40,6 @@ export class EstudianteListarComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> master
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim();
   }
@@ -59,11 +51,7 @@ export class EstudianteListarComponent implements OnInit {
   eliminar(id: number) {
     this.pS.eliminar(id).subscribe(() => {
       this.pS.list().subscribe(data => {
-<<<<<<< HEAD
-        this.pS.setlist(data);
-=======
         this.pS.setlist(data);/* se ejecuta la línea 27 */
->>>>>>> master
         this.dataSource.paginator = this.paginator;
       });
     });
