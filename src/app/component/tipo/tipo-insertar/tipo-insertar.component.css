@@ -1,11 +1,15 @@
 mat-form-field{
   width: 95%;
 }
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand&display=swap');
-h1{
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+h1 {
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  font-size: 40px;
+  padding: 20px;
 }
-th, td, button{
-  font-family: 'Quicksand', sans-serif;
+
+th,td {
+  font-family:Montserrat;
 }
