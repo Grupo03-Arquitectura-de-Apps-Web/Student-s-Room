@@ -5,10 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      .centrar{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 50px;
+      }
+    </style>
+
   </head>
   <body>
     <div class="container" style="text-align: center">
-      <h1 style="margin-top: 30px;">REGISTRO DE UNIVERSIDADES</h1>
+      <h1 class="centrar" style="margin-top: 50px;">REGISTRAR UNIVERSIDAD</h1>
       <form [formGroup]="form" (submit)="aceptar()">
         <mat-form-field class="example-full-width">
           <mat-label>ID</mat-label>
@@ -16,26 +26,25 @@
         </mat-form-field>
         <br />
         <mat-form-field class="example-full-width">
-          <mat-label>Nombre</mat-label>
+          <mat-label>NOMBRE</mat-label>
           <input matInput required placeholder="Nombre" formControlName="nombre" />
         </mat-form-field>
         <br />
 
-        <br />
         <mat-form-field class="example-full-width">
-          <mat-label>Sede</mat-label>
+          <mat-label>SEDE</mat-label>
           <input matInput required placeholder="Sede" formControlName="sede" />
         </mat-form-field>
 
         <br />
         <mat-form-field class="example-full-width">
-          <mat-label>Ubicacion</mat-label>
+          <mat-label>UBICACIÓN</mat-label>
           <input matInput required placeholder="Ubicacion" formControlName="ubicacion" />
         </mat-form-field>
 
         <br>
 
-        <button mat-raised-button color="primary"> Guardar<span class="material-icons">save</span></button>
+        <button mat-raised-button color="primary" style="margin-right: 70px"> Guardar<span class="material-icons">save</span></button>
         <button mat-raised-button color="warn" style="background-color: #ff6c00;" routerLink="/universidad"> Cancelar <span class='material-icons'>cancel</span>
         </button>
         <br />

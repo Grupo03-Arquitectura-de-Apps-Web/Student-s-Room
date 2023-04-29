@@ -1,9 +1,10 @@
 import { UniversidadService } from './../../../service/universidad.service';
 import { Universidad } from 'src/app/model/universidad';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UniversidadDialogoComponent } from './universidad-dialogo/universidad-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-universidad-listar',
@@ -24,9 +25,11 @@ export class UniversidadListarComponent implements OnInit {
   private idMayor: number = 0;
 
   constructor(private pS: UniversidadService, private dialog: MatDialog) {}
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngOnInit(): void {
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 
     this.pS.getList().subscribe((data) => {
@@ -45,7 +48,8 @@ export class UniversidadListarComponent implements OnInit {
   eliminar(id: number) {
     this.pS.eliminar(id).subscribe(() => {
       this.pS.list().subscribe(data => {
-        this.pS.setList(data);/* se ejecuta la línea 27 */
+        this.pS.setList(data);
+        this.dataSource.paginator = this.paginator;
       });
     });
   }
