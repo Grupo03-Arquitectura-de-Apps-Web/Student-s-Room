@@ -7,17 +7,15 @@
     <title>Insertar pais</title>
   </head>
   <body>
-    <div class="container">
-      <div>
-        <h1 style="text-align: center;">
-          Registro de paises
-        </h1>
-      </div>
+    <div class="container" style="text-align: center">
+
+        <h1 class="centrar" style="margin-top: 50px">REGISTRAR PAIS</h1>
+
       <form [formGroup]="form" (submit)="aceptar()">
         <!--componente para input para el id-->
         <mat-form-field class="example-full-width">
-          <mat-label>ID</mat-label>
-          <input matInput placeholder="Id" formControlName="id" />
+          <mat-label>Código</mat-label>
+          <input matInput required placeholder="Id" formControlName="id" />
         </mat-form-field>
         <br />
         <!--componente para input para el ingresar el nombre-->
@@ -25,7 +23,8 @@
           <mat-label>Pais</mat-label>
           <input
             matInput
-            placeholder="Ingrese pais"
+            required
+            placeholder="Pais"
             formControlName="nombrePais"
           />
         </mat-form-field>
@@ -34,7 +33,8 @@
           <mat-label>Capital</mat-label>
           <input
             matInput
-            placeholder="Ingrese capital"
+            required
+            placeholder="Capital"
             formControlName="capitalPais"
           />
         </mat-form-field>
@@ -43,17 +43,27 @@
           <mat-label>Moneda Oficial</mat-label>
           <input
             matInput
-            placeholder="Ingrese moneda oficial"
+            required
+            placeholder="Moneda Oficial"
             formControlName="monedaPais"
           />
         </mat-form-field>
 
         <br />
         <!--Botones para enviar o cancelar-->
-        <button mat-raised-button color="primary" id="aceptar">Aceptar</button>
-        <button mat-raised-button color="warn" routerLink="/paises" id="cancelar">Cancelar</button>
+        <button mat-raised-button color="primary" style="margin-right: 70px">
+          Guardar<span class="material-icons">save</span>
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          routerLink="/paises"
+          style="background-color: #ff6c00"
+        >
+          Cancelar <span class="material-icons">cancel</span>
+        </button>
+        <br />
 
-        <!--Para mostrar mensaje cuando se produce error en el ingreso de datos-->
         <p>{{ mensaje }}</p>
       </form>
     </div>
