@@ -40,7 +40,6 @@ export class EstudianteListarComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim();
   }
