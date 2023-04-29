@@ -60,7 +60,7 @@
       <ng-container matColumnDef="ceditar">
         <th mat-header-cell *matHeaderCellDef> ACTUALIZAR </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button color="primary" style="background-color: #ff6c00;"
+          <button mat-raised-button color="primary" style="background-color: #0b3ad1;"
             [routerLink]="['edicion', element.id]"><span class="material-icons">edit_note</span>
           </button>
         </td>
@@ -69,15 +69,18 @@
       <ng-container matColumnDef="celiminar">
         <th mat-header-cell *matHeaderCellDef> ELIMINAR </th>
         <td mat-cell *matCellDef="let element">
-          <button mat-raised-button style="background-color: black;" (click)="confirmar(element.id)"><span style="color: white;" class="material-icons">delete</span></button>
+          <button mat-raised-button style="background-color:  #ff6c00;;" (click)="confirmar(element.id)"><span style="color: white;" class="material-icons">delete</span></button>
         </td>
       </ng-container>
-
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 
+    <br>
+
+    <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons>
+    </mat-paginator>
   </div>
 </body>
 </html>
