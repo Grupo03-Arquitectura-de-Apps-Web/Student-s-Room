@@ -44,7 +44,7 @@ import { EstudianteInsertarComponent } from './component/estudiante/estudiante-i
 import { EstudianteEliminarComponent } from './component/estudiante/estudiante-eliminar/estudiante-eliminar.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
-
+import {MatPaginatorModule} from '@angular/material/paginator';
 //delete
 
 @NgModule({
@@ -92,6 +92,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatDialogModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatPaginatorModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
