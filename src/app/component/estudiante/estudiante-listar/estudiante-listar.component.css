@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand&display=swap');
-h1{
+th,h1{
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
-th, td, button{
+td, button{
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -14,7 +14,7 @@ body{
 
 
 th,td{
- text-align: left;
+ text-align: center;
 }
 
 .header{
