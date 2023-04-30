@@ -23,8 +23,14 @@
   <header class="header">
     <div class="container-menu">
       <div class="logo">
-        <h1>Student's Room</h1>
+        <h1 routerLink="">Student's Room</h1>
       </div>
+      <div class="boton">
+        <label for="btn-menu">Menú</label>
+      </div>
+
+      <input type="checkbox" id="btn-menu">
+
       <nav class="menu">
         <ul>
           <button mat-button class="menu-button"  routerLink="" >
@@ -151,21 +157,16 @@
           <ng-container matColumnDef="ceditar" style="text-align: center;">
             <th mat-header-cell *matHeaderCellDef >ACTUALIZAR</th>
             <td mat-cell *matCellDef="let element">
-
-                <button mat-raised-button color="warn" [routerLink]="['edicion',element.id]" style="background-color: #ff6c00;">
-                  <span class="material-icons">edit_note</span>
-                </button>
-
+              <button mat-raised-button color="primary" style="background-color: #0b3ad1;"
+                [routerLink]="['edicion', element.id]"><span class="material-icons">edit_note</span>
+              </button>
             </td>
           </ng-container>
 
           <ng-container matColumnDef="celiminar" style="text-align: center;" >
             <th mat-header-cell *matHeaderCellDef >ELIMINAR</th>
             <td mat-cell *matCellDef="let element">
-
-                <button mat-raised-button color="accent" (click)="confirmar(element.id)" style="background-color: black; " class="eliminar" >
-                  <span class="material-icons" >delete</span>
-                </button>
+              <button mat-raised-button style="background-color:  #ff6c00;;" (click)="confirmar(element.id)"><span style="color: white;" class="material-icons">delete</span></button>
             </td>
           </ng-container>
 
