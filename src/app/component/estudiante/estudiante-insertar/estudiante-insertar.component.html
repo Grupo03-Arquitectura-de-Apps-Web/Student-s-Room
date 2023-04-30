@@ -5,23 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-
-    <style>
-      .centrar{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        font-size: 50px;
-      }
-    </style>
-
   </head>
+  <header class="header">
+    <div class="container-menu">
+      <div class="logo">
+        <h1>Student's Room</h1>
+      </div>
+      <nav class="menu">
+        <ul>
+          <button mat-button class="menu-button"  routerLink="" >
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/estudiante">
+            <mat-icon>group</mat-icon>
+            <span>Estudiante</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/paises">
+            <mat-icon>location_city</mat-icon>
+            <span>Pais</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/plans">
+            <mat-icon>payment</mat-icon>
+            <span>Plan</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/tipo">
+            <mat-icon>domain</mat-icon>
+            <span>Tipos de habitación</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/universidad">
+            <mat-icon>school</mat-icon>
+            <span>Universidad</span>
+          </button>
+        </ul>
+      </nav>
+    </div>
+  </header>
   <body>
 
 
     <div class="container">
-      <div style="text-align: center" style="margin-top: 50px;">
+      <div style="text-align: center">
         <h1>REGISTRO DE ESTUDIANTES</h1>
       </div>
 

@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand&display=swap');
-h1{
+th, h1{
   font-family: 'Montserrat', sans-serif;
 }
-th, td, button{
+td, button{
   font-family: 'Quicksand', sans-serif;
 }
 
@@ -55,10 +55,89 @@ th{
   display: inline-block;
   padding: 10px 15px;
   line-height: normal;
+  list-style: none;
 }
 
 .menu ul button:hover{
   color: #0b3ad1;
   font-weight: bold;
 }
+
+#btn-menu{
+  display: none;
+}
+
+.boton{
+  float: right;
+  display: none;
+}
+
+.boton label{
+color: white;
+background: #0b3ad1;
+padding: 5px;
+font-size: 14px;
+border-radius: 3px;
+cursor: pointer;
+
+}
+@media only screen and (min-width: 320px) and (max-width:768px){
+.header{
+  height: 60px;
+  display: flex;
+}
+
+.logo, .boton{
+line-height: 30px;
+}
+
+.boton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo h1{
+  font-size: 18px;
+}
+
+.menu{
+ position: absolute;
+ background: #0b3ad1;
+ color: white;
+ width: 100%;
+ height: 1000px;
+ top: 75px;
+ left: 0;
+ transition: all 500ms ease;
+ transform: translateX(-100%);
+ overflow-y: scroll; /* agrega desplazamiento vertical si el contenido es demasiado largo */
+
+}
+
+#btn-menu:checked ~ .menu{
+  transform: translateX(0%);
+}
+
+#btn-menu{
+  margin-top: 20px;
+
+}
+
+.menu ul{
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.menu ul button{
+  color: white;
+}
+
+.menu ul button:hover{
+  color: #fff;
+  font-weight: bold;
+}
+}
+
 
