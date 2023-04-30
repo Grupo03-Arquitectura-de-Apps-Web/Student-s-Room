@@ -5,6 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
+    <style>
+      .centrar{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 50px;
+      }
+    </style>
+
   </head>
   <header class="header">
     <div class="container-menu">
@@ -54,10 +65,8 @@
   <body>
 
 
-    <div class="container">
-      <div style="text-align: center">
-        <h1>REGISTRO DE ESTUDIANTES</h1>
-      </div>
+    <div class="container" style="text-align: center">
+        <h1 class="centrar" style="margin-top: 50px;">REGISTRAR ESTUDIANTE</h1>
 
       <form [formGroup]="form" (submit)="aceptar()">
         <br />
