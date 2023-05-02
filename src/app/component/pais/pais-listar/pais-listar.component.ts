@@ -42,6 +42,7 @@ export class PaisListarComponent implements OnInit {
 
     this.paisS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 
     //para el delete
@@ -64,6 +65,7 @@ export class PaisListarComponent implements OnInit {
     this.paisS.eliminar(id).subscribe(() => {
       this.paisS.list().subscribe((data) => {
         this.paisS.setList(data); /* se ejecuta la línea 27 */
+        this.dataSource.paginator = this.paginator;
       });
     });
   }

@@ -34,6 +34,7 @@ export class TipoListarComponent implements OnInit {
     });
     this.tS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
     this.tS.getConfirmaEliminacion().subscribe((data)=>{
       data == true ? this.eliminar(this.idMayor) : false;

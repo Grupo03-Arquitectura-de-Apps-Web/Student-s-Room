@@ -34,6 +34,7 @@ export class PlanListarComponent implements OnInit {
     });
     this.Ps.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
     this.Ps.getConfirmaEliminacion().subscribe((data) => {
       data == true ? this.eliminar(this.idMayor) : false;

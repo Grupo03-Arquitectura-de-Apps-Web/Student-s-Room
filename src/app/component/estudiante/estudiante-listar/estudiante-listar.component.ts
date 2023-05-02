@@ -28,6 +28,7 @@ export class EstudianteListarComponent implements OnInit {
 
     this.pS.getlist().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 
     //agregar para eliminar

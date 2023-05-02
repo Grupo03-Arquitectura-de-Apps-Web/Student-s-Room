@@ -34,6 +34,7 @@ export class UniversidadListarComponent implements OnInit {
 
     this.pS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
     });
 
     this.pS.getConfirmaEliminacion().subscribe((data) => {
