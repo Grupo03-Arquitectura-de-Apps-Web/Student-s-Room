@@ -60,29 +60,10 @@ export class PaisInsertarComponent implements OnInit {
     this.pais.capitalPais = this.form.value['capitalPais'];
     this.pais.monedaPais = this.form.value['monedaPais'];
 
-    //validacion
-    /* if(parseInt(this.form.value['idpais'])){console.log("hsdf1111");
-      if(typeof this.form.value['idpais'] == 'number'){console.log("hsdf22222");
-        if(Number.isInteger(this.form.value['idpais'])){
-          console.log("hsdf3333");
-          //con el metodo suscribe estamos insertando
-          this.paisSer.insert(this.pais).subscribe(
-            (data)=>{
-              this.paisSer.list().subscribe(
-                (data)=>{
-                  this.paisSer.setlist(data);
-                }
-              );
-            }
-          );
-          //cambiamos la ruta para que actualice
-          this.router.navigate(['paises'])
-        }else{
-          this.mensaje = "Ingrese un id valido";
-        }
-      }
-    } */
-    //if(this.form.value['nombrepais']!=null){
+    if(!this.form.valid){
+      return;
+    }
+
     if (this.form.value['nombrePais'].length > 0) {
       console.log('hsdf3333');
       //con el metodo suscribe estamos insertando

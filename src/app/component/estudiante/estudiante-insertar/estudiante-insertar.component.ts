@@ -59,6 +59,10 @@ export class EstudianteInsertarComponent {
     this.Estudiante.fecha_nacimiento=this.form.value['fecha_nacimiento'];
     this.Estudiante.telefono=this.form.value['telefono'];
 
+    if(!this.form.valid){
+      return;
+    }
+
     if (this.form.value['nombre'].length > 0) {
       if (this.edicion) {
         //guardar lo actualizado

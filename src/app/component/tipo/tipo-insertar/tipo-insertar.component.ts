@@ -40,6 +40,11 @@ export class TipoInsertarComponent implements OnInit {
     this.tipo.id = this.form.value['id'];
     this.tipo.tipo = this.form.value['tipo'];
     this.tipo.descripcion = this.form.value['descripcion'];
+
+    if(!this.form.valid){
+      return;
+    }
+
     if (this.form.value['tipo'].length > 0) {
       if (this.edicion) {
         //guardar lo actualizado

@@ -40,6 +40,10 @@ export class UniversidadInsertarComponent implements OnInit{
       this.universidad.sede=this.form.value['sede'];
       this.universidad.ubicacion=this.form.value['ubicacion'];
 
+      if(!this.form.valid){
+        return;
+      }
+
       if(this.form.value['nombre'].length>0){
         if(this.edicion){
           this.pS.update(this.universidad).subscribe(()=>{

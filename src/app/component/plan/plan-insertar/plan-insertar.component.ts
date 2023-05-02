@@ -43,6 +43,10 @@ aceptar(): void {
   this.plan.precio = this.form.value['precio'];
   this.plan.descripcion = this.form.value['descripcion'];
 
+  if(!this.form.valid){
+    return;
+  }
+
   if (this.form.value['nombre_plan'].length > 0) {
     //Insert actualizado para que tmb actualice las modificaciones
     if (this.edicion) {
