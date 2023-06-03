@@ -66,7 +66,7 @@
 
 
     <div class="container" style="text-align: center">
-        <h1 class="centrar" style="margin-top: 50px;">REGISTRAR ESTUDIANTE</h1>
+        <h1 class="centrar" style="margin-top: 50px;">REGISTRAR CONTRATO DE ALQUILER</h1>
 
       <form [formGroup]="form" (submit)="aceptar()">
         <br />
@@ -78,35 +78,24 @@
 
         <br />
         <mat-form-field class="example-full-width">
-          <mat-label>ESTUDIANTE</mat-label>
+          <mat-label>DESCRIPCION</mat-label>
           <input
             matInput
-            placeholder="nombre"
-            formControlName="nombre"
+            placeholder="descripcion"
+            formControlName="descripcion"
             required
-          />
-        </mat-form-field>
-
-        <br />
-        <mat-form-field class="example-full-width">
-          <mat-label>CORREO</mat-label>
-          <input
-            matInput
-            required
-            placeholder="correo_institucional"
-            formControlName="correo_institucional"
           />
         </mat-form-field>
 
         <br />
         <mat-form-field appearance="fill">
-          <mat-label>FECHA DE NACIMIENTO</mat-label>
+          <mat-label>FECHA DE INICIO</mat-label>
           <input
             matInput
             required
             [matDatepicker]="picker"
-            placeholder="fecha_nacimiento"
-            formControlName="fecha_nacimiento"
+            placeholder="fecha_inicio"
+            formControlName="fecha_inicio"
             [max]="maxFecha"
           />
 
@@ -118,16 +107,78 @@
         </mat-form-field>
 
         <br />
+        <mat-form-field appearance="fill">
+          <mat-label>FECHA DE PAGO</mat-label>
+          <input
+            matInput
+            required
+            [matDatepicker]="picker"
+            placeholder="fecha_pago"
+            formControlName="fecha_pago"
+
+          />
+
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <br />
+        <mat-form-field appearance="fill">
+          <mat-label>FECHA DE VENCIMIENTO</mat-label>
+          <input
+            matInput
+            required
+            [matDatepicker]="picker"
+            placeholder="fecha_vencimiento"
+            formControlName="fecha_vencimiento"
+
+          />
+
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <br />
         <mat-form-field class="example-full-width">
-          <mat-label>TELÉFONO</mat-label>
-          <input matInput required placeholder="telefono" formControlName="telefono" />
+          <mat-label>MONTO</mat-label>
+          <input matInput required placeholder="monto" formControlName="monto" />
         </mat-form-field>
 
         <br />
 
+        <br />
+        <mat-form-field appearance="fill">
+          <mat-label>NOMBRE</mat-label>
+          <mat-select formControlName="estudiante" [(value)]="idEstudianteSeleccionado" required>
+            <mat-option *ngFor="let e of lista_e" [value]="e.id">
+              {{e.nombre}}
+          </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br />
+
+        <mat-form-field appearance="fill">
+          <mat-label>ID HABITACION</mat-label>
+          <mat-select formControlName="habitacion" [(value)]="idHabitacionSeleccionado" required>
+            <mat-option *ngFor="let h of lista_h" [value]="h.id">
+              {{h.id}}
+          </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <br />
+
+
         <div style="text-align: center">
           <button mat-raised-button style="background-color: #0b3ad1; color: white; margin-right: 70px;" >Guardar<span class="material-icons">save</span></button>
-          <button mat-raised-button style="background-color: #ff6c00; color: white; " routerLink="/estudiante">Cancelar<span class="material-icons">cancel</span></button>
+          <button mat-raised-button style="background-color: #ff6c00; color: white; " routerLink="/contratodealquiler">Cancelar<span class="material-icons">cancel</span></button>
         </div>
 
         <p>{{ mensaje }}</p>

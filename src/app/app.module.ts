@@ -53,6 +53,10 @@ import { MensajeComponent } from './component/mensaje/mensaje.component';
 import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/mensaje-insertar.component';
 import { MensajeListarComponent } from './component/mensaje/mensaje-listar/mensaje-listar.component';
 import { MensajeDialogoComponent } from './component/mensaje/mensaje-listar/mensaje-dialogo/mensaje-dialogo.component';
+import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
+import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
+import { ContratodealquilerEliminarComponent } from './component/contratodealquiler/contratodealquiler-eliminar/contratodealquiler-eliminar.component';
+import { ContratodealquilerListarComponent } from './component/contratodealquiler/contratodealquiler-listar/contratodealquiler-listar.component';
 //delete
 
 @NgModule({
@@ -85,6 +89,10 @@ import { MensajeDialogoComponent } from './component/mensaje/mensaje-listar/mens
     MensajeInsertarComponent,
     MensajeListarComponent,
     MensajeDialogoComponent
+    ContratodealquilerComponent,
+    ContratodealquilerInsertarComponent,
+    ContratodealquilerEliminarComponent,
+    ContratodealquilerListarComponent
   ],
   imports: [
     BrowserModule,
