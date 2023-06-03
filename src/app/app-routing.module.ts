@@ -11,6 +11,8 @@ import { EstudianteComponent } from './component/estudiante/estudiante.component
 import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
 import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
 import { UniversidadComponent } from './component/universidad/universidad.component';
+import { MensajeComponent } from './component/mensaje/mensaje.component';
+import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/mensaje-insertar.component';
 
 const routes: Routes = [
   {
@@ -68,6 +70,15 @@ const routes: Routes = [
     children: [
       {  path: 'universidadinsertar',component: UniversidadInsertarComponent},
       {path: 'edicion/:id', component:UniversidadInsertarComponent}
+    ],
+  },
+
+  {
+    path: 'mensaje',
+    component: MensajeComponent,
+    children: [
+      {  path: 'mensajesinsertar',component: MensajeInsertarComponent},
+      {path: 'edicion/:id', component:MensajeInsertarComponent}
     ],
   },
 

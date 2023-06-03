@@ -49,6 +49,10 @@ import { UniversidadInsertarComponent } from './component/universidad/universida
 import { UniversidadListarComponent } from './component/universidad/universidad-listar/universidad-listar.component';
 import { UniversidadDialogoComponent } from './component/universidad/universidad-listar/universidad-dialogo/universidad-dialogo.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { MensajeComponent } from './component/mensaje/mensaje.component';
+import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/mensaje-insertar.component';
+import { MensajeListarComponent } from './component/mensaje/mensaje-listar/mensaje-listar.component';
+import { MensajeDialogoComponent } from './component/mensaje/mensaje-listar/mensaje-dialogo/mensaje-dialogo.component';
 //delete
 
 @NgModule({
@@ -76,7 +80,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     UniversidadComponent,
     UniversidadInsertarComponent,
     UniversidadListarComponent,
-    UniversidadDialogoComponent
+    UniversidadDialogoComponent,
+    MensajeComponent,
+    MensajeInsertarComponent,
+    MensajeListarComponent,
+    MensajeDialogoComponent
   ],
   imports: [
     BrowserModule,

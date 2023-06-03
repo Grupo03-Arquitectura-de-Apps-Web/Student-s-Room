@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- <link rel="stylesheet" type="text/css" href="STUDENT-S-ROOM/src/styles.css" /> -->
+    <title>Document</title>
+    <style>
+      .centrar{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 50px;
+      }
+    </style>
+
+  </head>
+  <header class="header">
+    <div class="container-menu">
+      <div class="logo">
+        <h1 routerLink="">Student's Room</h1>
+      </div>
+      <div class="boton">
+        <label for="btn-menu">Menú</label>
+      </div>
+
+      <input type="checkbox" id="btn-menu">
+
+      <nav class="menu">
+        <ul>
+          <button mat-button class="menu-button"  routerLink="" >
+            <mat-icon>home</mat-icon>
+            <span>Home</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/estudiante">
+            <mat-icon>group</mat-icon>
+            <span>Estudiante</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/paises">
+            <mat-icon>location_city</mat-icon>
+            <span>Pais</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/plans">
+            <mat-icon>payment</mat-icon>
+            <span>Plan</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/tipo">
+            <mat-icon>domain</mat-icon>
+            <span>Tipos de habitación</span>
+          </button>
+        </ul>
+        <ul>
+          <button mat-button class="menu-button" routerLink="/universidad">
+            <mat-icon>school</mat-icon>
+            <span>Universidad</span>
+          </button>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <body>
+    <div class="container">
+      <div style="text-align: center">
+        <h1 class="centrar" style="margin-top: 50px;">LISTA DE MENSAJES</h1>
+      </div>
+      <div style="text-align: right">
+        <button
+          mat-raised-button
+          color="warn"
+          routerLink="/mensaje/mensajesinsertar"
+          style="background-color: #0b3ad1"
+        >
+          Nuevo
+        </button>
+      </div>
+
+      <!--filtro-->
+      <mat-form-field>
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="numero"
+          ><th mat-header-cell *matHeaderCellDef>ID</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.id }}
+          </td></ng-container
+        >
+        <ng-container matColumnDef="descripcion"
+          ><th mat-header-cell *matHeaderCellDef>DESCRIPCIÓN</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.descripcion }}
+          </td></ng-container
+        >
+        <ng-container matColumnDef="fecha_envio"
+          ><th mat-header-cell *matHeaderCellDef>ENVÍO</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.fecha_envio }}
+          </td></ng-container
+        >
+        <ng-container matColumnDef="fecha_recepcion"
+          ><th mat-header-cell *matHeaderCellDef>RECEPCIÓN</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.fecha_recepcion }}
+          </td></ng-container
+        >
+        <ng-container matColumnDef="tiempo_respuesta"
+          ><th mat-header-cell *matHeaderCellDef>RESPUESTA</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.tiempo_respuesta }}
+          </td></ng-container
+        >
+        <ng-container matColumnDef="estado"
+          ><th mat-header-cell *matHeaderCellDef>ESTADO</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.estado }}
+          </td></ng-container
+        >
+        <ng-container matColumnDef="arrendador"
+          ><th mat-header-cell *matHeaderCellDef>ARRENDADOR</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.arrendador }}
+          </td></ng-container
+        >
+        <ng-container matColumnDef="estudiante"
+          ><th mat-header-cell *matHeaderCellDef>ESTUDIANTE</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.estudiante }}
+          </td></ng-container
+        >
+
+        <!---->
+        <ng-container matColumnDef="actualizar">
+          <th mat-header-cell *matHeaderCellDef>ACTUALIZAR</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              [routerLink]="['edicion', element.id]"
+              style="background-color: #0b3ad1"
+            >
+              <span class="material-icons">edit_note</span>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="eliminar">
+          <th mat-header-cell *matHeaderCellDef>ELIMINAR</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="confirmar(element.id)"
+              style="background-color: #ff6c00"
+              class="eliminar"
+            >
+              <span class="material-icons">delete</span>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+
+      <br>
+      <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </body>
+</html>
