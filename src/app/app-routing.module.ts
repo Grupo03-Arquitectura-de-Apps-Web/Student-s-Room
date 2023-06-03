@@ -11,6 +11,9 @@ import { EstudianteComponent } from './component/estudiante/estudiante.component
 import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
 import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
 import { UniversidadComponent } from './component/universidad/universidad.component';
+import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
+import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
+
 
 const routes: Routes = [
   {
@@ -68,6 +71,14 @@ const routes: Routes = [
     children: [
       {  path: 'universidadinsertar',component: UniversidadInsertarComponent},
       {path: 'edicion/:id', component:UniversidadInsertarComponent}
+    ],
+  },
+  {
+    path: 'contratodealquiler',
+    component: ContratodealquilerComponent,
+    children: [
+      {  path: 'contratodealquilerinsertar',component: ContratodealquilerInsertarComponent},
+      {path: 'edicion/:id', component:ContratodealquilerInsertarComponent}
     ],
   },
 

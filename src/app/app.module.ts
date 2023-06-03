@@ -49,6 +49,10 @@ import { UniversidadInsertarComponent } from './component/universidad/universida
 import { UniversidadListarComponent } from './component/universidad/universidad-listar/universidad-listar.component';
 import { UniversidadDialogoComponent } from './component/universidad/universidad-listar/universidad-dialogo/universidad-dialogo.component';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
+import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
+import { ContratodealquilerEliminarComponent } from './component/contratodealquiler/contratodealquiler-eliminar/contratodealquiler-eliminar.component';
+import { ContratodealquilerListarComponent } from './component/contratodealquiler/contratodealquiler-listar/contratodealquiler-listar.component';
 //delete
 
 @NgModule({
@@ -76,7 +80,11 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     UniversidadComponent,
     UniversidadInsertarComponent,
     UniversidadListarComponent,
-    UniversidadDialogoComponent
+    UniversidadDialogoComponent,
+    ContratodealquilerComponent,
+    ContratodealquilerInsertarComponent,
+    ContratodealquilerEliminarComponent,
+    ContratodealquilerListarComponent
   ],
   imports: [
     BrowserModule,
