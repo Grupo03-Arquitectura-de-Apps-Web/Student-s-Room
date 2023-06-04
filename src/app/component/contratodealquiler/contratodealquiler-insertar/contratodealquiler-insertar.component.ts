@@ -86,7 +86,7 @@ export class ContratodealquilerInsertarComponent {
         //
       } else {
         let e = new estudiante();
-        e.id = this.idEstudianteSeleccionado;
+        e.idEstudiante = this.idEstudianteSeleccionado;
         this.Contratodealquiler.estudiante=e;
 
         let h =new habitacion();

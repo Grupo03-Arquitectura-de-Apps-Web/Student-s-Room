@@ -91,17 +91,16 @@
         <br />
         <mat-form-field class="example-full-width">
           <mat-label style="font-family: 'Quicksand', sans-serif;">FECHA DE ENVÍO</mat-label>
-          <input matInput required placeholder="fecha_envio" formControlName="fecha_envio" />
+          <input matInput [matDatepicker]="picker_envio" formControlName="fecha_envio" [max]="maxFecha">
+          <mat-datepicker-toggle matSuffix [for]="picker_envio"></mat-datepicker-toggle>
+          <mat-datepicker #picker_envio></mat-datepicker>
         </mat-form-field>
         <br />
         <mat-form-field class="example-full-width">
           <mat-label style="font-family: 'Quicksand', sans-serif;">FECHA DE RECEPCIÓN</mat-label>
-          <input
-            matInput
-            required
-            placeholder="fecha_recepcion"
-            formControlName="fecha_recepcion"
-          />
+          <input matInput [matDatepicker]="picker_recepcion" formControlName="fecha_recepcion" [max]="maxFecha">
+          <mat-datepicker-toggle matSuffix [for]="picker_recepcion"></mat-datepicker-toggle>
+          <mat-datepicker #picker_recepcion></mat-datepicker>
         </mat-form-field>
         <br />
         <mat-form-field class="example-full-width">
@@ -125,19 +124,19 @@
         </mat-form-field>
         <br />
         <mat-form-field appearance="fill">
-          <mat-label>ID ARRENDADOR</mat-label>
+          <mat-label>ARRENDADOR</mat-label>
           <mat-select formControlName="arrendador" [(value)]="idArrendadorSeleccionado" required>
-            <mat-option *ngFor="let a of lista" [value]="a.id">
-              {{a.id}}
+            <mat-option *ngFor="let a of lista_a" [value]="a.id_arrendador">
+              {{a.id_arrendador}}
           </mat-option>
           </mat-select>
         </mat-form-field>
         <br />
         <mat-form-field appearance="fill">
-          <mat-label>ID ESTUDIANTE</mat-label>
+          <mat-label>ESTUDIANTE</mat-label>
           <mat-select formControlName="estudiante" [(value)]="idEstudianteSeleccionado" required>
-            <mat-option *ngFor="let e of lista" [value]="e.id">
-              {{e.id}}
+            <mat-option *ngFor="let e of lista_e" [value]="e.idEstudiante">
+              {{e.nombre}}
           </mat-option>
           </mat-select>
         </mat-form-field>

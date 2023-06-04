@@ -41,7 +41,7 @@ export class EstudianteService {
   }
 
   update(e: estudiante) {
-    return this.http.put(this.url + '/' + e.id, e);
+    return this.http.put(this.url + '/' + e.idEstudiante, e);
   }
   //para el eliminar
   eliminar(id: number) {

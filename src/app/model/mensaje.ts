@@ -2,7 +2,7 @@ import { Arrendador } from "./arrendador";
 import { estudiante } from "./estudiante";
 
 export class Mensaje{
-  id:number = 0;
+  idMensaje:number = 0;
   descripcion:string = "";
   fecha_envio:Date=new Date(Date.now())
   fecha_recepcion:Date=new Date(Date.now())

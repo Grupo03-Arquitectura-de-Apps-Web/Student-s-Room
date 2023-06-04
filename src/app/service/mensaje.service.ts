@@ -38,7 +38,7 @@ export class MensajeService {
   }
 
   update(p:Mensaje){
-    return this.http.put(this.url + '/' + p.id,p);
+    return this.http.put(this.url + '/' + p.idMensaje,p);
   }
   //
   eliminar(id: number) {

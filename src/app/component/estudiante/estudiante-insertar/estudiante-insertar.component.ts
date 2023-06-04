@@ -53,7 +53,7 @@ export class EstudianteInsertarComponent {
 
   //Agregar este aceptar
   aceptar():void{
-    this.Estudiante.id=this.form.value['id'];
+    this.Estudiante.idEstudiante=this.form.value['id'];
     this.Estudiante.nombre=this.form.value['nombre'];
     this.Estudiante.correo_institucional=this.form.value['correo_institucional'];
     this.Estudiante.fecha_nacimiento=this.form.value['fecha_nacimiento'];
@@ -93,7 +93,7 @@ export class EstudianteInsertarComponent {
     if (this.edicion) {
       this.pS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id:new FormControl(data.id),
+          id:new FormControl(data.idEstudiante),
           nombre: new FormControl(data.nombre),
           correo_institucional: new FormControl(data.correo_institucional),
           fecha_nacimiento: new FormControl(data.fecha_nacimiento),
