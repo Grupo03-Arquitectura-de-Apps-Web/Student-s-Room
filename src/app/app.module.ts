@@ -79,8 +79,6 @@ import { ContratodealquilerListarComponent } from './component/contratodealquile
     EstudianteListarComponent,
     EstudianteInsertarComponent,
     EstudianteEliminarComponent,
-
-
     UniversidadComponent,
     UniversidadInsertarComponent,
     UniversidadListarComponent,
@@ -88,7 +86,7 @@ import { ContratodealquilerListarComponent } from './component/contratodealquile
     MensajeComponent,
     MensajeInsertarComponent,
     MensajeListarComponent,
-    MensajeDialogoComponent
+    MensajeDialogoComponent,
     ContratodealquilerComponent,
     ContratodealquilerInsertarComponent,
     ContratodealquilerEliminarComponent,

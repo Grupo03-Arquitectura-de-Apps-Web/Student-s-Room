@@ -12,6 +12,12 @@ import { EstudianteInsertarComponent } from './component/estudiante/estudiante-i
 import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
 import { UniversidadComponent } from './component/universidad/universidad.component';
 
+import { MensajeComponent } from './component/mensaje/mensaje.component';
+import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/mensaje-insertar.component';
+
+import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
+import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
+
 const routes: Routes = [
   {
     path: '',
