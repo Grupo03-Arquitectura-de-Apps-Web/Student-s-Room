@@ -295,7 +295,44 @@ module.exports = function () {
         habitacion:1,
       }
     ],
-
+    distrito: [
+      {
+        id:1,
+        nombre: "Chorrillos",
+        ciudad: 1,
+      },
+      {
+        id:2,
+        nombre: "Chorrillos",
+        ciudad: 1,        },
+      {
+        id:3,
+        nombre: "Chorrillos",
+        ciudad: 1,        },
+      {
+        id:4,
+        nombre: "Chorrillos",
+        ciudad: 1,        }
+    ],
+    ciudad: [
+      {
+        id:1,
+        nombre: "Lima",
+        pais: 1,
+      },
+      {
+        id:2,
+        nombre: "Lima",
+        pais: 1,        },
+      {
+        id:3,
+        nombre: "Lima",
+        pais: 1,        },
+      {
+        id:4,
+        nombre: "Lima",
+        pais: 1,        }
+    ],
   }
   return data
 }

@@ -61,6 +61,14 @@ import { PublicacionComponent } from './component/publicacion/publicacion.compon
 import { PublicacionInsertarComponent } from './component/publicacion/publicacion-insertar/publicacion-insertar.component';
 import { PublicacionListarComponent } from './component/publicacion/publicacion-listar/publicacion-listar.component';
 import { PublicacionEliminarComponent } from './component/publicacion/publicacion-listar/publicacion-eliminar/publicacion-eliminar.component';
+import { DistritoComponent } from './component/distrito/distrito.component';
+import { DistritoInsertarComponent } from './component/distrito/distrito-insertar/distrito-insertar.component';
+import { DistritoListarComponent } from './component/distrito/distrito-listar/distrito-listar.component';
+import { DistritoEliminarComponent } from './component/distrito/distrito-listar/distrito-eliminar/distrito-eliminar.component';
+import { CiudadComponent } from './component/ciudad/ciudad.component';
+import { CiudadInsertarComponent } from './component/ciudad/ciudad-insertar/ciudad-insertar.component';
+import { CiudadListarComponent } from './component/ciudad/ciudad-listar/ciudad-listar.component';
+import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad-eliminar/ciudad-eliminar.component';
 //delete
 
 @NgModule({
@@ -98,7 +106,15 @@ import { PublicacionEliminarComponent } from './component/publicacion/publicacio
     PublicacionComponent,
     PublicacionInsertarComponent,
     PublicacionListarComponent,
-    PublicacionEliminarComponent
+    PublicacionEliminarComponent,
+    DistritoComponent,
+    DistritoInsertarComponent,
+    DistritoListarComponent,
+    DistritoEliminarComponent,
+    CiudadComponent,
+    CiudadInsertarComponent,
+    CiudadListarComponent,
+    CiudadEliminarComponent
   ],
   imports: [
     BrowserModule,
