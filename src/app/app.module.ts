@@ -57,7 +57,7 @@ import { ContratodealquilerComponent } from './component/contratodealquiler/cont
 import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
 import { ContratodealquilerEliminarComponent } from './component/contratodealquiler/contratodealquiler-eliminar/contratodealquiler-eliminar.component';
 import { ContratodealquilerListarComponent } from './component/contratodealquiler/contratodealquiler-listar/contratodealquiler-listar.component';
-<<<<<<< HEAD
+
 import { ArrendadorComponent } from './component/arrendador/arrendador.component';
 import { ArrendadorInsetarComponent } from './component/arrendador/arrendador-insetar/arrendador-insetar.component';
 import { ArrendadorListarComponent } from './component/arrendador/arrendador-listar/arrendador-listar.component';
@@ -65,7 +65,7 @@ import { ArrendadorDialogoComponent } from './component/arrendador/arrendador-li
 import { PublicacionfavoritaComponent } from './component/publicacionfavorita/publicacionfavorita.component';
 import { PublicacionfavoritaListarComponent } from './component/publicacionfavorita/publicacionfavorita-listar/publicacionfavorita-listar.component';
 import { PublicacionfavoritaInsertarComponent } from './component/publicacionfavorita/publicacionfavorita-insertar/publicacionfavorita-insertar.component';
-=======
+
 import { PublicacionComponent } from './component/publicacion/publicacion.component';
 import { PublicacionInsertarComponent } from './component/publicacion/publicacion-insertar/publicacion-insertar.component';
 import { PublicacionListarComponent } from './component/publicacion/publicacion-listar/publicacion-listar.component';
@@ -78,7 +78,7 @@ import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { CiudadInsertarComponent } from './component/ciudad/ciudad-insertar/ciudad-insertar.component';
 import { CiudadListarComponent } from './component/ciudad/ciudad-listar/ciudad-listar.component';
 import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad-eliminar/ciudad-eliminar.component';
->>>>>>> master
+import { PublicacionfavoritaDialogoComponent } from './component/publicacionfavorita/publicacionfavorita-listar/publicacionfavorita-dialogo/publicacionfavorita-dialogo.component';
 //delete
 
 @NgModule({
@@ -113,15 +113,13 @@ import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad
     ContratodealquilerInsertarComponent,
     ContratodealquilerEliminarComponent,
     ContratodealquilerListarComponent,
-<<<<<<< HEAD
     ArrendadorComponent,
     ArrendadorInsetarComponent,
     ArrendadorListarComponent,
     ArrendadorDialogoComponent,
     PublicacionfavoritaComponent,
     PublicacionfavoritaListarComponent,
-    PublicacionfavoritaInsertarComponent
-=======
+    PublicacionfavoritaInsertarComponent,
     PublicacionComponent,
     PublicacionInsertarComponent,
     PublicacionListarComponent,
@@ -133,8 +131,8 @@ import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad
     CiudadComponent,
     CiudadInsertarComponent,
     CiudadListarComponent,
-    CiudadEliminarComponent
->>>>>>> master
+    CiudadEliminarComponent,
+    PublicacionfavoritaDialogoComponent
   ],
   imports: [
     BrowserModule,
