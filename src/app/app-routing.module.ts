@@ -17,8 +17,6 @@ import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/m
 
 import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
 import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
-import { ArrendadorComponent } from './component/arrendador/arrendador.component';
-import { ArrendadorInsetarComponent } from './component/arrendador/arrendador-insetar/arrendador-insetar.component';
 
 const routes: Routes = [
   {
@@ -93,15 +91,6 @@ const routes: Routes = [
     children: [
       {  path: 'mensajesinsertar',component: MensajeInsertarComponent},
       {path: 'edicion/:id', component:MensajeInsertarComponent}
-    ],
-  },
-
-  {
-    path: 'arrendador',
-    component: ArrendadorComponent,
-    children: [
-      {  path: 'arrendadorinsertar',component: ArrendadorInsetarComponent},
-      {path: 'edicion/:id', component:ArrendadorInsetarComponent}
     ],
   },
 

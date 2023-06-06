@@ -257,6 +257,82 @@ module.exports = function () {
       }
     ],
 
+    publicacion: [
+      {
+        id:1,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      },
+      {
+        id:2,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      },
+      {
+        id:3,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      },
+      {
+        id:4,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      }
+    ],
+    distrito: [
+      {
+        id:1,
+        nombre: "Chorrillos",
+        ciudad: 1,
+      },
+      {
+        id:2,
+        nombre: "Chorrillos",
+        ciudad: 1,        },
+      {
+        id:3,
+        nombre: "Chorrillos",
+        ciudad: 1,        },
+      {
+        id:4,
+        nombre: "Chorrillos",
+        ciudad: 1,        }
+    ],
+    ciudad: [
+      {
+        id:1,
+        nombre: "Lima",
+        pais: 1,
+      },
+      {
+        id:2,
+        nombre: "Lima",
+        pais: 1,        },
+      {
+        id:3,
+        nombre: "Lima",
+        pais: 1,        },
+      {
+        id:4,
+        nombre: "Lima",
+        pais: 1,        }
+    ],
   }
   return data
 }
