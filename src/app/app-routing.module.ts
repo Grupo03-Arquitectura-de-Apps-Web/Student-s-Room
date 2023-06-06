@@ -17,6 +17,8 @@ import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/m
 
 import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
 import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
+import { PublicacionComponent } from './component/publicacion/publicacion.component';
+import { PublicacionInsertarComponent } from './component/publicacion/publicacion-insertar/publicacion-insertar.component';
 
 const routes: Routes = [
   {
@@ -91,6 +93,14 @@ const routes: Routes = [
     children: [
       {  path: 'mensajesinsertar',component: MensajeInsertarComponent},
       {path: 'edicion/:id', component:MensajeInsertarComponent}
+    ],
+  },
+  {
+    path: 'publicacion',
+    component: PublicacionComponent,
+    children: [
+      {  path: 'publicacioninsertar',component: PublicacionInsertarComponent},
+      {path: 'edicion/:id', component:PublicacionInsertarComponent}
     ],
   },
 

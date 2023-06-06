@@ -257,6 +257,45 @@ module.exports = function () {
       }
     ],
 
+    publicacion: [
+      {
+        id:1,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      },
+      {
+        id:2,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      },
+      {
+        id:3,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      },
+      {
+        id:4,
+        contenido: "no hay",
+        fecha_publicacion: "2023-01-01",
+        num_reacciones:1,
+        num_comentarios:2,
+        num_compartidos:0,
+        habitacion:1,
+      }
+    ],
+
   }
   return data
 }

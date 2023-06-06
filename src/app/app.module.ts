@@ -57,6 +57,10 @@ import { ContratodealquilerComponent } from './component/contratodealquiler/cont
 import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
 import { ContratodealquilerEliminarComponent } from './component/contratodealquiler/contratodealquiler-eliminar/contratodealquiler-eliminar.component';
 import { ContratodealquilerListarComponent } from './component/contratodealquiler/contratodealquiler-listar/contratodealquiler-listar.component';
+import { PublicacionComponent } from './component/publicacion/publicacion.component';
+import { PublicacionInsertarComponent } from './component/publicacion/publicacion-insertar/publicacion-insertar.component';
+import { PublicacionListarComponent } from './component/publicacion/publicacion-listar/publicacion-listar.component';
+import { PublicacionEliminarComponent } from './component/publicacion/publicacion-listar/publicacion-eliminar/publicacion-eliminar.component';
 //delete
 
 @NgModule({
@@ -90,7 +94,11 @@ import { ContratodealquilerListarComponent } from './component/contratodealquile
     ContratodealquilerComponent,
     ContratodealquilerInsertarComponent,
     ContratodealquilerEliminarComponent,
-    ContratodealquilerListarComponent
+    ContratodealquilerListarComponent,
+    PublicacionComponent,
+    PublicacionInsertarComponent,
+    PublicacionListarComponent,
+    PublicacionEliminarComponent
   ],
   imports: [
     BrowserModule,
