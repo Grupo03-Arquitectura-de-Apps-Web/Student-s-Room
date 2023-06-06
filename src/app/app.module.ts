@@ -57,6 +57,10 @@ import { ContratodealquilerComponent } from './component/contratodealquiler/cont
 import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
 import { ContratodealquilerEliminarComponent } from './component/contratodealquiler/contratodealquiler-eliminar/contratodealquiler-eliminar.component';
 import { ContratodealquilerListarComponent } from './component/contratodealquiler/contratodealquiler-listar/contratodealquiler-listar.component';
+import { ArrendadorComponent } from './component/arrendador/arrendador.component';
+import { ArrendadorInsetarComponent } from './component/arrendador/arrendador-insetar/arrendador-insetar.component';
+import { ArrendadorListarComponent } from './component/arrendador/arrendador-listar/arrendador-listar.component';
+import { ArrendadorDialogoComponent } from './component/arrendador/arrendador-listar/arrendador-dialogo/arrendador-dialogo.component';
 //delete
 
 @NgModule({
@@ -90,7 +94,11 @@ import { ContratodealquilerListarComponent } from './component/contratodealquile
     ContratodealquilerComponent,
     ContratodealquilerInsertarComponent,
     ContratodealquilerEliminarComponent,
-    ContratodealquilerListarComponent
+    ContratodealquilerListarComponent,
+    ArrendadorComponent,
+    ArrendadorInsetarComponent,
+    ArrendadorListarComponent,
+    ArrendadorDialogoComponent
   ],
   imports: [
     BrowserModule,

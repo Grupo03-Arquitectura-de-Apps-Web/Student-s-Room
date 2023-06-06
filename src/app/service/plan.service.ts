@@ -9,7 +9,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class PlanService {
-  private url = `${base_url}/plans`;
+  private url = `${base_url}/planes`;
   private listaCambio = new Subject<Plan[]>;
   //
   private confirmaEliminacion = new Subject<Boolean>()
