@@ -333,6 +333,31 @@ module.exports = function () {
         nombre: "Lima",
         pais: 1,        }
     ],
+
+      habitacion: [
+      {
+        id:1,
+        tipo: 1,
+        precio: 1,
+        disponibilidad: "si",
+        Arrendador: 1,
+        Distrito: 2,
+        Universidad:3
+
+        },
+
+        {
+        id:1,
+        tipo: 1,
+        precio: 1,
+        disponibilidad: "si",
+        Arrendador: 1,
+        Distrito: 2,
+        Universidad:3
+
+      }
+
+    ],
   }
   return data
 }

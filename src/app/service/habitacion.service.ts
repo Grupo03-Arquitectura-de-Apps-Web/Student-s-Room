@@ -1,46 +1,45 @@
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
-import { Publicacion } from '../model/publicacion';
-import { Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { habitacion } from '../model/habitacion';
+import { Subject } from 'rxjs';
 
 const base_url = environment.base;
 
 @Injectable({
   providedIn: 'root',
 })
-export class PublicacionService {
-  private url = `${base_url}/publicacion`;
-  private listaCambio = new Subject<Publicacion[]>();
-
+export class HabitacionService {
+  private url = `${base_url}/habitacion`;
+  private listaCambio = new Subject<habitacion[]>();
   private confirmaEliminacion = new Subject<Boolean>();
 
   constructor(private http: HttpClient) {}
 
   list() {
-    return this.http.get<Publicacion[]>(this.url);
+    return this.http.get<habitacion[]>(this.url);
   }
 
-  //Agregar para el insertar
-  insertar(Publicacion: Publicacion) {
-    return this.http.post(this.url, Publicacion);
+  insert(habitacion: habitacion) {
+    return this.http.post(this.url, habitacion);
   }
-  getlist() {
+
+  getList() {
     return this.listaCambio.asObservable();
   }
-  setlist(listaNueva: Publicacion[]) {
+
+  setList(listaNueva: habitacion[]) {
     this.listaCambio.next(listaNueva);
   }
 
-  //Para el actualizar
-  listId(id: number) {
-    return this.http.get<Publicacion>(`${this.url}/${id}`);
+  listID(id: number) {
+    return this.http.get<habitacion>(`${this.url}/${id}`);
   }
 
-  update(c: Publicacion) {
-    return this.http.put(this.url + '/' + c.id, c);
+  update(a: habitacion) {
+    return this.http.put(this.url + '/' + a.id, a);
   }
-  //para el eliminar
+
   eliminar(id: number) {
     return this.http.delete(`${this.url}/${id}`);
   }

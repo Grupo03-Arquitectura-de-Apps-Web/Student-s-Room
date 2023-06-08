@@ -1,3 +1,3 @@
-export class Arrendador{
-  id_arrendador:number = 0;
+export class Arrendador {
+  id_arrendador: number = 0;
 }

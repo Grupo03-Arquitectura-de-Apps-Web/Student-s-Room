@@ -69,6 +69,10 @@ import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { CiudadInsertarComponent } from './component/ciudad/ciudad-insertar/ciudad-insertar.component';
 import { CiudadListarComponent } from './component/ciudad/ciudad-listar/ciudad-listar.component';
 import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad-eliminar/ciudad-eliminar.component';
+import { HabitacionComponent } from './component/habitacion/habitacion.component';
+import { HabitacionListarComponent } from './component/habitacion/habitacion-listar/habitacion-listar.component';
+import { HabitacionInsertarComponent } from './component/habitacion/habitacion-insertar/habitacion-insertar.component';
+import { HabitacionEliminarComponent } from './component/habitacion/habitacion-listar/habitacion-eliminar/habitacion-eliminar.component';
 //delete
 
 @NgModule({
@@ -114,7 +118,11 @@ import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad
     CiudadComponent,
     CiudadInsertarComponent,
     CiudadListarComponent,
-    CiudadEliminarComponent
+    CiudadEliminarComponent,
+    HabitacionComponent,
+    HabitacionListarComponent,
+    HabitacionInsertarComponent,
+    HabitacionEliminarComponent
   ],
   imports: [
     BrowserModule,
