@@ -27,6 +27,8 @@ import { ArrendadorComponent } from './component/arrendador/arrendador.component
 import { ArrendadorInsetarComponent } from './component/arrendador/arrendador-insetar/arrendador-insetar.component';
 import { PublicacionfavoritaComponent } from './component/publicacionfavorita/publicacionfavorita.component';
 import { PublicacionfavoritaInsertarComponent } from './component/publicacionfavorita/publicacionfavorita-insertar/publicacionfavorita-insertar.component';
+import { HabitacionInsertarComponent } from './component/habitacion/habitacion-insertar/habitacion-insertar.component';
+import { HabitacionComponent } from './component/habitacion/habitacion.component';
 
 const routes: Routes = [
   {
@@ -42,9 +44,9 @@ const routes: Routes = [
         component: PaisInsertarComponent,
       },
       {
-        path:'edicion/:id',
-        component:PaisInsertarComponent
-      }
+        path: 'edicion/:id',
+        component: PaisInsertarComponent,
+      },
     ],
   },
   {
@@ -65,16 +67,16 @@ const routes: Routes = [
     path: 'tipo',
     component: TipoComponent,
     children: [
-      {  path: 'tipoinsertar',component: TipoInsertarComponent},
-      {path: 'edicion/:id', component:TipoInsertarComponent}
+      { path: 'tipoinsertar', component: TipoInsertarComponent },
+      { path: 'edicion/:id', component: TipoInsertarComponent },
     ],
   },
   {
-    path:'estudiante',
-    component:EstudianteComponent,
-    children:[
-      {path:'estudianteinsertar', component:EstudianteInsertarComponent},
-      {path:'edicion/:id',component:EstudianteInsertarComponent}
+    path: 'estudiante',
+    component: EstudianteComponent,
+    children: [
+      { path: 'estudianteinsertar', component: EstudianteInsertarComponent },
+      { path: 'edicion/:id', component: EstudianteInsertarComponent },
     ],
   },
 
@@ -82,16 +84,19 @@ const routes: Routes = [
     path: 'universidad',
     component: UniversidadComponent,
     children: [
-      {  path: 'universidadinsertar',component: UniversidadInsertarComponent},
-      {path: 'edicion/:id', component:UniversidadInsertarComponent}
+      { path: 'universidadinsertar', component: UniversidadInsertarComponent },
+      { path: 'edicion/:id', component: UniversidadInsertarComponent },
     ],
   },
   {
     path: 'contratodealquiler',
     component: ContratodealquilerComponent,
     children: [
-      {  path: 'contratodealquilerinsertar',component: ContratodealquilerInsertarComponent},
-      {path: 'edicion/:id', component:ContratodealquilerInsertarComponent}
+      {
+        path: 'contratodealquilerinsertar',
+        component: ContratodealquilerInsertarComponent,
+      },
+      { path: 'edicion/:id', component: ContratodealquilerInsertarComponent },
     ],
   },
 
@@ -99,52 +104,61 @@ const routes: Routes = [
     path: 'mensaje',
     component: MensajeComponent,
     children: [
-      {  path: 'mensajesinsertar',component: MensajeInsertarComponent},
-      {path: 'edicion/:id', component:MensajeInsertarComponent}
+      { path: 'mensajesinsertar', component: MensajeInsertarComponent },
+      { path: 'edicion/:id', component: MensajeInsertarComponent },
     ],
   },
   {
     path: 'publicacion',
     component: PublicacionComponent,
     children: [
-      {  path: 'publicacioninsertar',component: PublicacionInsertarComponent},
-      {path: 'edicion/:id', component:PublicacionInsertarComponent}
+      { path: 'publicacioninsertar', component: PublicacionInsertarComponent },
+      { path: 'edicion/:id', component: PublicacionInsertarComponent },
     ],
   },
   {
     path: 'distrito',
     component: DistritoComponent,
     children: [
-      {  path: 'distritoinsertar',component: DistritoInsertarComponent},
-      {path: 'edicion/:id', component:DistritoInsertarComponent}
+      { path: 'distritoinsertar', component: DistritoInsertarComponent },
+      { path: 'edicion/:id', component: DistritoInsertarComponent },
     ],
   },
   {
     path: 'ciudad',
     component: CiudadComponent,
     children: [
-      {  path: 'ciudadinsertar',component: CiudadInsertarComponent},
-      {path: 'edicion/:id', component:CiudadInsertarComponent}
+      { path: 'ciudadinsertar', component: CiudadInsertarComponent },
+      { path: 'edicion/:id', component: CiudadInsertarComponent },
     ],
   },
+  {
+    path: 'habitacion',
+    component: HabitacionComponent,
+    children: [
+      { path: 'habitacioninsertar', component: HabitacionInsertarComponent },
+      { path: 'edicion/:id', component: HabitacionInsertarComponent },
+    ],
+  }
   {
     path: 'arrendador',
     component: ArrendadorComponent,
     children: [
-      {  path: 'arrendadorinsertar',component: ArrendadorInsetarComponent},
-      {path: 'edicion/:id', component:ArrendadorInsetarComponent}
+      { path: 'arrendadorinsertar', component: ArrendadorInsetarComponent },
+      { path: 'edicion/:id', component: ArrendadorInsetarComponent },
     ],
   },
   {
     path: 'publicacionfavorita',
     component: PublicacionfavoritaComponent,
     children: [
-      {  path: 'publicacionfavoritainsertar',component: PublicacionfavoritaInsertarComponent},
-      {path: 'edicion/:id', component:PublicacionfavoritaInsertarComponent}
+      {
+        path: 'publicacionfavoritainsertar',
+        component: PublicacionfavoritaInsertarComponent,
+      },
+      { path: 'edicion/:id', component: PublicacionfavoritaInsertarComponent },
     ],
   },
-
-
 ];
 
 @NgModule({

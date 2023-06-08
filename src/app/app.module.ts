@@ -13,9 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 ////agregar import
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 
-import {MatSelectModule} from '@angular/material/select';
+import { MatSelectModule } from '@angular/material/select';
 
 import { HomeComponent } from './component/home/home.component';
 
@@ -42,13 +42,13 @@ import { EstudianteComponent } from './component/estudiante/estudiante.component
 import { EstudianteListarComponent } from './component/estudiante/estudiante-listar/estudiante-listar.component';
 import { EstudianteInsertarComponent } from './component/estudiante/estudiante-insertar/estudiante-insertar.component';
 import { EstudianteEliminarComponent } from './component/estudiante/estudiante-eliminar/estudiante-eliminar.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 import { UniversidadComponent } from './component/universidad/universidad.component';
 import { UniversidadInsertarComponent } from './component/universidad/universidad-insertar/universidad-insertar.component';
 import { UniversidadListarComponent } from './component/universidad/universidad-listar/universidad-listar.component';
 import { UniversidadDialogoComponent } from './component/universidad/universidad-listar/universidad-dialogo/universidad-dialogo.component';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MensajeComponent } from './component/mensaje/mensaje.component';
 import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/mensaje-insertar.component';
 import { MensajeListarComponent } from './component/mensaje/mensaje-listar/mensaje-listar.component';
@@ -78,7 +78,6 @@ import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { CiudadInsertarComponent } from './component/ciudad/ciudad-insertar/ciudad-insertar.component';
 import { CiudadListarComponent } from './component/ciudad/ciudad-listar/ciudad-listar.component';
 import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad-eliminar/ciudad-eliminar.component';
-import { PublicacionfavoritaDialogoComponent } from './component/publicacionfavorita/publicacionfavorita-listar/publicacionfavorita-dialogo/publicacionfavorita-dialogo.component';
 //delete
 
 @NgModule({
@@ -132,7 +131,6 @@ import { PublicacionfavoritaDialogoComponent } from './component/publicacionfavo
     CiudadInsertarComponent,
     CiudadListarComponent,
     CiudadEliminarComponent,
-    PublicacionfavoritaDialogoComponent
   ],
   imports: [
     BrowserModule,
@@ -159,6 +157,6 @@ import { PublicacionfavoritaDialogoComponent } from './component/publicacionfavo
     MatPaginatorModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
