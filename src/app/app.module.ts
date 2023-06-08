@@ -65,6 +65,7 @@ import { ArrendadorDialogoComponent } from './component/arrendador/arrendador-li
 import { PublicacionfavoritaComponent } from './component/publicacionfavorita/publicacionfavorita.component';
 import { PublicacionfavoritaListarComponent } from './component/publicacionfavorita/publicacionfavorita-listar/publicacionfavorita-listar.component';
 import { PublicacionfavoritaInsertarComponent } from './component/publicacionfavorita/publicacionfavorita-insertar/publicacionfavorita-insertar.component';
+import { PublicacionfavoritaDialogoComponent } from './component/publicacionfavorita/publicacionfavorita-listar/publicacionfavorita-dialogo/publicacionfavorita-dialogo.component';
 
 import { PublicacionComponent } from './component/publicacion/publicacion.component';
 import { PublicacionInsertarComponent } from './component/publicacion/publicacion-insertar/publicacion-insertar.component';
@@ -78,6 +79,10 @@ import { CiudadComponent } from './component/ciudad/ciudad.component';
 import { CiudadInsertarComponent } from './component/ciudad/ciudad-insertar/ciudad-insertar.component';
 import { CiudadListarComponent } from './component/ciudad/ciudad-listar/ciudad-listar.component';
 import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad-eliminar/ciudad-eliminar.component';
+import { HabitacionComponent } from './component/habitacion/habitacion.component';
+import { HabitacionInsertarComponent } from './component/habitacion/habitacion-insertar/habitacion-insertar.component';
+import { HabitacionListarComponent } from './component/habitacion/habitacion-listar/habitacion-listar.component';
+import { HabitacionEliminarComponent } from './component/habitacion/habitacion-listar/habitacion-eliminar/habitacion-eliminar.component';
 //delete
 
 @NgModule({
@@ -119,6 +124,7 @@ import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad
     PublicacionfavoritaComponent,
     PublicacionfavoritaListarComponent,
     PublicacionfavoritaInsertarComponent,
+    PublicacionfavoritaDialogoComponent,
     PublicacionComponent,
     PublicacionInsertarComponent,
     PublicacionListarComponent,
@@ -131,6 +137,10 @@ import { CiudadEliminarComponent } from './component/ciudad/ciudad-listar/ciudad
     CiudadInsertarComponent,
     CiudadListarComponent,
     CiudadEliminarComponent,
+    HabitacionComponent,
+    HabitacionInsertarComponent,
+    HabitacionListarComponent,
+    HabitacionEliminarComponent,
   ],
   imports: [
     BrowserModule,

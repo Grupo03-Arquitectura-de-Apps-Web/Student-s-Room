@@ -139,7 +139,7 @@ const routes: Routes = [
       { path: 'habitacioninsertar', component: HabitacionInsertarComponent },
       { path: 'edicion/:id', component: HabitacionInsertarComponent },
     ],
-  }
+  },
   {
     path: 'arrendador',
     component: ArrendadorComponent,
