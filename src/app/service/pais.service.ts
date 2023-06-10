@@ -42,7 +42,8 @@ export class PaisService {
     return this.http.get<Pais>(`${this.url}/${id}`);
   }
   update(p:Pais){
-    return this.http.put(this.url+'/'+p.id,p);
+    //return this.http.put(this.url+'/'+p.id,p);
+    return this.http.put(this.url,p);
   }
 
   //delete part

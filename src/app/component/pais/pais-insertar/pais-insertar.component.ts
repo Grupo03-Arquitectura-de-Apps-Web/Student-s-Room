@@ -41,7 +41,9 @@ export class PaisInsertarComponent implements OnInit {
     //update part
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
+
       this.edicion = data['id'] != null;
+      console.log(this.edicion);
       this.init();
     });
     //
@@ -73,13 +75,13 @@ export class PaisInsertarComponent implements OnInit {
       if (this.edicion) {
         //guardar actualizado
         this.paisSer.update(this.pais).subscribe(() => {
-          this.paisSer.list().subscribe((data) => {
+          this.paisSer.list().subscribe((data:any) => {
             this.paisSer.setList(data);
           });
         });
       //end update part
       } else {
-        this.paisSer.insert(this.pais).subscribe((data) => {
+        this.paisSer.insert(this.pais).subscribe(() => {
           this.paisSer.list().subscribe((data) => {
             this.paisSer.setList(data);
           });
@@ -96,9 +98,11 @@ export class PaisInsertarComponent implements OnInit {
   //update part
   init() {
     if (this.edicion) {
-      this.paisSer.listId(this.id).subscribe((data) => {
+      this.paisSer.listId(this.id).subscribe((data:any) => {
+        console.log(data);
+
         this.form = new FormGroup({
-          id: new FormControl(data.id),
+          id: new FormControl(data.idPais),
           nombrePais: new FormControl(data.nombrePais),
           capitalPais: new FormControl(data.capitalPais),
           monedaPais: new FormControl(data.monedaPais),

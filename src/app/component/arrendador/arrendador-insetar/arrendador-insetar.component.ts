@@ -24,7 +24,7 @@ export class ArrendadorInsetarComponent implements OnInit {
   mensaje: string = '';
 
   lista_p:Plan[]=[];
-  plan:Plan = new Plan();
+  plan!:Plan;
   idPlanSeleccionado:number=0;
 
 
@@ -48,11 +48,12 @@ export class ArrendadorInsetarComponent implements OnInit {
     )
     //update part
     this.route.params.subscribe((data: Params) => {
-      this.id = data['id_arrendador'];
-      this.edicion = data['id_arrendador'] != null;
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      console.log(this.edicion);
+      console.log(this.id);
       this.init();
     });
-    //
 
     this.form = new FormGroup({
       id_arrendador: new FormControl(), //importamos FormControl
@@ -63,6 +64,9 @@ export class ArrendadorInsetarComponent implements OnInit {
       paisArrendador: new FormControl(),
       plan: new FormControl(),
     });
+    //
+
+
   }
   selectionChange(ev:any){
     console.log(ev);
@@ -81,11 +85,13 @@ export class ArrendadorInsetarComponent implements OnInit {
       return;
     }
 
-    if (this.form.value['nombreArrendador'].length > 0) {
+    if (this.idPlanSeleccionado > 0) {
       console.log('hsdf3333');
       //con el metodo suscribe estamos insertando
       console.log(this.idPlanSeleccionado);
       console.log(this.plan);
+      this.plan = new Plan();
+      this.plan.id = this.idPlanSeleccionado;
 
       this.Arrendador.plan= this.plan;
       //update part
@@ -116,15 +122,16 @@ export class ArrendadorInsetarComponent implements OnInit {
   //update part
   init() {
     if (this.edicion) {
-      this.ArrendadorSer.listId(this.id).subscribe((data) => {
+      this.ArrendadorSer.listId(this.id).subscribe((data:any) => {
+        console.log(data);
         this.form = new FormGroup({
           id_arrendador: new FormControl(data.id_arrendador), //importamos FormControl
-          nombreArrendador: new FormControl(data.nombreArrendador),
-          correo_laboralArrendador: new FormControl(data.correo_laboralArrendador),
-          telefonoArrendador: new FormControl(data.telefonoArrendador),
-          ciudadArrendador: new FormControl(data.ciudadArrendador),
-          paisArrendador: new FormControl(data.paisArrendador),
-          plan: new FormControl(data.plan),
+          nombreArrendador: new FormControl(data.nombre),
+          correo_laboralArrendador: new FormControl(data.correo_laboral),
+          telefonoArrendador: new FormControl(data.telefono),
+          ciudadArrendador: new FormControl(data.ciudad),
+          paisArrendador: new FormControl(data.pais),
+          plan: new FormControl(data.plan.nombre_plan)
         });
       });
     }

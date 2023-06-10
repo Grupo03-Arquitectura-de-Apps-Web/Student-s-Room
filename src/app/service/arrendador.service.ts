@@ -41,7 +41,8 @@ export class ArrendadorService {
     return this.http.get<Arrendador>(`${this.url}/${id}`);
   }
   update(a:Arrendador){
-    return this.http.put(this.url+'/'+a.id_arrendador,a);
+    ///return this.http.put(this.url+'/'+a.id_arrendador,a);
+    return this.http.put(this.url,a);
   }
 
   //delete part
