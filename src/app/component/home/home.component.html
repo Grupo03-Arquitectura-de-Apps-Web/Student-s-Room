@@ -1,280 +1,316 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  <title>Student's Room</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <title>Student's Room</title>
+  </head>
+  <header>
+    <header class="header">
+      <div class="container-menu">
+        <div class="logo">
+          <h1 routerLink="">Student's Room</h1>
+        </div>
+        <div class="boton">
+          <label for="btn-menu">Menú</label>
+        </div>
 
-</head>
-<header >
-  <header class="header">
-    <div class="container-menu">
-      <div class="logo">
-        <h1  routerLink="">Student's Room</h1>
+        <input type="checkbox" id="btn-menu" />
+
+        <nav class="menu">
+          <ul>
+            <button mat-button class="menu-button" routerLink="">
+              <mat-icon>home</mat-icon>
+              <span>Home</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/estudiante">
+              <mat-icon>group</mat-icon>
+              <span>Estudiante</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/paises">
+              <mat-icon>location_city</mat-icon>
+              <span>Pais</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/plans">
+              <mat-icon>payment</mat-icon>
+              <span>Plan</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/tipo">
+              <mat-icon>domain</mat-icon>
+              <span>Tipos de habitación</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/universidad">
+              <mat-icon>school</mat-icon>
+              <span>Universidad</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/mensaje">
+              <mat-icon>message</mat-icon>
+              <span>Mensaje</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/publicacion">
+              <mat-icon>public</mat-icon>
+              <span>Publicación</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/distrito">
+              <mat-icon>flag</mat-icon>
+              <span>Distrito</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/ciudad">
+              <mat-icon>outlined_flag</mat-icon>
+              <span>Ciudad</span>
+            </button>
+          </ul>
+          <ul>
+            <button mat-button class="menu-button" routerLink="/habitacion">
+              <mat-icon>outlined_flag</mat-icon>
+              <span>Habitacion</span>
+            </button>
+          </ul>
+        </nav>
       </div>
-      <div class="boton">
-        <label for="btn-menu">Menú</label>
-      </div>
-
-      <input type="checkbox" id="btn-menu">
-
-      <nav class="menu">
-        <ul>
-          <button mat-button class="menu-button"  routerLink="" >
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/estudiante">
-            <mat-icon>group</mat-icon>
-            <span>Estudiante</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/paises">
-            <mat-icon>location_city</mat-icon>
-            <span>Pais</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/plans">
-            <mat-icon>payment</mat-icon>
-            <span>Plan</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/tipo">
-            <mat-icon>domain</mat-icon>
-            <span>Tipos de habitación</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/universidad">
-            <mat-icon>school</mat-icon>
-            <span>Universidad</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/mensaje">
-            <mat-icon>message</mat-icon>
-            <span>Mensaje</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/publicacion">
-            <mat-icon>public</mat-icon>
-            <span>Publicación</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/distrito">
-            <mat-icon>flag</mat-icon>
-            <span>Distrito</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/ciudad">
-            <mat-icon>outlined_flag</mat-icon>
-            <span>Ciudad</span>
-          </button>
-        </ul>
-
-      </nav>
-    </div>
+    </header>
   </header>
-</header>
-    <body>
-        <section id="firstsection">
-            <div class="container">
-                <div class="presentation">
-                    <h1>ENCUENTRA TU<br><br>HABITACIÓN IDEAL</h1>
-                    <br>
-                    <br>
-                    <h3>¿Cansado de vivir lejos de tu<br>
-                        universidad y llegar tarde a clases?</h3>
-                    <p>Student's Room es la solución ¡Alquila Ahora!</p>
-                </div>
-                <div class="download-app">
-                    <div class="img-celular"></div>
-                    <button>Descárgalo gratis</button>
-                    <p> Disponible en:</p>
-                    <div class="image-dowload">
-                        <div class="img-appstore"></div>
-                        <div class="img-playstore"></div>
-                    </div>
-                </div>
+  <body>
+    <section id="firstsection">
+      <div class="container">
+        <div class="presentation">
+          <h1>ENCUENTRA TU<br /><br />HABITACIÓN IDEAL</h1>
+          <br />
+          <br />
+          <h3>
+            ¿Cansado de vivir lejos de tu<br />
+            universidad y llegar tarde a clases?
+          </h3>
+          <p>Student's Room es la solución ¡Alquila Ahora!</p>
+        </div>
+        <div class="download-app">
+          <div class="img-celular"></div>
+          <button>Descárgalo gratis</button>
+          <p>Disponible en:</p>
+          <div class="image-dowload">
+            <div class="img-appstore"></div>
+            <div class="img-playstore"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="secondsection">
+      <div class="container">
+        <div class="descripción">
+          <h1>
+            <span class="color-titulo1-secontsection">QUIÉNES </span
+            ><span class="color-titulo2-secontsection"> SOMOS?</span>
+          </h1>
+          <p class="descripción-starup">
+            Somos una empresa que surgió debido a que se está retornando a la
+            modalidad presencial en las universidades e institutos y el problema
+            es que muchos alumnos viven lejos de su centro educativo. Por ello,
+            creamos una aplicación que permitirá que personas brinden
+            alojamiento para que estos estudiantes puedan encontrar un lugar
+            donde alojarse cerca de IES.
+          </p>
+        </div>
+        <div class="mision-vision">
+          <h2>Misión</h2>
+          <div class="mision">
+            <div class="imagen-mision"></div>
+            <div class="texto-mision">
+              <p>
+                Nuestra misión es facilitar a los estudiantes a encontrar una
+                habitación, lo más cercana posible de su IES y de acuerdo a sus
+                preferencias. Asimismo, coadyuvar a los arrendadores a publicar
+                su servicio para que consigan huéspedes lo más antes posible.
+              </p>
             </div>
-        </section>
-
-        <section id="secondsection">
-            <div class="container">
-                <div class="descripción">
-                    <h1><span class="color-titulo1-secontsection">QUIÉNES </span><span class="color-titulo2-secontsection"> SOMOS?</span></h1>
-                       <p class="descripción-starup">
-                           Somos una empresa que surgió debido a que se está retornando a la modalidad presencial en las universidades e institutos y el problema es que muchos alumnos viven lejos de su centro educativo. Por ello, creamos una aplicación que permitirá que personas brinden alojamiento para que estos estudiantes puedan encontrar un lugar donde alojarse cerca de IES.
-                       </p>
-                </div>
-                <div class="mision-vision">
-                    <h2>Misión</h2>
-                    <div class="mision">
-                        <div class="imagen-mision"></div>
-                        <div class="texto-mision">
-                            <p>Nuestra misión es facilitar a los estudiantes a encontrar una habitación, lo más cercana posible de su IES y de acuerdo a sus preferencias. Asimismo, coadyuvar a los arrendadores a publicar su servicio para que consigan huéspedes lo más antes posible.</p>
-                        </div>
-                    </div>
-                    <h2>Visión</h2>
-                    <div class="vision">
-                        <div class="texto-vision">
-                            <p>Ser una aplicación y empresa con reconocimiento nacional e internacional dentro del mercado de servicios de hospedajes para estudiantes. </p>
-                        </div>
-                        <div class="imagen-vision"></div>
-                    </div>
-                </div>
+          </div>
+          <h2>Visión</h2>
+          <div class="vision">
+            <div class="texto-vision">
+              <p>
+                Ser una aplicación y empresa con reconocimiento nacional e
+                internacional dentro del mercado de servicios de hospedajes para
+                estudiantes.
+              </p>
             </div>
-        </section>
+            <div class="imagen-vision"></div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        <section id="thirdsection">
-            <div class="container">
-                <h1>"CADA VEZ MÁS ESTUDIANTES<br><br><span class="color-acento">CONFÍAN EN NOSOTROS"</span></h1>
-                <div class="caracteristicas">
-                    <div class="icono">
-                       <div class="image-sombrero"></div>
-                    </div>
-                    <div class="icono">
-                       <div class="image-hora"></div>
-                    </div>
-                    <div class="icono">
-                       <div class="image-llave"></div>
-                    </div>
-                    <div class="icono">
-                       <div class="image-seguridad"></div>
-                    </div>
-                </div>
+    <section id="thirdsection">
+      <div class="container">
+        <h1>
+          "CADA VEZ MÁS ESTUDIANTES<br /><br /><span class="color-acento"
+            >CONFÍAN EN NOSOTROS"</span
+          >
+        </h1>
+        <div class="caracteristicas">
+          <div class="icono">
+            <div class="image-sombrero"></div>
+          </div>
+          <div class="icono">
+            <div class="image-hora"></div>
+          </div>
+          <div class="icono">
+            <div class="image-llave"></div>
+          </div>
+          <div class="icono">
+            <div class="image-seguridad"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="fourthsection">
+      <div class="container">
+        <div class="presentation-registration">
+          <h1>
+            En student's Room, te ayudamos<br />
+            a encontrar tu compañero de<br />
+            cuarto ideal
+          </h1>
+          <p>
+            Déjanos tus nombres y correo, a donde te enviaremos los<br />
+            sitios disponibles según el lugar que buscar. Así podrás tener<br />
+            más opciones para encontrar tu lugar ideal en el menor<br />
+            tiempo posible.
+          </p>
+        </div>
+        <div class="forms">
+          <form>
+            <div class="rellenar-texto">
+              <h3>Tu nombre</h3>
+              <input type="text" class="form1" required="" />
+
+              <h3>Tu correo electrónico</h3>
+              <input type="email" class="form1" required="" />
+
+              <h3>Distrito que buscas</h3>
+              <input type="text" class="form1" required="" />
             </div>
-        </section>
-
-        <section id="fourthsection">
-            <div class="container">
-                <div class="presentation-registration">
-                    <h1>En student's Room, te ayudamos<br>
-                    a encontrar tu compañero de<br>
-                    cuarto ideal</h1>
-                    <p>
-                        Déjanos tus nombres y correo, a donde te enviaremos los<br>
-                        sitios disponibles según el lugar que buscar. Así podrás tener<br>
-                        más opciones para encontrar tu lugar ideal en el menor<br>
-                        tiempo posible.
-                    </p>
-                </div>
-                <div class="forms">
-                    <form >
-                        <div class="rellenar-texto">
-                        <h3>Tu nombre</h3>
-                        <input type="text" class="form1" required="">
-
-                        <h3>Tu correo electrónico</h3>
-                        <input type="email" class="form1" required="">
-
-                        <h3>Distrito que buscas</h3>
-                        <input type="text" class="form1" required="">
-                        </div>
-                        <div class="boton-contacto">
-                        <button id="form2">Enviar</button>
-                        </div>
-                    </form>
-                </div>
+            <div class="boton-contacto">
+              <button id="form2">Enviar</button>
             </div>
-        </section>
+          </form>
+        </div>
+      </div>
+    </section>
 
-         <section id="planes">
-             <div class="container">
-                    <div class="titulo-planes">
-                        <h1>Planes</h1>
-                        <h2>Has que tus anuncios de alquiler lleguen a más personas</h2>
-                    </div>
-                    <div class="tablas">
-                     <div class="tabla">
-                         <h1 class="titulo">PLAN GRATUITO</h1>
-                         <span class="icon-precio"></span>
-                         <h3 class="sub_titulo">S/. 0</h3>
-                         <p class="texto">• 1 anuncio en la web.</p>
-                         <p class="texto">• 3 días como publicación destacada.</p>
-                         <p class="texto">• Alcance de 100 personas.</p>
-                         <a class="enlace">Adquirir</a></div>
-                     <div class="tabla">
-                         <h1 class="titulo">PLAN BÁSICO</h1>
-                         <span class="icon-precio"></span>
-                         <h3 class="sub_titulo">S/. 15</h3>
-                         <p class="texto">• Hasta 5 anuncios en la web.</p>
-                         <p class="texto">• 15 días como publicación destacada.</p>
-                         <p class="texto">• Alcance de 500 personas.</p>
-                         <a class="enlace">Adquirir</a></div>
-                     <div class="tabla">
-                         <h1 class="titulo">PLAN PREMIUM</h1>
-                         <span class="icon-precio"></span>
-                         <h3 class="sub_titulo">S/. 25</h3>
-                         <p class="texto">• Anuncios ilimitados en la web.</p>
-                         <p class="texto">• 30 días como publicación destacada.</p>
-                         <p class="texto">• Alcance de 1 000 personas.</p>
-                         <a class="enlace">Adquirir</a></div>
-                    </div>
-             </div>
-         </section>
+    <section id="planes">
+      <div class="container">
+        <div class="titulo-planes">
+          <h1>Planes</h1>
+          <h2>Has que tus anuncios de alquiler lleguen a más personas</h2>
+        </div>
+        <div class="tablas">
+          <div class="tabla">
+            <h1 class="titulo">PLAN GRATUITO</h1>
+            <span class="icon-precio"></span>
+            <h3 class="sub_titulo">S/. 0</h3>
+            <p class="texto">• 1 anuncio en la web.</p>
+            <p class="texto">• 3 días como publicación destacada.</p>
+            <p class="texto">• Alcance de 100 personas.</p>
+            <a class="enlace">Adquirir</a>
+          </div>
+          <div class="tabla">
+            <h1 class="titulo">PLAN BÁSICO</h1>
+            <span class="icon-precio"></span>
+            <h3 class="sub_titulo">S/. 15</h3>
+            <p class="texto">• Hasta 5 anuncios en la web.</p>
+            <p class="texto">• 15 días como publicación destacada.</p>
+            <p class="texto">• Alcance de 500 personas.</p>
+            <a class="enlace">Adquirir</a>
+          </div>
+          <div class="tabla">
+            <h1 class="titulo">PLAN PREMIUM</h1>
+            <span class="icon-precio"></span>
+            <h3 class="sub_titulo">S/. 25</h3>
+            <p class="texto">• Anuncios ilimitados en la web.</p>
+            <p class="texto">• 30 días como publicación destacada.</p>
+            <p class="texto">• Alcance de 1 000 personas.</p>
+            <a class="enlace">Adquirir</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="fifthsection-1">
+      <div class="container">
+        <br />
+        <h1>DESCUBRE LAS EXPERIENCIAS</h1>
+      </div>
+    </section>
 
-        <section id="fifthsection-1">
-            <div class="container">
-              <br>
-              <h1>DESCUBRE LAS EXPERIENCIAS</h1>
-            </div>
-        </section>
-
-        <section id="fifthsection-2">
-            <div class="image-testimonio1"></div>
-            <div class="container">
-                <div class="testimonio">
-                    <div class="foto-perfil1"></div>
-                    <h1>Maria Benites Araoz</h1>
-                    <p>
-                        Fue una gran experiencia poder<br>
-                        conocer y compartir con otras<br>
-                        personas. Recomiendo mucho<br>
-                        el servicio.
-                    </p>
-                </div>
-                <div class="testimonio">
-                    <div class="foto-perfil2"></div>
-                    <h1>Andrés Quispe Soto</h1>
-                    <p>
-                        Muy buena página. Antes perdia tiempo<br>
-                        en encontrar un lugar en alquilar cerca<br>
-                        de mi universidad y ahora lo encontré en<br>
-                        menos de 1 dia!
-                    </p>
-                </div>
-                <div class="testimonio">
-                    <div class="foto-perfil3"></div>
-                    <h1>José Gavilán del Valle</h1>
-                    <p>
-                        Me encanta la página web, es muy<br>
-                        sencilla y facil de usar :),<br>
-                        Además, puedo contactar con el<br>
-                        arrendador rapidamente.
-                    </p>
-                </div>
-                <div class="testimonio">
-                    <div class="foto-perfil4"></div>
-                    <h1>Milagros Sanchez Pérez</h1>
-                    <p>
-                        Excelente servicio el que alquilé y todo<br>
-                        fue gracias a esta página que me ayudo<br>
-                        a encontrarlo.
-                    </p>
-                </div>
-            </div>
-        </section>
-    </body>
+    <section id="fifthsection-2">
+      <div class="image-testimonio1"></div>
+      <div class="container">
+        <div class="testimonio">
+          <div class="foto-perfil1"></div>
+          <h1>Maria Benites Araoz</h1>
+          <p>
+            Fue una gran experiencia poder<br />
+            conocer y compartir con otras<br />
+            personas. Recomiendo mucho<br />
+            el servicio.
+          </p>
+        </div>
+        <div class="testimonio">
+          <div class="foto-perfil2"></div>
+          <h1>Andrés Quispe Soto</h1>
+          <p>
+            Muy buena página. Antes perdia tiempo<br />
+            en encontrar un lugar en alquilar cerca<br />
+            de mi universidad y ahora lo encontré en<br />
+            menos de 1 dia!
+          </p>
+        </div>
+        <div class="testimonio">
+          <div class="foto-perfil3"></div>
+          <h1>José Gavilán del Valle</h1>
+          <p>
+            Me encanta la página web, es muy<br />
+            sencilla y facil de usar :),<br />
+            Además, puedo contactar con el<br />
+            arrendador rapidamente.
+          </p>
+        </div>
+        <div class="testimonio">
+          <div class="foto-perfil4"></div>
+          <h1>Milagros Sanchez Pérez</h1>
+          <p>
+            Excelente servicio el que alquilé y todo<br />
+            fue gracias a esta página que me ayudo<br />
+            a encontrarlo.
+          </p>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>
