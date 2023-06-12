@@ -12,90 +12,28 @@
     />
     <title>Student's Room</title>
   </head>
-  <header>
-    <header class="header">
-      <div class="container-menu">
-        <div class="logo">
-          <h1 routerLink="">Student's Room</h1>
+
+  <body>
+    <header>
+      <div class="container">
+        <div class="images-logo"></div>
+        <div class="logo" style="text-align: center;">
+          <h1>Student's Room</h1>
         </div>
         <div class="boton">
-          <label for="btn-menu">Menú</label>
+          <label for="btn-menú">Menú</label>
         </div>
-
-        <input type="checkbox" id="btn-menu" />
-
+        <input type="checkbox" id="btn-menú" />
         <nav class="menu">
-          <ul>
-            <button mat-button class="menu-button" routerLink="">
-              <mat-icon>home</mat-icon>
-              <span>Home</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/estudiante">
-              <mat-icon>group</mat-icon>
-              <span>Estudiante</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/paises">
-              <mat-icon>location_city</mat-icon>
-              <span>Pais</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/plans">
-              <mat-icon>payment</mat-icon>
-              <span>Plan</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/tipo">
-              <mat-icon>domain</mat-icon>
-              <span>Tipos de habitación</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/universidad">
-              <mat-icon>school</mat-icon>
-              <span>Universidad</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/mensaje">
-              <mat-icon>message</mat-icon>
-              <span>Mensaje</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/publicacion">
-              <mat-icon>public</mat-icon>
-              <span>Publicación</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/distrito">
-              <mat-icon>flag</mat-icon>
-              <span>Distrito</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/ciudad">
-              <mat-icon>outlined_flag</mat-icon>
-              <span>Ciudad</span>
-            </button>
-          </ul>
-          <ul>
-            <button mat-button class="menu-button" routerLink="/habitacion">
-              <mat-icon>outlined_flag</mat-icon>
-              <span>Habitacion</span>
-            </button>
-          </ul>
+          <a href="#secondsection">Sobre Nosotros</a>
+          <a href="#thirdsection">Características</a>
+          <a href="#fourthsection">Contacto</a>
+          <a href="#planes">Planes</a>
+          <a href="#fifthsection-1">Testimonios</a>
+          <a routerLink="/admin" id="acceder"> Registrarse</a>
         </nav>
       </div>
     </header>
-  </header>
-  <body>
     <section id="firstsection">
       <div class="container">
         <div class="presentation">
@@ -312,5 +250,50 @@
         </div>
       </div>
     </section>
+    <footer>
+      <div class="container">
+        <div class="footer-opciones">
+          <div class="footer-empresa">
+            <h1>Empresa</h1>
+            <a class="link-footer">Quienes somos</a>
+          </div>
+          <div class="footer-servicio">
+            <h1>Servicio</h1>
+            <a class="link-footer">Servicios</a><br />
+            <a class="link-footer">Planes</a>
+          </div>
+          <div class="footer-legal">
+            <h1>Legal</h1>
+            <a class="link-footer">Politica</a><br />
+            <a class="link-footer">Cookies</a><br />
+            <a class="link-footer">Ayuda</a>
+          </div>
+          <div class="footer-instalarapp">
+            <h1>Instalar aplicación</h1>
+            <a class="link-footer">Google Play</a><br />
+            <a class="link-footer">Play Store</a>
+          </div>
+        </div>
+        <div class="redes-sociales">
+          <div><h3>Síguenos en:</h3></div>
+          <div>
+            <nav class="iconos-redes-sociales">
+              <a href="https://www.instagram.com/" target="_blank" class="ig">
+                <div id="ig" class="logo-redes" alt="ig-logo"></div>
+              </a>
+              <a href="https://www.facebook.com/" target="_blank" class="=fb">
+                <div id="face"class="logo-redes" alt="facebook-logo"></div>
+              </a>
+              <a href="https://www.youtube.com/" target="_blank" class="yt">
+                <div id="yt"class="logo-redes" alt="yt-logo"></div>
+              </a>
+              <a href="https://pe.linkedin.com/" target="_blank" class="linke">
+                <div id="li"class="logo-redes" alt="linkedin-logo"></div>
+              </a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

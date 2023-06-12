@@ -29,13 +29,22 @@ import { PublicacionfavoritaComponent } from './component/publicacionfavorita/pu
 import { PublicacionfavoritaInsertarComponent } from './component/publicacionfavorita/publicacionfavorita-insertar/publicacionfavorita-insertar.component';
 import { HabitacionInsertarComponent } from './component/habitacion/habitacion-insertar/habitacion-insertar.component';
 import { HabitacionComponent } from './component/habitacion/habitacion.component';
+import { ToolbarComponent } from './component/toolbar/toolbar.component';
+import { ManagetoolbarComponent } from './component/managetoolbar/managetoolbar.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
+    path:'',
+    component:HomeComponent
   },
   {
+    path:'admin',
+    component:ToolbarComponent
+
+  },
+
+  {
+
     path: 'paises',
     component: PaisComponent,
     children: [

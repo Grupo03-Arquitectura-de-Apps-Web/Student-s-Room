@@ -39,18 +39,14 @@ export class CiudadInsertarComponent {
     });
     this.form=new FormGroup({
       id:new FormControl(),
-      contenido: new FormControl(),
-      fecha_publicacion:new FormControl(),
-      num_reacciones: new FormControl(),
-      num_comentarios: new FormControl(),
-      num_compartidos: new FormControl(),
-      habitacion: new FormControl(),
+      nombre: new FormControl(),
+      pais:new FormControl()
     });
 }
 aceptar():void{
   this.ciudad.id=this.form.value['id'];
   this.ciudad.nombre=this.form.value['nombre'];
-  this.ciudad.pais.id=this.form.value['pais.id'];
+  this.ciudad.pais.id=this.form.value['pais'];
 
   if(!this.form.valid){
     return;

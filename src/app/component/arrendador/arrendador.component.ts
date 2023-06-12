@@ -6,10 +6,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./arrendador.component.css']
 })
 export class ArrendadorComponent implements OnInit {
+
   constructor(public route:ActivatedRoute){
 
   }
   ngOnInit():void{
-
+    document.getElementById("home-tool")!.removeAttribute("hidden");
   }
 }

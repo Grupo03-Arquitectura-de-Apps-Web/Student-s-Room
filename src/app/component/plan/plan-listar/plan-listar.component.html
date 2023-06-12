@@ -1,81 +1,130 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <!-- <link rel="stylesheet" type="text/css" href="STUDENT-S-ROOM/src/styles.css" /> -->
-    <title>Document</title>
-    <style>
-      .centrar{
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-        font-size: 50px;
-      }
-    </style>
+<mat-toolbar style="background-color: #fff; color: #000; margin-bottom: 10px; height: 75px; position: sticky; top:0; z-index: 100;" class="mat-elevation-z6">
+  <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
+    <mat-icon>menu</mat-icon>
+  </button>
 
-  </head>
-  <header class="header">
-    <div class="container-menu">
-      <div class="logo">
-        <h1 routerLink="">Student's Room</h1>
-      </div>
-      <div class="boton">
-        <label for="btn-menu">Menú</label>
-      </div>
+    <a href="https://manuelcs1.github.io/Student-s-Room-/software%20development/index.html#fifthsection-1">
+      <div class="logo"></div>
 
-      <input type="checkbox" id="btn-menu">
+    </a>
 
-      <nav class="menu">
-        <ul>
-          <button mat-button class="menu-button"  routerLink="" >
-            <mat-icon>home</mat-icon>
-            <span>Home</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/estudiante">
-            <mat-icon>group</mat-icon>
-            <span>Estudiante</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/paises">
-            <mat-icon>location_city</mat-icon>
-            <span>Pais</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/plans">
-            <mat-icon>payment</mat-icon>
-            <span>Plan</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/tipo">
-            <mat-icon>domain</mat-icon>
-            <span>Tipos de habitación</span>
-          </button>
-        </ul>
-        <ul>
-          <button mat-button class="menu-button" routerLink="/universidad">
-            <mat-icon>school</mat-icon>
-            <span>Universidad</span>
-          </button>
-        </ul>
-      </nav>
-    </div>
-  </header>
+  <span style="font-size: 40px;">Students Room</span>
+  <span class="toolbar-item-spacer"></span>
+  <button mat-icon-button matTooltip="Like">
+    <mat-icon>favorite</mat-icon>
+  </button>
+  <button mat-icon-button matTooltip="Share">
+    <mat-icon>share</mat-icon>
+  </button>
+  <button mat-icon-button matTooltip="Notifications">
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button
+    mat-icon-button
+    matTooltip="My Account"
+    [matMenuTriggerFor]="userAccountMenu"
+  >
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
+    <button mat-menu-item routerLink="#">
+      <mat-icon>person</mat-icon><span>Mi cuenta</span>
+    </button>
+    <button mat-menu-item routerLink="#">
+      <mat-icon>settings</mat-icon><span>Settings</span>
+    </button>
+    <button mat-menu-item routerLink="#">
+      <mat-icon>help</mat-icon><span>Ayuda</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-menu-item routerLink="#">
+      <mat-icon>exit_to_app</mat-icon>Cerrar sesion
+    </button>
+  </mat-menu>
+</mat-toolbar>
 
-  <body>
+<mat-sidenav-container class="app-container">
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    [opened]="true"
+    [class.mat-elevation-z4]="true"
+    class="app-sidenav"
+  >
+    <mat-nav-list class="nave-list">
+      <mat-list-item routerLink="#" class="items-menu" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
+        true}">
+        <mat-icon> account_circle </mat-icon>
+        <span>Usuario</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/estudiante" class="items-menu" routerLinkActive="is-active">
+        <mat-icon> group </mat-icon>
+        <span>Estudiante</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/arrendador" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> person </mat-icon>
+        <span>Arrendador</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/ciudad" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> location_city </mat-icon>
+        <span>Ciudad</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/contratodealquiler" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> description </mat-icon>
+        <span>Contrato</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/distrito" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> place </mat-icon>
+        <span>Distrito</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/habitacion" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> hotel </mat-icon>
+        <span>Habitación</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/universidad" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> school </mat-icon>
+        <span>Universidad</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/mensaje" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> message </mat-icon>
+        <span>Mensaje</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/paises" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> public </mat-icon>
+        <span>Pais</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/plans" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> payment </mat-icon>
+        <span>Plan</span>
+      </mat-list-item>
+
+      <mat-list-item routerLink="/publicacion" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> post_add </mat-icon>
+        <span>Publicacion</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/publicacionfavorita" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> favorite </mat-icon>
+        <span>Favoritos</span>
+      </mat-list-item>
+      <mat-list-item routerLink="/tipo" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> domain </mat-icon>
+        <span>Tipo</span>
+      </mat-list-item>
+      <br>
+      <br>
+      <mat-list-item routerLink="#" class="items-menu"routerLinkActive="is-active">
+        <mat-icon> exit_to_app </mat-icon>
+        <span>Cerrar sesion</span>
+      </mat-list-item>
+
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
     <div class="container">
       <div style="text-align: center">
         <h1 class="centrar" style="margin-top: 50px;">LISTA DE PLANES</h1>
@@ -160,5 +209,7 @@
       <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons>
       </mat-paginator>
     </div>
-  </body>
-</html>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+

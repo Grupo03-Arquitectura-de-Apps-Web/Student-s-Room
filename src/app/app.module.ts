@@ -29,6 +29,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
+
+
+
+
+import { MatListModule } from '@angular/material/list';
+//import { RouterModule, Routes }   from '@angular/router';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatTooltipModule } from '@angular/material/tooltip';
+
+
 import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/pais-dialogo.component';
 import { PlanComponent } from './component/plan/plan.component';
 import { PlanListarComponent } from './component/plan/plan-listar/plan-listar.component';
@@ -83,6 +93,11 @@ import { HabitacionComponent } from './component/habitacion/habitacion.component
 import { HabitacionInsertarComponent } from './component/habitacion/habitacion-insertar/habitacion-insertar.component';
 import { HabitacionListarComponent } from './component/habitacion/habitacion-listar/habitacion-listar.component';
 import { HabitacionEliminarComponent } from './component/habitacion/habitacion-listar/habitacion-eliminar/habitacion-eliminar.component';
+import { ToolbarComponent } from './component/toolbar/toolbar.component';
+import { ManagetoolbarComponent } from './component/managetoolbar/managetoolbar.component';
+import { NavsComponent } from './component/navs/navs.component';
+import { Toolbar1Component } from './component/Navs/toolbar1/toolbar1.component';
+import { Sidenav1Component } from './component/Navs/sidenav1/sidenav1.component';
 //delete
 
 @NgModule({
@@ -141,6 +156,11 @@ import { HabitacionEliminarComponent } from './component/habitacion/habitacion-l
     HabitacionInsertarComponent,
     HabitacionListarComponent,
     HabitacionEliminarComponent,
+    ToolbarComponent,
+    ManagetoolbarComponent,
+    NavsComponent,
+    Toolbar1Component,
+    Sidenav1Component,
   ],
   imports: [
     BrowserModule,
@@ -165,6 +185,9 @@ import { HabitacionEliminarComponent } from './component/habitacion/habitacion-l
     MatDatepickerModule,
     MatNativeDateModule,
     MatPaginatorModule,
+    MatListModule,
+    MatExpansionModule,
+    MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -9,139 +9,110 @@ th,h1{
 td, button{
   font-family: 'Quicksand', sans-serif;
 }
-
-body{
-  margin-top: 120px;
+.centrar{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 50px;
 }
+
 
 
 th{
  text-align: center;
 }
-
-.header{
-  width: 100%;
-  min-height: 75px;
-  background: white;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  left: 0;
-  box-shadow: 0px 1px 10px rgba(0,0,0,0.4);
+.toolbar-item-spacer {
+  flex: 1 1 auto;
 }
 
-.container-menu{
-  width: 90%;
-  max-width: 1200px;
+.app-container {
+  height: 90%;
+  margin: 0;
+}
+.app-sidenav {
+  width: 230px;
+  display: block;
+}
+.app-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+::ng-deep .mat-expansion-panel-header {
+  padding: 0 16px !important;
+}
+
+::ng-deep .mat-nav-list .mat-icon {
+  margin-right: 10px;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+::ng-deep .mat-expansion-panel-header {
+  height: 48px !important;
+}
+
+::ng-deep .mat-expansion-panel .mat-list-item {
+  padding-left: 15px !important;
+}
+
+::ng-deep .mat-nav-list .is-active {
+  background-color: rgb(204, 204, 204) !important;
+  border-left: 8px solid #ff6c00 !important;
+  width: calc(100% - 8px) !important;
+}
+
+::ng-deep .mat-list-base {
+  padding-top: 0 !important;
+}
+
+::ng-deep .mat-nav-list .mat-list-item.is-active .mat-list-item-content {
+  padding: 0 8px;
+}
+.items-menu{
+  align-items: center;
+}
+/* cuando se abre un link*/
+.nave-list .is-active{
+  border-left: 8px solid #ff6c00 !important;
+
+  &.items-menu span{
+    color: #0b3ad1;
+  }
+}
+.items-menu .mat-icon{
+  margin-left: 15px;
+
+}
+.items-menu span {
+  position: absolute;
+  text-align: center;
+  align-items: center;
+  margin-left: 15px;
+}
+
+
+::ng-deep .mdc-list-item__content {
+  align-items: center;
   margin: auto;
 }
 
 .logo{
-  float: left;
-  line-height: 75px;
-}
-
-.logo h1{
-  color: black;
-  font-weight: 400;
-  font-size: 24px;
-  cursor: default;
-  line-height: 75px;
-}
-
-.menu{
-  float: right;
-  line-height: 75px;
-}
-
-.menu ul{
-  display: inline-block;
-  padding: 10px 15px;
-  line-height: normal;
-  list-style: none;
-}
-
-.menu ul button:hover{
-  color: #0b3ad1;
-  font-weight: bold;
-}
-
-#btn-menu{
-  display: none;
-}
-
-.boton{
-  float: right;
-  display: none;
-}
-
-.boton label{
-color: white;
-background: #0b3ad1;
-padding: 5px;
-font-size: 14px;
-border-radius: 3px;
-cursor: pointer;
-
-}
-@media only screen and (min-width: 320px) and (max-width:768px){
-.header{
+  background-color: white;
+  background-image: url("src/app/images/logo1.png");
+  background-size: 50px;
+  border-radius: 10px;
+  width:60px;
   height: 60px;
-  display: flex;
+  background-repeat: no-repeat;
+  margin: 0.8em;
+  display: inline-block;
 }
-
-.logo, .boton{
-line-height: 30px;
+.logo:hover{
+  cursor: pointer;
 }
-
-.boton{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo h1{
-  font-size: 18px;
-}
-
-.menu{
- position: absolute;
- background: #0b3ad1;
- color: white;
- width: 100%;
- height: 1000px;
- top: 75px;
- left: 0;
- transition: all 500ms ease;
- transform: translateX(-100%);
- overflow-y: scroll; /* agrega desplazamiento vertical si el contenido es demasiado largo */
-
-}
-
-#btn-menu:checked ~ .menu{
-  transform: translateX(0%);
-}
-
-#btn-menu{
-  margin-top: 20px;
-
-}
-
-.menu ul{
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-}
-
-.menu ul button{
-  color: white;
-}
-
-.menu ul button:hover{
-  color: #fff;
-  font-weight: bold;
-}
-}
-
-
-

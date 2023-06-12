@@ -69,7 +69,7 @@ export class ContratodealquilerInsertarComponent {
     this.Contratodealquiler.fecha_vencimiento=this.form.value['fecha_vencimiento'];
     this.Contratodealquiler.monto=this.form.value['monto'];
     this.Contratodealquiler.estudiante.nombre=this.form.value['estudiante.nombre'];
-    this.Contratodealquiler.habitacion.id=this.form.value['habitacion.id'];
+    this.Contratodealquiler.habitacion.id=this.form.value['habitacion'];
 
     if(!this.form.valid){
       return;
