@@ -21,7 +21,7 @@ export class AppComponent   {
     return this.loginService.verificar();
   }
   validarRol(){
-    if(this.role=='ADMIN' || this.role=='USER'){
+    if(this.role=='ADMIN' || this.role=='ESTUDIANTE' || this.role=='ARRENDADOR'){
       return true;
     }else{
       return false;
