@@ -30,12 +30,16 @@ import { PublicacionfavoritaInsertarComponent } from './component/publicacionfav
 import { HabitacionInsertarComponent } from './component/habitacion/habitacion-insertar/habitacion-insertar.component';
 import { HabitacionComponent } from './component/habitacion/habitacion.component';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
-import { ManagetoolbarComponent } from './component/managetoolbar/managetoolbar.component';
+import { LoginComponent } from './component/login/login.component';
 
 const routes: Routes = [
+
   {
-    path:'',
+    path:'home',
     component:HomeComponent
+  },
+  {
+    path: 'login', component: LoginComponent
   },
   {
     path:'admin',

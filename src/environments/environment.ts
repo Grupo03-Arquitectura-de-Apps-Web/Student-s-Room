@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
+  production: false,
   base: 'http://localhost:8081',
 };

@@ -1,16 +1,30 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginService } from './service/login.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {
-  title = 'paiscrud';
-  constructor(public route:ActivatedRoute){
-
+export class AppComponent   {
+  title:string="";
+  role:string="";
+  constructor(private loginService: LoginService) {
   }
-  ngOnInit():void{
 
+  cerrar() {
+    sessionStorage.clear();
+  }
+
+  verificar() {
+    this.role=this.loginService.showRole();
+    return this.loginService.verificar();
+  }
+  validarRol(){
+    if(this.role=='ADMIN' || this.role=='USER'){
+      return true;
+    }else{
+      return false;
+    }
   }
 }
