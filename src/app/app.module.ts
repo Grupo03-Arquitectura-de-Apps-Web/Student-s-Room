@@ -98,6 +98,8 @@ import { ManagetoolbarComponent } from './component/managetoolbar/managetoolbar.
 import { NavsComponent } from './component/navs/navs.component';
 import { Toolbar1Component } from './component/Navs/toolbar1/toolbar1.component';
 import { Sidenav1Component } from './component/Navs/sidenav1/sidenav1.component';
+import {MatCardModule} from '@angular/material/card';
+
 //delete
 
 @NgModule({
@@ -187,7 +189,8 @@ import { Sidenav1Component } from './component/Navs/sidenav1/sidenav1.component'
     MatPaginatorModule,
     MatListModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent],

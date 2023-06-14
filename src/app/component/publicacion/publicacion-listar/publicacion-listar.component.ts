@@ -1,7 +1,7 @@
 import { Component,OnInit,ViewChild  } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
-import { MatPaginator } from '@angular/material/paginator';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Publicacion } from 'src/app/model/publicacion';
 import { PublicacionService } from 'src/app/service/publicacion.service';
 import { PublicacionEliminarComponent } from './publicacion-eliminar/publicacion-eliminar.component';
@@ -14,8 +14,6 @@ import { PublicacionEliminarComponent } from './publicacion-eliminar/publicacion
 export class PublicacionListarComponent implements OnInit {
   dataSource: MatTableDataSource<Publicacion> = new MatTableDataSource();
   lista: Publicacion[] = [];
-  displayedColumns: string[] = ['id', 'contenido', 'fecha_publicacion', 'num_reacciones','num_comentarios','num_compartidos','habitacion','actualizar','eliminar'];
-
   //para el eliminar
   private idMayor: number = 0;
   constructor(private pS: PublicacionService, private dialog: MatDialog) {}
@@ -23,18 +21,22 @@ export class PublicacionListarComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngOnInit(): void {
     this.pS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
+      this.lista = data;
+      this.dataSource = new MatTableDataSource<Publicacion>(this.lista);
       this.dataSource.paginator = this.paginator;
     });
 
     this.pS.getlist().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
+      this.lista = data;
+      this.dataSource = new MatTableDataSource<Publicacion>(this.lista);
       this.dataSource.paginator = this.paginator;
     });
 
-    //agregar para eliminar
+    // agregar para eliminar
     this.pS.getConfirmaEliminacion().subscribe(data => {
-      data == true ? this.eliminar(this.idMayor) : false;
+      if (data) {
+        this.eliminar(this.idMayor);
+      }
     });
   }
 
@@ -55,6 +57,11 @@ export class PublicacionListarComponent implements OnInit {
         this.dataSource.paginator = this.paginator;
       });
     });
+  }
+  onPageChange(event: PageEvent) {
+    const startIndex = event.pageIndex * event.pageSize;
+    const endIndex = startIndex + event.pageSize;
+    this.dataSource.data = this.lista.slice(startIndex, endIndex);
   }
 
 }

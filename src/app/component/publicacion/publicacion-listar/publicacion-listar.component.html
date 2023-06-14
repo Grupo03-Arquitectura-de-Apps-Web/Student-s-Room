@@ -145,87 +145,55 @@
         <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
       </mat-form-field>
 
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container matColumnDef="id"
-          ><th mat-header-cell *matHeaderCellDef>ID</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.id }}
-          </td></ng-container
-        >
-        <ng-container matColumnDef="contenido"
-          ><th mat-header-cell *matHeaderCellDef>CONTENIDO</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.contenido }}
-          </td></ng-container
-        >
-        <ng-container matColumnDef="fecha_publicacion"
-          ><th mat-header-cell *matHeaderCellDef>FECHA DE PUBLICACIÓN</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.fecha_publicacion }}
-          </td></ng-container
-        >
-        <ng-container matColumnDef="num_reacciones"
-          ><th mat-header-cell *matHeaderCellDef>N° REACCIONES</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.num_reacciones }}
-          </td></ng-container
-        >
-        <ng-container matColumnDef="num_comentarios"
-          ><th mat-header-cell *matHeaderCellDef>N° COMENTARIOS</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.num_comentarios }}
-          </td></ng-container
-        >
-        <ng-container matColumnDef="num_compartidos"
-          ><th mat-header-cell *matHeaderCellDef>N° COMPARTIDOS</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.num_compartidos }}
-          </td></ng-container
-        >
-        <ng-container matColumnDef="habitacion"
-          ><th mat-header-cell *matHeaderCellDef>HABITACIÓN</th>
-          <td mat-cell *matCellDef="let element">
-            {{ element.habitacion.id }}
-          </td></ng-container
-        >
 
-        <!---->
-        <ng-container matColumnDef="actualizar">
-          <th mat-header-cell *matHeaderCellDef>ACTUALIZAR</th>
-          <td mat-cell *matCellDef="let element">
-            <button
-              mat-raised-button
-              color="warn"
-              [routerLink]="['edicion', element.id]"
-              style="background-color: #0b3ad1"
-            >
-              <span class="material-icons">edit_note</span>
-            </button>
-          </td>
-        </ng-container>
+      <div class="card-container">
+      <ng-container *ngFor="let element of dataSource.data">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>ID PUBLICACIÓN: {{ element.id }} </mat-card-title>
+          <mat-card-subtitle>Fecha: {{ element.fecha_publicacion }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://i.pinimg.com/736x/0e/b5/fa/0eb5fa5f3d0deb0486559c3c15990805.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+            <p>ID DE HABITACIÓN: {{ element.habitacion.id }}</p>
+            <p>Acerca de este anuncio: {{ element.contenido }} </p>
+           <div class="reacciones">
+            <p style="margin-right: 5px;"><span class="material-icons">add_reaction</span> {{ element.num_reacciones }} </p>
+            <p style="margin-right: 5px;"><span class="material-icons">comment</span> {{ element.num_comentarios }} </p>
+            <p><span class="material-icons">share</span> {{ element.num_compartidos }}</p>
+          </div>
 
-        <ng-container matColumnDef="eliminar">
-          <th mat-header-cell *matHeaderCellDef>ELIMINAR</th>
-          <td mat-cell *matCellDef="let element">
-            <button
-              mat-raised-button
-              color="accent"
-              (click)="confirmar(element.id)"
-              style="background-color: #ff6c00"
-              class="eliminar"
-            >
-              <span class="material-icons">delete</span>
-            </button>
-          </td>
-        </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
+        </mat-card-content>
+        <mat-card-actions class="botones-card">
+          <button
+          mat-raised-button
+          color="warn"
+          [routerLink]="['edicion', element.id]"
+          style="background-color: #0b3ad1; margin-right: 15px;"
+        >
+          <span class="material-icons">edit_note</span>
+        </button>
+          <button
+                  mat-raised-button
+                  color="accent"
+                  (click)="confirmar(element.id)"
+                  style="background-color: #ff6c00"
+                  class="eliminar"
+                >
+                  <span class="material-icons">delete</span>
+                </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </div>
 
       <br>
-      <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons>
+      <mat-paginator [pageSizeOptions]="[2, 5,10]" showFirstLastButtons (page)="onPageChange($event)"
+      [length]="dataSource.data.length" [pageSize]="2">
       </mat-paginator>
+
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

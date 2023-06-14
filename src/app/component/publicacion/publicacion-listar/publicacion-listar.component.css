@@ -1,3 +1,50 @@
+.example-card {
+  max-width: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.reacciones{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra horizontalmente */
+}
+
+.example-card img {
+  width: 100%; /* Establece el ancho al 100% del contenedor */
+  height: auto; /* Mantiene la proporción de aspecto original */
+  max-height: 200px; /* Establece una altura máxima para limitar el tamaño de la imagen */
+}
+
+.botones-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+
+}
+
+.example-header-image {
+  background-image: url('https://i.pinimg.com/736x/0e/b5/fa/0eb5fa5f3d0deb0486559c3c15990805.jpg');
+  background-size: cover;
+}
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+
+}
+
+.example-card {
+  width: calc(50% - 10px); /* Ancho del card, ajusta según tus necesidades */
+  margin: 5px;
+}
+
+
+
 th,h1{
   font-family: 'Montserrat', sans-serif;
 }
