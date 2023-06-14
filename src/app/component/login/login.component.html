@@ -21,22 +21,21 @@
         <input type="password" matInput  placeholder="Password" [(ngModel)]="password">
       </div>
       <div class="button-container">
-        <a href="#" >
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          Submit
-        </a>
-        <a  routerLink="/home" >
+        <a  routerLink="/" >
           <span></span>
           <span></span>
           <span></span>
           <span></span>
           Back
         </a>
+        <a (click)="login()"  >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
       </div>
-
     </form>
   </div>
 </body>
