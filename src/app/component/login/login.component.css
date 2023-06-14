@@ -5,7 +5,7 @@ body {
   margin:0;
   padding:0;
   font-family: sans-serif;
-  background: linear-gradient(#152784, #e16e10);
+  background: linear-gradient(#30142b, #a12727);
 }
 
 .login-box {
@@ -65,7 +65,7 @@ body {
 .login-box form a {
   position: relative;
   display: inline-block;
-  padding: 10px 20px;
+  padding: 10px 30px;
   color: #b79726;
   font-size: 16px;
   text-decoration: none;
@@ -73,9 +73,19 @@ body {
   overflow: hidden;
   transition: .5s;
   margin-top: 40px;
-  letter-spacing: 4px
+  letter-spacing: 4px;
+  justify-content: space-between;
 }
 
+.button-container {
+  display: flex;
+  justify-content: space-between; /* esto establece una distancia justa entre los elementos */
+  align-items: center; /* esto centra verticalmente los elementos */
+}
+
+.button-container a {
+  display: inline-block; /* esto asegura que los elementos a sean tratados como elementos en línea y no se formatee en la nueva línea */
+}
 .login-box a:hover {
   background: #f49803;
   color: #fff;
@@ -152,7 +162,7 @@ body {
   left: 0;
   width: 2px;
   height: 100%;
-  background: linear-gradient(360deg, transparent, #b15d18);
+  background: linear-gradient(360deg, transparent, #f4b003);
   animation: btn-anim4 1s linear infinite;
   animation-delay: .75s
 }

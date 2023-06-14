@@ -12,6 +12,7 @@
     <h2>Login</h2>
     <form>
       <div class="user-box">
+
         <label>Username</label>
         <input matInput  placeholder="Username" [(ngModel)]="username">
       </div>
@@ -19,20 +20,23 @@
         <label>Password</label>
         <input type="password" matInput  placeholder="Password" [(ngModel)]="password">
       </div>
-      <a href="#" class="submit" style="padding-right: 50px;" mat-raised-button color="warn" (click)="login()">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Submit
-      </a>
-      <a routerLink="/home" style="padding-left: 80px;">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        Back
-      </a>
+      <div class="button-container">
+        <a href="#" >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+        <a  routerLink="/home" >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Back
+        </a>
+      </div>
+
     </form>
   </div>
 </body>
