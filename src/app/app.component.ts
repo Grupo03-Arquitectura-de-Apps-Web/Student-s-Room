@@ -9,22 +9,5 @@ import { LoginService } from './service/login.service';
 export class AppComponent   {
   title:string="";
   role:string="";
-  constructor(private loginService: LoginService) {
-  }
 
-  cerrar() {
-    sessionStorage.clear();
-  }
-
-  verificar() {
-    this.role=this.loginService.showRole();
-    return this.loginService.verificar();
-  }
-  validarRol(){
-    if(this.role=='ADMIN' || this.role=='ESTUDIANTE' || this.role=='ARRENDADOR'){
-      return true;
-    }else{
-      return false;
-    }
-  }
 }

@@ -33,7 +33,6 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { LoginComponent } from './component/login/login.component';
 
 const routes: Routes = [
-
   {
     path:'',
     component:HomeComponent
