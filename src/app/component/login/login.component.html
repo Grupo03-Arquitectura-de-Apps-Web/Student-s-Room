@@ -12,13 +12,12 @@
     <h2>Login</h2>
     <form>
       <div class="user-box">
-
+        <input type="text"  required="" matInput [(ngModel)]="username">
         <label>Username</label>
-        <input matInput  placeholder="Username" [(ngModel)]="username">
       </div>
       <div class="user-box">
+        <input type="password" required="" matInput  [(ngModel)]="password">
         <label>Password</label>
-        <input type="password" matInput  placeholder="Password" [(ngModel)]="password">
       </div>
       <div class="button-container">
         <a  routerLink="/" >
@@ -28,7 +27,7 @@
           <span></span>
           Back
         </a>
-        <a (click)="login()"  >
+        <a  (click)="login()"  >
           <span></span>
           <span></span>
           <span></span>
