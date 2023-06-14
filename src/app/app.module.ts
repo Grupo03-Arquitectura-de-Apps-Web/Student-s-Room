@@ -100,6 +100,7 @@ import { Toolbar1Component } from './component/Navs/toolbar1/toolbar1.component'
 import { Sidenav1Component } from './component/Navs/sidenav1/sidenav1.component';
 import {MatCardModule} from '@angular/material/card';
 
+import { LoginComponent } from './component/login/login.component';
 //delete
 
 @NgModule({
@@ -163,6 +164,7 @@ import {MatCardModule} from '@angular/material/card';
     NavsComponent,
     Toolbar1Component,
     Sidenav1Component,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
