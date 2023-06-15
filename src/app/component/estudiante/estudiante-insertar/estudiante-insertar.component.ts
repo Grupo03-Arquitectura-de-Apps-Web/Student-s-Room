@@ -88,7 +88,6 @@ export class EstudianteInsertarComponent {
 
   }
 
-  //Se agregar para el actualizar
   init() {
     if (this.edicion) {
       this.pS.listId(this.id).subscribe((data) => {
@@ -99,6 +98,7 @@ export class EstudianteInsertarComponent {
           fecha_nacimiento: new FormControl(data.fecha_nacimiento),
           telefono: new FormControl(data.telefono),
         });
+        console.log(data);
       });
     }
   }

@@ -5,6 +5,7 @@ import { estudiante } from 'src/app/model/estudiante';
 import { EstudianteEliminarComponent } from '../estudiante-eliminar/estudiante-eliminar.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-estudiante-listar',
@@ -12,15 +13,17 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./estudiante-listar.component.css']
 })
 export class EstudianteListarComponent implements OnInit {
-
+  role:string="";
   dataSource: MatTableDataSource<estudiante> = new MatTableDataSource();
   lista: estudiante[] = [];
   displayedColumns: string[] = ['numero', 'Nombre', 'Correo Institucional', 'Fecha de Nacimiento','Telefono','ceditar','celiminar',];
-
-  //para el eliminar
   private idMayor: number = 0;
 
+
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -37,7 +40,7 @@ export class EstudianteListarComponent implements OnInit {
     });
   }
 
-  constructor(private pS: EstudianteService, private dialog: MatDialog) {}
+  constructor(private pS: EstudianteService, private dialog: MatDialog, private ls:LoginService) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
