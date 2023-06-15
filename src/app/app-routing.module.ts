@@ -32,6 +32,8 @@ import { HabitacionComponent } from './component/habitacion/habitacion.component
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { LoginComponent } from './component/login/login.component';
 
+import { GuardService } from './service/guard.service';
+
 const routes: Routes = [
   {
     path:'',
@@ -59,7 +61,7 @@ const routes: Routes = [
         path: 'edicion/:id',
         component: PaisInsertarComponent,
       },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'plans',
@@ -73,7 +75,7 @@ const routes: Routes = [
         path: 'edicion/:id',
         component: PlanInsertarComponent,
       },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'tipo',
@@ -81,7 +83,7 @@ const routes: Routes = [
     children: [
       { path: 'tipoinsertar', component: TipoInsertarComponent },
       { path: 'edicion/:id', component: TipoInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'estudiante',
@@ -89,7 +91,7 @@ const routes: Routes = [
     children: [
       { path: 'estudianteinsertar', component: EstudianteInsertarComponent },
       { path: 'edicion/:id', component: EstudianteInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
 
   {
@@ -98,7 +100,7 @@ const routes: Routes = [
     children: [
       { path: 'universidadinsertar', component: UniversidadInsertarComponent },
       { path: 'edicion/:id', component: UniversidadInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'contratodealquiler',
@@ -109,7 +111,7 @@ const routes: Routes = [
         component: ContratodealquilerInsertarComponent,
       },
       { path: 'edicion/:id', component: ContratodealquilerInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
 
   {
@@ -118,7 +120,7 @@ const routes: Routes = [
     children: [
       { path: 'mensajesinsertar', component: MensajeInsertarComponent },
       { path: 'edicion/:id', component: MensajeInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'publicacion',
@@ -126,7 +128,7 @@ const routes: Routes = [
     children: [
       { path: 'publicacioninsertar', component: PublicacionInsertarComponent },
       { path: 'edicion/:id', component: PublicacionInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'distrito',
@@ -134,7 +136,7 @@ const routes: Routes = [
     children: [
       { path: 'distritoinsertar', component: DistritoInsertarComponent },
       { path: 'edicion/:id', component: DistritoInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'ciudad',
@@ -142,7 +144,7 @@ const routes: Routes = [
     children: [
       { path: 'ciudadinsertar', component: CiudadInsertarComponent },
       { path: 'edicion/:id', component: CiudadInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'habitacion',
@@ -150,7 +152,7 @@ const routes: Routes = [
     children: [
       { path: 'habitacioninsertar', component: HabitacionInsertarComponent },
       { path: 'edicion/:id', component: HabitacionInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'arrendador',
@@ -158,7 +160,7 @@ const routes: Routes = [
     children: [
       { path: 'arrendadorinsertar', component: ArrendadorInsetarComponent },
       { path: 'edicion/:id', component: ArrendadorInsetarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
   {
     path: 'publicacionfavorita',
@@ -169,7 +171,7 @@ const routes: Routes = [
         component: PublicacionfavoritaInsertarComponent,
       },
       { path: 'edicion/:id', component: PublicacionfavoritaInsertarComponent },
-    ],
+    ],canActivate:[GuardService]
   },
 ];
 
