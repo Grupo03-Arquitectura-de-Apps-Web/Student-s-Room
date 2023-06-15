@@ -1,10 +1,11 @@
 import { UniversidadService } from './../../../service/universidad.service';
 import { Universidad } from 'src/app/model/universidad';
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { UniversidadDialogoComponent } from './universidad-dialogo/universidad-dialogo.component';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-universidad-listar',
@@ -12,6 +13,7 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./universidad-listar.component.css'],
 })
 export class UniversidadListarComponent implements OnInit {
+  role: string = '';
   dataSource: MatTableDataSource<Universidad> = new MatTableDataSource();
   lista: Universidad[] = [];
   displayedColumns: string[] = [
@@ -20,13 +22,19 @@ export class UniversidadListarComponent implements OnInit {
     'Sede',
     'Ubicacion',
     'ceditar',
-    'celiminar'
+    'celiminar',
   ];
   private idMayor: number = 0;
 
-  constructor(private pS: UniversidadService, private dialog: MatDialog) {}
+  constructor(
+    private pS: UniversidadService,
+    private dialog: MatDialog,
+    private ls: LoginService
+  ) {}
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngOnInit(): void {
+    this.role = this.ls.showRole();
+    console.log(this.role);
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -48,7 +56,7 @@ export class UniversidadListarComponent implements OnInit {
   }
   eliminar(id: number) {
     this.pS.eliminar(id).subscribe(() => {
-      this.pS.list().subscribe(data => {
+      this.pS.list().subscribe((data) => {
         this.pS.setList(data);
         this.dataSource.paginator = this.paginator;
       });
