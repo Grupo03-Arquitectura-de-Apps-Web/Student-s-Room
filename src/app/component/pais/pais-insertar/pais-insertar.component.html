@@ -127,7 +127,7 @@
   <mat-sidenav-content>
     <div class="container" style="text-align: center">
 
-      <h1 class="centrar" style="margin-top: 50px">REGISTRAR PAIS</h1>
+      <h1 class="centrar" id="titulo" style="margin-top: 50px">REGISTRAR PAIS</h1>
 
     <form [formGroup]="form" (submit)="aceptar()">
       <!--componente para input para el id-->
@@ -169,7 +169,7 @@
 
       <br />
       <!--Botones para enviar o cancelar-->
-      <button mat-raised-button color="primary" style="margin-right: 70px">
+      <button mat-raised-button color="primary" id="btn-save" style="margin-right: 70px">
         Guardar<span class="material-icons">save</span>
       </button>
       <button

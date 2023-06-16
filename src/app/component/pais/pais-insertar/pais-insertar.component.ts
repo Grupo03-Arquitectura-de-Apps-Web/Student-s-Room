@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild,ElementRef } from '@angular/core';
 
 //agregamos
 import { FormGroup, FormControl } from '@angular/forms';
@@ -25,7 +25,7 @@ export class PaisInsertarComponent implements OnInit {
   pais: Pais = new Pais(); //importamos la entidad Pais
   mensaje: string = '';
   maxFecha: Date = moment().add(-1, 'days').toDate(); //importamos del moment
-
+  paisIn:Pais =new Pais();
   //Agregamos el constructor
   //importamos pais service
   //importamos router angular
@@ -35,7 +35,7 @@ export class PaisInsertarComponent implements OnInit {
     //update part
     private route: ActivatedRoute //
   ) {}
-
+  titulo!:any;
   //agregamos el ngOnInit
   ngOnInit(): void {
     //update part
@@ -47,7 +47,10 @@ export class PaisInsertarComponent implements OnInit {
       this.init();
     });
     //
-
+    this.titulo=document.getElementById("titulo");
+    this.titulo.textContent= "INSERTAR PAIS";
+    document.getElementById("btn-save")!.innerHTML='<span class="material-icons">save</span>'+'Guardar';
+    console.log(this.titulo);
     this.form = new FormGroup({
       id: new FormControl(), //importamos FormControl
       nombrePais: new FormControl(),
@@ -57,7 +60,7 @@ export class PaisInsertarComponent implements OnInit {
   }
   //agregamos el aceptar
   aceptar(): void {
-    this.pais.id = this.form.value['id']; //ispais es lo que va tener como nombre el componente del formulario en el html
+    this.pais.idPais = this.form.value['id']; //ispais es lo que va tener como nombre el componente del formulario en el html
     this.pais.nombrePais = this.form.value['nombrePais'];
     this.pais.capitalPais = this.form.value['capitalPais'];
     this.pais.monedaPais = this.form.value['monedaPais'];
@@ -72,6 +75,7 @@ export class PaisInsertarComponent implements OnInit {
 
       //update part
       //agregamos una condicional para verificar si se va insertar o editar
+      console.log(this.edicion);
       if (this.edicion) {
         //guardar actualizado
         this.paisSer.update(this.pais).subscribe(() => {
@@ -98,7 +102,10 @@ export class PaisInsertarComponent implements OnInit {
   //update part
   init() {
     if (this.edicion) {
+
       this.paisSer.listId(this.id).subscribe((data:any) => {
+        this.titulo.textContent= "ACTUALIZAR PAIS";
+        document.getElementById("btn-save")!.innerHTML='<span class="material-icons">save</span>'+'Actualizar';
         console.log(data);
 
         this.form = new FormGroup({

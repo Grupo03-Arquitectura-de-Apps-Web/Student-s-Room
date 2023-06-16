@@ -9,12 +9,14 @@ import { MatTableDataSource } from '@angular/material/table';
 import { PaisDialogoComponent } from './pais-dialogo/pais-dialogo.component';
 
 import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
 @Component({
   selector: 'app-pais-listar',
   templateUrl: './pais-listar.component.html',
   styleUrls: ['./pais-listar.component.css'],
 })
 export class PaisListarComponent implements OnInit {
+  role:string="";
   dataSource: MatTableDataSource<Pais> = new MatTableDataSource();
   lista: Pais[] = [];
   //colocar que atributos tiene la clase Pais para que se muestre
@@ -31,10 +33,11 @@ export class PaisListarComponent implements OnInit {
     'ceditar',
     'celiminar'
   ];
-  constructor(private paisS: PaisService, private dialog: MatDialog) {}
+  constructor(private paisS: PaisService, private dialog: MatDialog, private ls:LoginService) {}
 
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
     this.paisS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

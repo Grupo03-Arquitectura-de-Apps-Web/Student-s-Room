@@ -46,7 +46,7 @@ export class CiudadInsertarComponent {
 aceptar():void{
   this.ciudad.id=this.form.value['id'];
   this.ciudad.nombre=this.form.value['nombre'];
-  this.ciudad.pais.id=this.form.value['pais'];
+  this.ciudad.pais.idPais=this.form.value['pais'];
 
   if(!this.form.valid){
     return;
@@ -64,7 +64,7 @@ aceptar():void{
     } else {
 
       let p =new Pais();
-      p.id=this.idPaisSeleccionado;
+      p.idPais=this.idPaisSeleccionado;
       this.ciudad.pais=p;
 
       this.pS.insertar(this.ciudad).subscribe((data) => {

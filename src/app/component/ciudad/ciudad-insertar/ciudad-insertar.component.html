@@ -146,8 +146,8 @@
         <mat-form-field appearance="fill">
           <mat-label>PAIS</mat-label>
           <mat-select formControlName="pais" [(value)]="idPaisSeleccionado" required>
-            <mat-option *ngFor="let p of lista_p" [value]="p.id">
-              {{p.id}}
+            <mat-option *ngFor="let p of lista_p" [value]="p.idPais">
+              {{p.idPais}}
           </mat-option>
           </mat-select>
         </mat-form-field>
