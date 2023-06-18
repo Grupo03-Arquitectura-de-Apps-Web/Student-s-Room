@@ -1,6 +1,6 @@
 export class Plan {
-  id: number = 0;
+  idPlan: number = 0;
   nombre_plan: string = "";
-  precio: string = "";
+  precio: number = 0;
   descripcion: string = "";
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Plan } from '../model/plan';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 const base_url = environment.base;
@@ -18,11 +18,17 @@ export class PlanService {
 
 
   list() {
-    return this.http.get<Plan[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Plan[]>(this.url,
+     { headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   insert(plan: Plan) {
-    return this.http.post(this.url, plan);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, plan,
+      { headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   getList() {
     return this.listaCambio.asObservable();
@@ -33,16 +39,21 @@ export class PlanService {
 
   //
   listId(id:number){
-    return this.http.get<Plan>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Plan>(`${this.url}/${id}`,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
 
   update(p:Plan){
-    return this.http.put(this.url + '/' + p.id,p);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,p,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   //
   eliminar(id: number) {
-
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   getConfirmaEliminacion() {
     return this.confirmaEliminacion.asObservable();

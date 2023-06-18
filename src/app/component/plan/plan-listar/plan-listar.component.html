@@ -6,7 +6,7 @@
     <button
       mat-raised-button
       color="warn"
-      routerLink="/plans/plansinsertar"
+      routerLink="/pages/plans/plansinsertar"
       style="background-color: #0b3ad1"
     >
       Nuevo
@@ -22,7 +22,7 @@
     <ng-container matColumnDef="numero"
       ><th mat-header-cell *matHeaderCellDef>ID</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.id }}
+        {{ element.idPlan }}
       </td></ng-container
     >
     <ng-container matColumnDef="nombre"
@@ -51,7 +51,7 @@
         <button
           mat-raised-button
           color="warn"
-          [routerLink]="['edicion', element.id]"
+          [routerLink]="['edicion', element.idPlan]"
           style="background-color: #0b3ad1"
         >
           <span class="material-icons">edit_note</span>
@@ -65,7 +65,7 @@
         <button
           mat-raised-button
           color="accent"
-          (click)="confirmar(element.id)"
+          (click)="confirmar(element.idPlan)"
           style="background-color: #ff6c00"
           class="eliminar"
         >

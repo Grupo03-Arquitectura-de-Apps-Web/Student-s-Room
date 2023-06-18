@@ -38,7 +38,7 @@ ngOnInit(): void {
 }
 
 aceptar(): void {
-  this.plan.id = this.form.value['id'];
+  this.plan.idPlan = this.form.value['id'];
   this.plan.nombre_plan = this.form.value['nombre_plan'];
   this.plan.precio = this.form.value['precio'];
   this.plan.descripcion = this.form.value['descripcion'];
@@ -63,7 +63,7 @@ aceptar(): void {
       });
     }
 
-    this.router.navigate(['plans']);
+    this.router.navigate(['pages/plans']);
   } else {
     this.mensaje = 'Complete todos los campos!!';
   }
@@ -74,7 +74,7 @@ init() {
   if (this.edicion) {
     this.pS.listId(this.id).subscribe((data) => {
       this.form = new FormGroup({
-        id: new FormControl(data.id),
+        id: new FormControl(data.idPlan),
         nombre_plan: new FormControl(data.nombre_plan),
         precio: new FormControl(data.precio),
         descripcion: new FormControl(data.descripcion),

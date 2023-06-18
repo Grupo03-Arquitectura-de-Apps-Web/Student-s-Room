@@ -70,7 +70,7 @@ export class ArrendadorInsetarComponent implements OnInit {
   }
   selectionChange(ev:any){
     console.log(ev);
-    this.plan = this.lista_p.find((e)=>ev.idPlan===e.id)!;
+    this.plan = this.lista_p.find((e)=>ev.idPlan===e.idPlan)!;
   }
   //agregamos el aceptar
   aceptar(): void {
@@ -91,7 +91,7 @@ export class ArrendadorInsetarComponent implements OnInit {
       console.log(this.idPlanSeleccionado);
       console.log(this.plan);
       this.plan = new Plan();
-      this.plan.id = this.idPlanSeleccionado;
+      this.plan.idPlan = this.idPlanSeleccionado;
 
       this.Arrendador.plan= this.plan;
       //update part
