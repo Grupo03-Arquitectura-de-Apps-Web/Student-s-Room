@@ -59,7 +59,7 @@ export class UniversidadInsertarComponent implements OnInit{
         });
 
         }
-          this.router.navigate(['universidad'])
+          this.router.navigate(['pages/universidad'])
       }else{this.mensaje='Ingrese el nombre de la universidad:'}
     }
     init(){

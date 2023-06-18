@@ -33,6 +33,8 @@ import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { LoginComponent } from './component/login/login.component';
 
 import { GuardService } from './service/guard.service';
+import { MainNavComponent } from './component/navs/main-nav/main-nav.component';
+import { UsuarioComponent } from './component/usuario/usuario.component';
 
 const routes: Routes = [
   {
@@ -43,136 +45,146 @@ const routes: Routes = [
     path: 'login', component: LoginComponent
   },
   {
-    path:'admin',
-    component:ToolbarComponent
+    path:'pages',
+    component:MainNavComponent,
+    children:[
+      {
+
+        path: 'paises',
+        component: PaisComponent,
+        children: [
+          {
+            path: 'paisesinsertar',
+            component: PaisInsertarComponent,
+          },
+          {
+            path: 'edicion/:id',
+            component: PaisInsertarComponent,
+          },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'plans',
+        component: PlanComponent,
+        children: [
+          {
+            path: 'plansinsertar',
+            component: PlanInsertarComponent,
+          },
+          {
+            path: 'edicion/:id',
+            component: PlanInsertarComponent,
+          },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'tipo',
+        component: TipoComponent,
+        children: [
+          { path: 'tipoinsertar', component: TipoInsertarComponent },
+          { path: 'edicion/:id', component: TipoInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'estudiante',
+        component: EstudianteComponent,
+        children: [
+          { path: 'estudianteinsertar', component: EstudianteInsertarComponent },
+          { path: 'edicion/:id', component: EstudianteInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+
+      {
+        path: 'universidad',
+        component: UniversidadComponent,
+        children: [
+          { path: 'universidadinsertar', component: UniversidadInsertarComponent },
+          { path: 'edicion/:id', component: UniversidadInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'contratodealquiler',
+        component: ContratodealquilerComponent,
+        children: [
+          {
+            path: 'contratodealquilerinsertar',
+            component: ContratodealquilerInsertarComponent,
+          },
+          { path: 'edicion/:id', component: ContratodealquilerInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+
+      {
+        path: 'mensaje',
+        component: MensajeComponent,
+        children: [
+          { path: 'mensajesinsertar', component: MensajeInsertarComponent },
+          { path: 'edicion/:id', component: MensajeInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'publicacion',
+        component: PublicacionComponent,
+        children: [
+          { path: 'publicacioninsertar', component: PublicacionInsertarComponent },
+          { path: 'edicion/:id', component: PublicacionInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'distrito',
+        component: DistritoComponent,
+        children: [
+          { path: 'distritoinsertar', component: DistritoInsertarComponent },
+          { path: 'edicion/:id', component: DistritoInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'ciudad',
+        component: CiudadComponent,
+        children: [
+          { path: 'ciudadinsertar', component: CiudadInsertarComponent },
+          { path: 'edicion/:id', component: CiudadInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'habitacion',
+        component: HabitacionComponent,
+        children: [
+          { path: 'habitacioninsertar', component: HabitacionInsertarComponent },
+          { path: 'edicion/:id', component: HabitacionInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'arrendador',
+        component: ArrendadorComponent,
+        children: [
+          { path: 'arrendadorinsertar', component: ArrendadorInsetarComponent },
+          { path: 'edicion/:id', component: ArrendadorInsetarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'publicacionfavorita',
+        component: PublicacionfavoritaComponent,
+        children: [
+          {
+            path: 'publicacionfavoritainsertar',
+            component: PublicacionfavoritaInsertarComponent,
+          },
+          { path: 'edicion/:id', component: PublicacionfavoritaInsertarComponent },
+        ],canActivate:[GuardService]
+      },
+      {
+        path: 'usuario',
+        component: UsuarioComponent
+        ,canActivate:[GuardService]
+      },
+    ],
+    canActivate:[GuardService]
 
   },
 
-  {
 
-    path: 'paises',
-    component: PaisComponent,
-    children: [
-      {
-        path: 'paisesinsertar',
-        component: PaisInsertarComponent,
-      },
-      {
-        path: 'edicion/:id',
-        component: PaisInsertarComponent,
-      },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'plans',
-    component: PlanComponent,
-    children: [
-      {
-        path: 'plansinsertar',
-        component: PlanInsertarComponent,
-      },
-      {
-        path: 'edicion/:id',
-        component: PlanInsertarComponent,
-      },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'tipo',
-    component: TipoComponent,
-    children: [
-      { path: 'tipoinsertar', component: TipoInsertarComponent },
-      { path: 'edicion/:id', component: TipoInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'estudiante',
-    component: EstudianteComponent,
-    children: [
-      { path: 'estudianteinsertar', component: EstudianteInsertarComponent },
-      { path: 'edicion/:id', component: EstudianteInsertarComponent },
-    ],canActivate:[GuardService]
-  },
 
-  {
-    path: 'universidad',
-    component: UniversidadComponent,
-    children: [
-      { path: 'universidadinsertar', component: UniversidadInsertarComponent },
-      { path: 'edicion/:id', component: UniversidadInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'contratodealquiler',
-    component: ContratodealquilerComponent,
-    children: [
-      {
-        path: 'contratodealquilerinsertar',
-        component: ContratodealquilerInsertarComponent,
-      },
-      { path: 'edicion/:id', component: ContratodealquilerInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-
-  {
-    path: 'mensaje',
-    component: MensajeComponent,
-    children: [
-      { path: 'mensajesinsertar', component: MensajeInsertarComponent },
-      { path: 'edicion/:id', component: MensajeInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'publicacion',
-    component: PublicacionComponent,
-    children: [
-      { path: 'publicacioninsertar', component: PublicacionInsertarComponent },
-      { path: 'edicion/:id', component: PublicacionInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'distrito',
-    component: DistritoComponent,
-    children: [
-      { path: 'distritoinsertar', component: DistritoInsertarComponent },
-      { path: 'edicion/:id', component: DistritoInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'ciudad',
-    component: CiudadComponent,
-    children: [
-      { path: 'ciudadinsertar', component: CiudadInsertarComponent },
-      { path: 'edicion/:id', component: CiudadInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'habitacion',
-    component: HabitacionComponent,
-    children: [
-      { path: 'habitacioninsertar', component: HabitacionInsertarComponent },
-      { path: 'edicion/:id', component: HabitacionInsertarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'arrendador',
-    component: ArrendadorComponent,
-    children: [
-      { path: 'arrendadorinsertar', component: ArrendadorInsetarComponent },
-      { path: 'edicion/:id', component: ArrendadorInsetarComponent },
-    ],canActivate:[GuardService]
-  },
-  {
-    path: 'publicacionfavorita',
-    component: PublicacionfavoritaComponent,
-    children: [
-      {
-        path: 'publicacionfavoritainsertar',
-        component: PublicacionfavoritaInsertarComponent,
-      },
-      { path: 'edicion/:id', component: PublicacionfavoritaInsertarComponent },
-    ],canActivate:[GuardService]
-  },
 ];
 
 @NgModule({

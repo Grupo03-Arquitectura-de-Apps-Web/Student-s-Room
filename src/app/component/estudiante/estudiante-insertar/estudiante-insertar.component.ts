@@ -80,7 +80,7 @@ export class EstudianteInsertarComponent {
         });
       }
 
-      this.router.navigate(['estudiante']);
+      this.router.navigate(['pages/estudiante']);
     } else {
       this.mensaje = 'Ingrese el nombre del Estudiante!!';
     }

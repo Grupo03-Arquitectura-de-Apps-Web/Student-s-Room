@@ -96,11 +96,15 @@ import { HabitacionEliminarComponent } from './component/habitacion/habitacion-l
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { ManagetoolbarComponent } from './component/managetoolbar/managetoolbar.component';
 import { NavsComponent } from './component/navs/navs.component';
-import { Toolbar1Component } from './component/Navs/toolbar1/toolbar1.component';
-import { Sidenav1Component } from './component/Navs/sidenav1/sidenav1.component';
+
 import {MatCardModule} from '@angular/material/card';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { LoginComponent } from './component/login/login.component';
+import { SidebarComponent } from './component/navs/sidebar/sidebar.component';
+import { SideNavbarComponent } from './component/navs/side-navbar/side-navbar.component';
+import { MainNavComponent } from './component/navs/main-nav/main-nav.component';
+import { UsuarioComponent } from './component/usuario/usuario.component';
 //delete
 
 @NgModule({
@@ -162,9 +166,11 @@ import { LoginComponent } from './component/login/login.component';
     ToolbarComponent,
     ManagetoolbarComponent,
     NavsComponent,
-    Toolbar1Component,
-    Sidenav1Component,
     LoginComponent,
+    SidebarComponent,
+    SideNavbarComponent,
+    MainNavComponent,
+    UsuarioComponent,
   ],
   imports: [
     BrowserModule,
@@ -192,7 +198,8 @@ import { LoginComponent } from './component/login/login.component';
     MatListModule,
     MatExpansionModule,
     MatTooltipModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent],

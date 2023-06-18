@@ -1,201 +1,70 @@
-<mat-toolbar style="background-color: #fff; color: #000; margin-bottom: 10px; height: 75px; position: sticky; top:0; z-index: 100;" class="mat-elevation-z6">
-  <button mat-icon-button (click)="sidenav.toggle()" matTooltip="Menu">
-    <mat-icon>menu</mat-icon>
-  </button>
-
-    <a href="https://manuelcs1.github.io/Student-s-Room-/software%20development/index.html#fifthsection-1">
-      <div class="logo"></div>
-
-    </a>
-
-  <span style="font-size: 40px;">Students Room</span>
-  <span class="toolbar-item-spacer"></span>
-  <button mat-icon-button matTooltip="Like">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button matTooltip="Share">
-    <mat-icon>share</mat-icon>
-  </button>
-  <button mat-icon-button matTooltip="Notifications">
-    <mat-icon>notifications</mat-icon>
-  </button>
-  <button
-    mat-icon-button
-    matTooltip="My Account"
-    [matMenuTriggerFor]="userAccountMenu"
-  >
-    <mat-icon>account_circle</mat-icon>
-  </button>
-  <mat-menu #userAccountMenu [overlapTrigger]="false" yPosition="below">
-    <button mat-menu-item routerLink="#">
-      <mat-icon>person</mat-icon><span>Mi cuenta</span>
+<div class="container">
+  <div style="text-align: center">
+    <h1 class="centrar" style="margin-top: 50px;">LISTA DE PUBLICACIONES</h1>
+  </div>
+  <div style="text-align: right">
+    <button
+      mat-raised-button
+      color="warn"
+      routerLink="/publicacion/publicacioninsertar"
+      style="background-color: #0b3ad1"
+    >
+      Nuevo
     </button>
-    <button mat-menu-item routerLink="#">
-      <mat-icon>settings</mat-icon><span>Settings</span>
-    </button>
-    <button mat-menu-item routerLink="#">
-      <mat-icon>help</mat-icon><span>Ayuda</span>
-    </button>
-    <mat-divider></mat-divider>
-    <button mat-menu-item routerLink="#">
-      <mat-icon>exit_to_app</mat-icon>Cerrar sesion
-    </button>
-  </mat-menu>
-</mat-toolbar>
-
-<mat-sidenav-container class="app-container">
-  <mat-sidenav
-    #sidenav
-    mode="side"
-    [opened]="true"
-    [class.mat-elevation-z4]="true"
-    class="app-sidenav"
-  >
-    <mat-nav-list class="nave-list">
-      <mat-list-item routerLink="#" class="items-menu" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
-        true}">
-        <mat-icon> account_circle </mat-icon>
-        <span>Usuario</span>
-      </mat-list-item>
-
-      <mat-list-item routerLink="/estudiante" class="items-menu" routerLinkActive="is-active">
-        <mat-icon> group </mat-icon>
-        <span>Estudiante</span>
-      </mat-list-item>
-
-      <mat-list-item routerLink="/arrendador" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> person </mat-icon>
-        <span>Arrendador</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/ciudad" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> location_city </mat-icon>
-        <span>Ciudad</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/contratodealquiler" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> description </mat-icon>
-        <span>Contrato</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/distrito" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> place </mat-icon>
-        <span>Distrito</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/habitacion" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> hotel </mat-icon>
-        <span>Habitación</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/universidad" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> school </mat-icon>
-        <span>Universidad</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/mensaje" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> message </mat-icon>
-        <span>Mensaje</span>
-      </mat-list-item>
-
-      <mat-list-item routerLink="/paises" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> public </mat-icon>
-        <span>Pais</span>
-      </mat-list-item>
-
-      <mat-list-item routerLink="/plans" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> payment </mat-icon>
-        <span>Plan</span>
-      </mat-list-item>
-
-      <mat-list-item routerLink="/publicacion" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> post_add </mat-icon>
-        <span>Publicacion</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/publicacionfavorita" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> favorite </mat-icon>
-        <span>Favoritos</span>
-      </mat-list-item>
-      <mat-list-item routerLink="/tipo" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> domain </mat-icon>
-        <span>Tipo</span>
-      </mat-list-item>
-      <br>
-      <br>
-      <mat-list-item routerLink="#" class="items-menu"routerLinkActive="is-active">
-        <mat-icon> exit_to_app </mat-icon>
-        <span>Cerrar sesion</span>
-      </mat-list-item>
-
-
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div class="container">
-      <div style="text-align: center">
-        <h1 class="centrar" style="margin-top: 50px;">LISTA DE PUBLICACIONES</h1>
-      </div>
-      <div style="text-align: right">
-        <button
-          mat-raised-button
-          color="warn"
-          routerLink="/publicacion/publicacioninsertar"
-          style="background-color: #0b3ad1"
-        >
-          Nuevo
-        </button>
-      </div>
-
-      <!--filtro-->
-      <mat-form-field>
-        <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
-      </mat-form-field>
-
-
-      <div class="card-container">
-      <ng-container *ngFor="let element of dataSource.data">
-      <mat-card class="example-card">
-        <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>ID PUBLICACIÓN: {{ element.id }} </mat-card-title>
-          <mat-card-subtitle>Fecha: {{ element.fecha_publicacion }}</mat-card-subtitle>
-        </mat-card-header>
-        <img mat-card-image src="https://i.pinimg.com/736x/0e/b5/fa/0eb5fa5f3d0deb0486559c3c15990805.jpg" alt="Photo of a Shiba Inu">
-        <mat-card-content>
-            <p>ID DE HABITACIÓN: {{ element.habitacion.id }}</p>
-            <p>Acerca de este anuncio: {{ element.contenido }} </p>
-           <div class="reacciones">
-            <p style="margin-right: 5px;"><span class="material-icons">add_reaction</span> {{ element.num_reacciones }} </p>
-            <p style="margin-right: 5px;"><span class="material-icons">comment</span> {{ element.num_comentarios }} </p>
-            <p><span class="material-icons">share</span> {{ element.num_compartidos }}</p>
-          </div>
-
-
-        </mat-card-content>
-        <mat-card-actions class="botones-card">
-          <button
-          mat-raised-button
-          color="warn"
-          [routerLink]="['edicion', element.id]"
-          style="background-color: #0b3ad1; margin-right: 15px;"
-        >
-          <span class="material-icons">edit_note</span>
-        </button>
-          <button
-                  mat-raised-button
-                  color="accent"
-                  (click)="confirmar(element.id)"
-                  style="background-color: #ff6c00"
-                  class="eliminar"
-                >
-                  <span class="material-icons">delete</span>
-                </button>
-        </mat-card-actions>
-      </mat-card>
-    </ng-container>
   </div>
 
-      <br>
-      <mat-paginator [pageSizeOptions]="[2, 5,10]" showFirstLastButtons (page)="onPageChange($event)"
-      [length]="dataSource.data.length" [pageSize]="2">
-      </mat-paginator>
-
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+  <!--filtro-->
+  <mat-form-field>
+    <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
+  </mat-form-field>
 
 
+  <div class="card-container">
+  <ng-container *ngFor="let element of dataSource.data">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>ID PUBLICACIÓN: {{ element.id }} </mat-card-title>
+      <mat-card-subtitle>Fecha: {{ element.fecha_publicacion }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://i.pinimg.com/736x/0e/b5/fa/0eb5fa5f3d0deb0486559c3c15990805.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <p>ID DE HABITACIÓN: {{ element.habitacion.id }}</p>
+        <p>Acerca de este anuncio: {{ element.contenido }} </p>
+       <div class="reacciones">
+        <p style="margin-right: 5px;"><span class="material-icons">add_reaction</span> {{ element.num_reacciones }} </p>
+        <p style="margin-right: 5px;"><span class="material-icons">comment</span> {{ element.num_comentarios }} </p>
+        <p><span class="material-icons">share</span> {{ element.num_compartidos }}</p>
+      </div>
+
+
+    </mat-card-content>
+    <mat-card-actions class="botones-card">
+      <button
+      mat-raised-button
+      color="warn"
+      [routerLink]="['edicion', element.id]"
+      style="background-color: #0b3ad1; margin-right: 15px;"
+    >
+      <span class="material-icons">edit_note</span>
+    </button>
+      <button
+              mat-raised-button
+              color="accent"
+              (click)="confirmar(element.id)"
+              style="background-color: #ff6c00"
+              class="eliminar"
+            >
+              <span class="material-icons">delete</span>
+            </button>
+    </mat-card-actions>
+  </mat-card>
+</ng-container>
+</div>
+
+  <br>
+  <mat-paginator [pageSizeOptions]="[2, 5,10]" showFirstLastButtons (page)="onPageChange($event)"
+  [length]="dataSource.data.length" [pageSize]="2">
+  </mat-paginator>
+
+</div>

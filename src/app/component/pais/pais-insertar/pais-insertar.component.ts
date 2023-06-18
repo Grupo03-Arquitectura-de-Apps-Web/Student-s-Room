@@ -92,7 +92,7 @@ export class PaisInsertarComponent implements OnInit {
         });
       }
       //cambiamos la ruta para que actualice
-      this.router.navigate(['paises']);
+      this.router.navigate(['pages/paises']);
       //}
     } else {
       this.mensaje = 'Ingrese un id valido';

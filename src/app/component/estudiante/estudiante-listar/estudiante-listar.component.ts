@@ -61,19 +61,4 @@ export class EstudianteListarComponent implements OnInit {
     });
   }
 
-  cerrar() {
-    sessionStorage.clear();
-  }
-
-  verificar() {
-    this.role=this.ls.showRole();
-    return this.ls.verificar();
-  }
-  validarRol(){
-    if(this.role=='ADMIN' || this.role=='ESTUDIANTE' || this.role=='ARRENDADOR'){
-      return true;
-    }else{
-      return false;
-    }
-  }
 }
