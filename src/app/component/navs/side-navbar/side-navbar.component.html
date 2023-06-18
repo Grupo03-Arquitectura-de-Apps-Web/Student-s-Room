@@ -25,7 +25,7 @@
     <span>Arrendador</span>
   </mat-list-item>-->
 
-  <mat-list-item *ngIf="role=='ESTUDIANTE'"  routerLink="/pages/ciudad" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item [hidden]="role=='ESTUDIANTE'"  routerLink="/pages/ciudad" class="items-menu"routerLinkActive="is-active">
     <mat-icon> location_city </mat-icon>
     <span>Ciudad</span>
   </mat-list-item>
@@ -33,7 +33,7 @@
     <mat-icon> description </mat-icon>
     <span>Contrato</span>
   </mat-list-item>
-  <mat-list-item *ngIf="role=='ESTUDIANTE'" routerLink="/pages/distrito" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/distrito" class="items-menu"routerLinkActive="is-active">
     <mat-icon> place </mat-icon>
     <span>Distrito</span>
   </mat-list-item>
@@ -50,7 +50,7 @@
     <span>Mensaje</span>
   </mat-list-item>
 
-  <mat-list-item *ngIf="role=='ESTUDIANTE'" routerLink="/pages/paises" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/paises" class="items-menu"routerLinkActive="is-active">
     <mat-icon> public </mat-icon>
     <span>Pais</span>
   </mat-list-item>
