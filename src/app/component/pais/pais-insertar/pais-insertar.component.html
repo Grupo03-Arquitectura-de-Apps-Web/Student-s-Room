@@ -32,13 +32,31 @@
 
   <mat-form-field class="example-full-width">
     <mat-label>MONEDA OFICIAL</mat-label>
-    <input
-      matInput
+    <mat-select
       required
-      placeholder="Moneda Oficial"
+      placeholder="Elija moneda oficial"
       formControlName="monedaPais"
-    />
+    >
+      <mat-option value="Dólar estadounidense"
+        >Dólar estadounidense</mat-option
+      >
+      <mat-option value="Euro">Euro</mat-option>
+      <mat-option value="Nuevo sol">Nuevo sol</mat-option>
+      <mat-option value="Peso chileno">Peso chileno</mat-option>
+      <mat-option value="Real brasileño">Real brasileño</mat-option>
+      <mat-option value="Peso colombiano">Peso colombiano</mat-option>
+      <mat-option value="Boliviano">Boliviano</mat-option>
+      <mat-option value="Real brasileño">Real brasileño</mat-option>
+      <mat-option value="Peso colombiano">Peso colombiano</mat-option>
+
+      <mat-option value="Franco suizo">Franco suizo</mat-option>
+      <mat-option value="Peso mexicano">Peso mexicano</mat-option>
+      <mat-option value="Yuan chino">Yuan chino</mat-option>
+      <mat-option value="Peso cubano">Peso cubano</mat-option>
+      <mat-option value="Dólar australiano">Dólar australiano</mat-option>
+    </mat-select>
   </mat-form-field>
+
 
   <br />
   <!--Botones para enviar o cancelar-->

@@ -25,7 +25,9 @@ export class ArrendadorInsetarComponent implements OnInit {
 
   lista_p:Plan[]=[];
   plan!:Plan;
-  idPlanSeleccionado:number=0;
+  PlanSeleccionado!:string;
+  planID!:number;
+  isPlanSeleccionado:number=0;
 
 
   //Agregamos el constructor
@@ -68,36 +70,31 @@ export class ArrendadorInsetarComponent implements OnInit {
 
 
   }
-  selectionChange(ev:any){
-    console.log(ev);
-    this.plan = this.lista_p.find((e)=>ev.idPlan===e.id)!;
-  }
+
   //agregamos el aceptar
   aceptar(): void {
     this.Arrendador.id_arrendador = this.form.value['id_arrendador']; //isArrendador es lo que va tener como nombre el componente del formulario en el html
-    this.Arrendador.nombreArrendador = this.form.value['nombreArrendador'];
-    this.Arrendador.correo_laboralArrendador = this.form.value['correo_laboralArrendador'];
-    this.Arrendador.telefonoArrendador = this.form.value['telefonoArrendador'];
-    this.Arrendador.ciudadArrendador = this.form.value['ciudadArrendador'];
-    this.Arrendador.paisArrendador = this.form.value['paisArrendador'];
-    this.Arrendador.plan.nombre_plan = this.form.value['plplan.nombre_plan'];
+    this.Arrendador.nombre = this.form.value['nombreArrendador'];
+    this.Arrendador.correo_laboral = this.form.value['correo_laboralArrendador'];
+    this.Arrendador.telefono = this.form.value['telefonoArrendador'];
+    this.Arrendador.ciudad = this.form.value['ciudadArrendador'];
+    this.Arrendador.pais = this.form.value['paisArrendador'];
+    this.Arrendador.plan.nombre_plan = this.form.value['plan.nombre_plan'];
     if(!this.form.valid){
       return;
     }
 
-    if (this.idPlanSeleccionado > 0) {
-      console.log('hsdf3333');
-      //con el metodo suscribe estamos insertando
-      console.log(this.idPlanSeleccionado);
-      console.log(this.plan);
-      this.plan = new Plan();
-      this.plan.id = this.idPlanSeleccionado;
+    if (this.isPlanSeleccionado>0) {
+      //this.planID = this.lista_p.find((e)=>this.PlanSeleccionado===e.nombre_plan)!.id;
+      this.Arrendador.plan =this.lista_p.find((e)=>this.PlanSeleccionado===e.nombre_plan)!;
+      console.log(this.Arrendador.plan);
 
-      this.Arrendador.plan= this.plan;
-      //update part
-      //agregamos una condicional para verificar si se va insertar o editar
+      let pl = new Plan();
+      pl.idPlan = this.isPlanSeleccionado;
+      this.Arrendador.plan = pl;
       if (this.edicion) {
         //guardar actualizado
+
         this.ArrendadorSer.update(this.Arrendador).subscribe(() => {
           this.ArrendadorSer.list().subscribe((data) => {
             this.ArrendadorSer.setList(data);
@@ -112,7 +109,7 @@ export class ArrendadorInsetarComponent implements OnInit {
         });
       }
       //cambiamos la ruta para que actualice
-      this.router.navigate(['arrendador']);
+      this.router.navigate(['pages/arrendador']);
       //}
     } else {
       this.mensaje = 'Ingrese un id valido';
@@ -133,6 +130,7 @@ export class ArrendadorInsetarComponent implements OnInit {
           paisArrendador: new FormControl(data.pais),
           plan: new FormControl(data.plan.nombre_plan)
         });
+        this.isPlanSeleccionado=data.plan.idPlan;
       });
     }
   }

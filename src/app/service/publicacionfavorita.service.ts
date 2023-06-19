@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 import { Publicacionfavorita } from '../model/publicacionfavorita';
@@ -22,13 +22,19 @@ export class PublicacionfavoritaService {
   constructor(private http:HttpClient) {}
 
   list(){
-    return this.http.get<Publicacionfavorita[]>(this.url);//la clase Pet está dentro de otro archivo
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Publicacionfavorita[]>(this.url,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });//la clase Pet está dentro de otro archivo
 		//en el archivo pet.ts dentro de la carpeta module
   }
 
   //metodos para el insert
   insert (Publicacionfavorita:Publicacionfavorita){
-      return this.http.post(this.url,Publicacionfavorita);
+    let token = sessionStorage.getItem("token");
+      return this.http.post(this.url,Publicacionfavorita,{
+        headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+      });
   }
 
   getList(){
@@ -40,10 +46,16 @@ export class PublicacionfavoritaService {
   }
   //update part
   listId(id:number){
-    return this.http.get<Publicacionfavorita>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Publicacionfavorita>(`${this.url}/${id}`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   update(p:Publicacionfavorita){
-    return this.http.put(this.url+'/'+p.id,p);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,p,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   //delete part
@@ -51,8 +63,10 @@ export class PublicacionfavoritaService {
     return this.http.get<Publicacionfavorita>(`${this.url}/${id}`);
   }
   eliminar(id: number) {
-
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
   getConfirmaEliminacion() {
     return this.confirmaEliminacion.asObservable();

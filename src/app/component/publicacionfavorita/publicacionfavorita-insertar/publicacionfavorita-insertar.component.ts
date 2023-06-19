@@ -62,8 +62,9 @@ export class PublicacionfavoritaInsertarComponent implements OnInit {
     )
     //update part
     this.route.params.subscribe((data: Params) => {
-      this.id = data['id_publicacion_favorita'];
-      this.edicion = data['id_publicacion_favorita'] != null;
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      console.log(this.edicion);
       this.init();
     });
     //
@@ -75,30 +76,27 @@ export class PublicacionfavoritaInsertarComponent implements OnInit {
       publicacion: new FormControl(),
     });
   }
-  selectionChange(ev:any){
-    console.log(ev);
-    this.Publicacion = this.lista_p.find((e)=>ev.idPublicacion===e.id)!;
-  }
   //agregamos el aceptar
   aceptar(): void {
-    this.Publicacionfavorita.id = this.form.value['id']; //isPublicacionfavorita es lo que va tener como nombre el componente del formulario en el html
-    this.Publicacionfavorita.fechaGuardado = this.form.value['fechaguardadoPublicacionfavorita'];
-    this.Publicacionfavorita.estudiante.nombre = this.form.value['estudiante'];
-    this.Publicacionfavorita.publicacion.id = this.form.value['publicacion'];
+    this.Publicacionfavorita.id_publicacion_favorita = this.form.value['id']; //isPublicacionfavorita es lo que va tener como nombre el componente del formulario en el html
+    this.Publicacionfavorita.fecha_guardado = this.form.value['fechaguardadoPublicacionfavorita'];
+    this.Publicacionfavorita.estudiante.nombre = this.form.value['estudiante.nombre'];
+    this.Publicacionfavorita.publicacion.idPublicacion = this.form.value['publicacion.idPublicacion'];
 
     if(!this.form.valid){
       return;
     }
 
-    if (this.idEstudianteSeleccionado > 0 && this.idPublicacionSeleccionado>0) {
-      console.log('hsdf3333');
-      //con el metodo suscribe estamos insertando
-      console.log(this.idPublicacionSeleccionado);
-      console.log(this.Publicacion);
+    if (this.idEstudianteSeleccionado> 0 && this.idPublicacionSeleccionado>0) {
 
-      this.Publicacionfavorita.publicacion= this.Publicacion;
+      let pub = new Publicacion();
+      pub.idPublicacion = this.idPublicacionSeleccionado;
+      this.Publicacionfavorita.publicacion=pub;
 
-      //update part
+      let est = new estudiante();
+      est.idEstudiante = this.idEstudianteSeleccionado;
+      this.Publicacionfavorita.estudiante=est;
+
       //agregamos una condicional para verificar si se va insertar o editar
       if (this.edicion) {
         //guardar actualizado
@@ -109,13 +107,6 @@ export class PublicacionfavoritaInsertarComponent implements OnInit {
         });
       //end update part
       } else {
-        this.estudiante = new estudiante();
-        this.estudiante.idEstudiante= this.idEstudianteSeleccionado;
-        this.Publicacionfavorita.estudiante=this.estudiante;
-
-        this.Publicacion = new Publicacion();
-        this.Publicacion.id= this.idPublicacionSeleccionado;
-        this.Publicacionfavorita.publicacion=this.Publicacion;
 
         this.PublicacionfavoritaSer.insert(this.Publicacionfavorita).subscribe((data) => {
           this.PublicacionfavoritaSer.list().subscribe((data) => {
@@ -123,7 +114,7 @@ export class PublicacionfavoritaInsertarComponent implements OnInit {
           });
         });
       }
-      this.router.navigate(['Publicacionfavorita']);
+      this.router.navigate(['pages/publicacionfavorita']);
     } else {
       this.mensaje = 'Ingrese la descripcion del Contrato de Alquiler!!';
     }
@@ -136,11 +127,13 @@ export class PublicacionfavoritaInsertarComponent implements OnInit {
     if (this.edicion) {
       this.PublicacionfavoritaSer.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id: new FormControl(data.id), //importamos FormControl
-          fechaguardadoPublicacionfavorita: new FormControl(data.fechaGuardado),
+          id: new FormControl(data.id_publicacion_favorita), //importamos FormControl
+          fechaguardadoPublicacionfavorita: new FormControl(data.fecha_guardado),
           estudiante: new FormControl(data.estudiante),
           publicacion: new FormControl(data.publicacion)
         });
+        this.idPublicacionSeleccionado=data.publicacion.idPublicacion;
+        this.idEstudianteSeleccionado=data.estudiante.idEstudiante;
       });
     }
   }
