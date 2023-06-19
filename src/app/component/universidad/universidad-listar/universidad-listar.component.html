@@ -53,7 +53,7 @@
           mat-raised-button
           color="primary"
           style="background-color: #0b3ad1"
-          [routerLink]="['edicion', element.id]"
+          [routerLink]="['edicion', element.idUniversidad]"
         >
           <span class="material-icons">edit_note</span>
         </button>
@@ -66,7 +66,7 @@
         <button
           mat-raised-button
           style="background-color: #ff6c00"
-          (click)="confirmar(element.id)"
+          (click)="confirmar(element.idUniversidad)"
         >
           <span style="color: white" class="material-icons">delete</span>
         </button>

@@ -71,7 +71,8 @@ export class HabitacionInsertarComponent {
     this.habitacion.disponibilidad = this.form.value['disponibilidad'];
     this.habitacion.Arrendador.id_arrendador = this.form.value['Arrendador.id'];
     this.habitacion.Distrito.id = this.form.value['Distrito.id'];
-    this.habitacion.Universidad.id = this.form.value['Universidad.id'];
+    this.habitacion.Universidad.idUniversidad =
+      this.form.value['Universidad.id'];
 
     if (!this.form.valid) {
       return;
@@ -103,7 +104,7 @@ export class HabitacionInsertarComponent {
         });
       }
 
-      this.router.navigate(['habitacion']);
+      this.router.navigate(['pages/habitacion']);
     } else {
       this.mensaje = 'Ingrese todos los datos';
     }

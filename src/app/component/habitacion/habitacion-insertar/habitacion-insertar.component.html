@@ -18,15 +18,8 @@
     <br />
 
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif"
-        >Precio</mat-label
-      >
-      <input
-        matInput
-        required
-        placeholder="precio"
-        formControlName="precio"
-      />
+      <mat-label style="font-family: 'Quicksand', sans-serif">Precio</mat-label>
+      <input matInput required placeholder="precio" formControlName="precio" />
     </mat-form-field>
     <br />
 
@@ -53,8 +46,8 @@
     <mat-form-field appearance="fill">
       <mat-label>Universidad</mat-label>
       <mat-select formControlName="Universidad" [(value)]="id" required>
-        <mat-option *ngFor="let u of lista_u" [value]="u.id">
-          {{ u.id }}
+        <mat-option *ngFor="let u of lista_u" [value]="u.idUniversidad">
+          {{ u.idUniversidad }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -66,7 +59,7 @@
     <button
       mat-raised-button
       color="warn"
-      routerLink="/publicacion"
+      routerLink="/pages/publicacion"
       style="background-color: #ff6c00"
     >
       Cancelar <span class="material-icons">cancel</span>
