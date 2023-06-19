@@ -66,7 +66,7 @@ export class HabitacionInsertarComponent {
 
   aceptar(): void {
     this.habitacion.id = this.form.value['id'];
-    this.habitacion.tipo.id = this.form.value['tipo'];
+    this.habitacion.tipo.idTipoHabitacion = this.form.value['tipo'];
     this.habitacion.precio = this.form.value['precio'];
     this.habitacion.disponibilidad = this.form.value['disponibilidad'];
     this.habitacion.Arrendador.id_arrendador = this.form.value['Arrendador.id'];

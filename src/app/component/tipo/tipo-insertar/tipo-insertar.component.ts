@@ -37,7 +37,7 @@ export class TipoInsertarComponent implements OnInit {
   }
 
   aceptar(): void {
-    this.tipo.id = this.form.value['id'];
+    this.tipo.idTipoHabitacion = this.form.value['id'];
     this.tipo.tipo = this.form.value['tipo'];
     this.tipo.descripcion = this.form.value['descripcion'];
 
@@ -62,7 +62,7 @@ export class TipoInsertarComponent implements OnInit {
         });
       }
 
-      this.router.navigate(['tipo']);
+      this.router.navigate(['pages/tipo']);
     }else {
       this.mensaje = 'Ingrese todos los datos!!';
     }
@@ -71,10 +71,11 @@ export class TipoInsertarComponent implements OnInit {
     if(this.edicion){
       this.tS.listId(this.id).subscribe((data)=>{
         this.form=new FormGroup({
-          id: new FormControl(data.id),
+          id: new FormControl(data.idTipoHabitacion),
           tipo: new FormControl(data.tipo),
           descripcion: new FormControl(data.descripcion)
         });
+        console.log(data);
       });
     }
   }

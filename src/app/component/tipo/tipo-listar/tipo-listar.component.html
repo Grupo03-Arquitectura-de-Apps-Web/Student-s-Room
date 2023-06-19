@@ -2,7 +2,7 @@
   <h1 class="centrar"style="margin-top: 50px;">LISTA DE TIPOS DE HABITACIÓN</h1>
 
   <div style="text-align: right;" class="example-button-row">
-    <button mat-raised-button style="background-color: #0b3ad1; color: white;"  routerLink="/tipo/tipoinsertar">Nuevo</button>
+    <button mat-raised-button style="background-color: #0b3ad1; color: white;"  routerLink="/pages/tipo/tipoinsertar">Nuevo</button>
   </div>
 
   <mat-form-field>
@@ -19,7 +19,7 @@
     <!-- Name Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> ID </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element"> {{element.idTipoHabitacion}} </td>
     </ng-container>
 
     <!-- Weight Column -->
@@ -38,7 +38,7 @@
       <th mat-header-cell *matHeaderCellDef> ACTUALIZAR </th>
       <td mat-cell *matCellDef="let element">
         <button mat-raised-button color="primary" style="background-color: #0b3ad1;"
-          [routerLink]="['edicion', element.id]"><span class="material-icons">edit_note</span>
+          [routerLink]="['edicion', element.idTipoHabitacion]"><span class="material-icons">edit_note</span>
         </button>
       </td>
     </ng-container>
@@ -46,7 +46,7 @@
     <ng-container matColumnDef="celiminar">
       <th mat-header-cell *matHeaderCellDef> ELIMINAR </th>
       <td mat-cell *matCellDef="let element">
-        <button mat-raised-button style="background-color:  #ff6c00;;" (click)="confirmar(element.id)"><span style="color: white;" class="material-icons">delete</span></button>
+        <button mat-raised-button style="background-color:  #ff6c00;;" (click)="confirmar(element.idTipoHabitacion)"><span style="color: white;" class="material-icons">delete</span></button>
       </td>
     </ng-container>
 

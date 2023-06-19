@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Publicacion } from '../model/publicacion';
 import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 const base_url = environment.base;
 
@@ -18,7 +18,10 @@ export class PublicacionService {
   constructor(private http: HttpClient) {}
 
   list() {
-    return this.http.get<Publicacion[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Publicacion[]>(this.url,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    });
   }
 
   //Agregar para el insertar
@@ -38,7 +41,7 @@ export class PublicacionService {
   }
 
   update(c: Publicacion) {
-    return this.http.put(this.url + '/' + c.id, c);
+    return this.http.put(this.url, c);
   }
   //para el eliminar
   eliminar(id: number) {

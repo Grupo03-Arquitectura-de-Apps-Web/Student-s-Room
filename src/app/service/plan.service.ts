@@ -19,8 +19,8 @@ export class PlanService {
 
   list() {
     let token = sessionStorage.getItem("token");
-    return this.http.get<Plan[]>(this.url,
-     { headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    return this.http.get<Plan[]>(this.url,{
+      headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
     });
   }
 
@@ -45,9 +45,7 @@ export class PlanService {
   }
 
   update(p:Plan){
-    let token = sessionStorage.getItem("token");
-    return this.http.put(this.url,p,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
-  });
+    return this.http.put(this.url,p);
   }
   //
   eliminar(id: number) {

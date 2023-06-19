@@ -63,8 +63,8 @@
 
   <mat-form-field appearance="fill">
     <mat-label>PLAN</mat-label>
-    <mat-select formControlName="plan" [(value)]="idPlanSeleccionado" required (onSelectionChange)="selectionChange($event)">
-      <mat-option *ngFor="let e of lista_p" [value]="e.nombre_plan" >
+    <mat-select formControlName="plan" [(value)]="isPlanSeleccionado" required>
+      <mat-option *ngFor="let e of lista_p" [value]="e.idPlan" >
         {{e.nombre_plan}}
     </mat-option>
     </mat-select>
@@ -79,7 +79,7 @@
   <button
     mat-raised-button
     color="warn"
-    routerLink="/arrendador"
+    routerLink="/pages/arrendador"
     style="background-color: #ff6c00"
   >
     Cancelar <span class="material-icons">cancel</span>

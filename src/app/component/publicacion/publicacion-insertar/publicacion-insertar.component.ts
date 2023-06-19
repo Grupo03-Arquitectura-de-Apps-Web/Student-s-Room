@@ -53,7 +53,7 @@ export class PublicacionInsertarComponent {
   }
 
   aceptar():void{
-    this.publicacion.id=this.form.value['id'];
+    this.publicacion.idPublicacion=this.form.value['id'];
     this.publicacion.contenido=this.form.value['contenido'];
     this.publicacion.fecha_publicacion=this.form.value['fecha_publicacion'];
     this.publicacion.num_reacciones=this.form.value['num_reacciones'];
@@ -99,7 +99,7 @@ export class PublicacionInsertarComponent {
     if (this.edicion) {
       this.pS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id:new FormControl(data.id),
+          id:new FormControl(data.idPublicacion),
           contenido: new FormControl(data.contenido),
           fecha_publicacion: new FormControl(data.fecha_publicacion),
           num_reacciones: new FormControl(data.num_reacciones),
