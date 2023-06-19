@@ -65,7 +65,7 @@ export class HabitacionInsertarComponent {
   }
 
   aceptar(): void {
-    this.habitacion.id = this.form.value['id'];
+    this.habitacion.idHabitacion = this.form.value['id'];
     this.habitacion.tipo.idTipoHabitacion = this.form.value['tipo'];
     this.habitacion.precio = this.form.value['precio'];
     this.habitacion.disponibilidad = this.form.value['disponibilidad'];
@@ -114,7 +114,7 @@ export class HabitacionInsertarComponent {
     if (this.edicion) {
       this.hS.listID(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id: new FormControl(data.id),
+          id: new FormControl(data.idHabitacion),
           tipo: new FormControl(data.tipo),
           precio: new FormControl(data.precio),
           disponibilidad: new FormControl(data.disponibilidad),

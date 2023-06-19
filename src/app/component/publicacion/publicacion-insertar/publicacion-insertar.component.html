@@ -1,13 +1,15 @@
 <div class="container" style="text-align: center">
-  <h1 class="centrar" style="margin-top: 50px;">REGISTRAR PUBLICACION</h1>
+  <h1 class="centrar" style="margin-top: 50px">REGISTRAR PUBLICACION</h1>
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">ID</mat-label>
+      <mat-label style="font-family: 'Quicksand', sans-serif">ID</mat-label>
       <input matInput required placeholder="Código" formControlName="id" />
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;" >CONTENIDO</mat-label>
+      <mat-label style="font-family: 'Quicksand', sans-serif"
+        >CONTENIDO</mat-label
+      >
       <input
         matInput
         required
@@ -17,14 +19,23 @@
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">FECHA DE PUBLICACION</mat-label>
-      <input matInput [matDatepicker]="picker" formControlName="fecha_publicacion" [max]="maxFecha">
+      <mat-label style="font-family: 'Quicksand', sans-serif"
+        >FECHA DE PUBLICACION</mat-label
+      >
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="fecha_publicacion"
+        [max]="maxFecha"
+      />
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">N° REACCIONES</mat-label>
+      <mat-label style="font-family: 'Quicksand', sans-serif"
+        >N° REACCIONES</mat-label
+      >
       <input
         matInput
         required
@@ -34,7 +45,9 @@
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">N° COMENTARIOS</mat-label>
+      <mat-label style="font-family: 'Quicksand', sans-serif"
+        >N° COMENTARIOS</mat-label
+      >
       <input
         matInput
         required
@@ -44,7 +57,9 @@
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">N° COMPARTIDOS</mat-label>
+      <mat-label style="font-family: 'Quicksand', sans-serif"
+        >N° COMPARTIDOS</mat-label
+      >
       <input
         matInput
         required
@@ -55,10 +70,14 @@
     <br />
     <mat-form-field appearance="fill">
       <mat-label>HABITACION</mat-label>
-      <mat-select formControlName="habitacion" [(value)]="idHabitacionSeleccionado" required>
-        <mat-option *ngFor="let h of lista_h" [value]="h.id">
-          {{h.id}}
-      </mat-option>
+      <mat-select
+        formControlName="habitacion"
+        [(value)]="idHabitacionSeleccionado"
+        required
+      >
+        <mat-option *ngFor="let h of lista_h" [value]="h.idHabitacion">
+          {{ h.idHabitacion }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
@@ -71,7 +90,7 @@
       routerLink="/publicacion"
       style="background-color: #ff6c00"
     >
-    Cancelar <span class='material-icons'>cancel</span>
+      Cancelar <span class="material-icons">cancel</span>
     </button>
     <br />
 
