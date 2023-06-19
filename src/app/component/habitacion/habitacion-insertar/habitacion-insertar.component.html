@@ -10,8 +10,8 @@
     <mat-form-field appearance="fill">
       <mat-label>Tipo</mat-label>
       <mat-select formControlName="tipo" [(value)]="id" required>
-        <mat-option *ngFor="let t of lista_t" [value]="t.id">
-          {{ t.id }}
+        <mat-option *ngFor="let t of lista_t" [value]="t.idTipoHabitacion">
+          {{ t.idTipoHabitacion }}
         </mat-option>
       </mat-select>
     </mat-form-field>

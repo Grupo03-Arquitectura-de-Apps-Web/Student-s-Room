@@ -1,5 +1,5 @@
 export class tipo {
-  id: number = 0;
+  idTipoHabitacion: number = 0;
   tipo: string = "";
   descripcion: string = "";
 }

@@ -5,6 +5,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { TipoEliminarComponent } from './tipo-eliminar/tipo-eliminar.component';
 import { MatDialog } from '@angular/material/dialog'
 import {MatPaginator} from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
+
 
 @Component({
   selector: 'app-tipo-listar',
@@ -12,6 +14,7 @@ import {MatPaginator} from '@angular/material/paginator';
   styleUrls: ['./tipo-listar.component.css'],
 })
 export class TipoListarComponent implements OnInit {
+  role: string = '';
   dataSource: MatTableDataSource<tipo> = new MatTableDataSource();
   lista: tipo[] = [];
   displayedColumns: string[] = [
@@ -23,11 +26,13 @@ export class TipoListarComponent implements OnInit {
   ];
   private idMayor: number = 0;
 
-  constructor(private tS: TipoService, private dialog: MatDialog) {}
+  constructor(private tS: TipoService, private dialog: MatDialog, private ls: LoginService) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit(): void {
+    this.role = this.ls.showRole();
+    console.log(this.role);
     this.tS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

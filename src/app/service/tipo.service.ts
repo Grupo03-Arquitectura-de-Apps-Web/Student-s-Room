@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { tipo } from '../model/tipo';
@@ -8,17 +8,29 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class TipoService {
-  private url = `${base_url}/tipo`;
+  private url = `${base_url}/tipo_habitacion`;
   private listaCambio= new Subject<tipo[]>();
   private confirmaEliminacion = new Subject<Boolean>()
 
   constructor(private http: HttpClient) {}
   list() {
-    return this.http.get<tipo[]>(this.url);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<tipo[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   insert(tipo: tipo) {
-    return this.http.post(this.url, tipo);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.post(this.url, tipo, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   getList(){
@@ -30,15 +42,33 @@ export class TipoService {
   }
 
   listId(id:number){
-    return this.http.get<tipo>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<tipo>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   update(tipo: tipo) {
-    return this.http.put(this.url + '/' + tipo.id, tipo);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.put(this.url, tipo, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   eliminar(id:number) {
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   getConfirmaEliminacion(){
