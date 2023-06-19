@@ -2,10 +2,10 @@ import { Plan } from './plan';
 
 export class Arrendador {
   id_arrendador: number = 0;
-  nombreArrendador: string = '';
-  correo_laboralArrendador: string = '';
-  telefonoArrendador: string = '';
-  ciudadArrendador: string = '';
-  paisArrendador: string = '';
+  nombre: string = '';
+  correo_laboral: string = '';
+  telefono: string = '';
+  ciudad: string = '';
+  pais: string = '';
   plan: Plan = new Plan();
 }

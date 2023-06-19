@@ -94,7 +94,6 @@ import { HabitacionInsertarComponent } from './component/habitacion/habitacion-i
 import { HabitacionListarComponent } from './component/habitacion/habitacion-listar/habitacion-listar.component';
 import { HabitacionEliminarComponent } from './component/habitacion/habitacion-listar/habitacion-eliminar/habitacion-eliminar.component';
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
-import { ManagetoolbarComponent } from './component/managetoolbar/managetoolbar.component';
 import { NavsComponent } from './component/navs/navs.component';
 
 import {MatCardModule} from '@angular/material/card';
@@ -105,6 +104,8 @@ import { SidebarComponent } from './component/navs/sidebar/sidebar.component';
 import { SideNavbarComponent } from './component/navs/side-navbar/side-navbar.component';
 import { MainNavComponent } from './component/navs/main-nav/main-nav.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
+import { HabitacionEntrePreciosComponent } from './component/habitacion-entre-precios/habitacion-entre-precios.component';
+import { HabitacionDisponibleUbiComponent } from './component/habitacion-disponible-ubi/habitacion-disponible-ubi.component';
 //delete
 
 @NgModule({
@@ -164,13 +165,14 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
     HabitacionListarComponent,
     HabitacionEliminarComponent,
     ToolbarComponent,
-    ManagetoolbarComponent,
     NavsComponent,
     LoginComponent,
     SidebarComponent,
     SideNavbarComponent,
     MainNavComponent,
     UsuarioComponent,
+    HabitacionEntrePreciosComponent,
+    HabitacionDisponibleUbiComponent,
   ],
   imports: [
     BrowserModule,

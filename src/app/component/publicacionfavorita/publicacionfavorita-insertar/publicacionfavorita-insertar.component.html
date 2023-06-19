@@ -40,8 +40,8 @@
   <mat-form-field appearance="fill">
     <mat-label>ID PUBLICACION</mat-label>
     <mat-select formControlName="publicacion" [(value)]="idPublicacionSeleccionado" required>
-      <mat-option *ngFor="let p of lista_p" [value]="p.id">
-        {{p.id}}
+      <mat-option *ngFor="let p of lista_p" [value]="p.idPublicacion">
+        {{p.idPublicacion}}
     </mat-option>
     </mat-select>
   </mat-form-field>
@@ -62,7 +62,7 @@
   <button
     mat-raised-button
     color="warn"
-    routerLink="/publicacionfavorita"
+    routerLink="/pages/publicacionfavorita"
     style="background-color: #ff6c00"
   >
     Cancelar <span class="material-icons">cancel</span>

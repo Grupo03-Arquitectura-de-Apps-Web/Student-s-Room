@@ -24,7 +24,7 @@
   <mat-card class="example-card">
     <mat-card-header>
       <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>ID PUBLICACIÓN: {{ element.id }} </mat-card-title>
+      <mat-card-title>ID PUBLICACIÓN: {{ element.idPublicacion }} </mat-card-title>
       <mat-card-subtitle>Fecha: {{ element.fecha_publicacion }}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="https://i.pinimg.com/736x/0e/b5/fa/0eb5fa5f3d0deb0486559c3c15990805.jpg" alt="Photo of a Shiba Inu">
@@ -43,7 +43,7 @@
       <button
       mat-raised-button
       color="warn"
-      [routerLink]="['edicion', element.id]"
+      [routerLink]="['edicion', element.idPublicacion]"
       style="background-color: #0b3ad1; margin-right: 15px;"
     >
       <span class="material-icons">edit_note</span>
@@ -51,7 +51,7 @@
       <button
               mat-raised-button
               color="accent"
-              (click)="confirmar(element.id)"
+              (click)="confirmar(element.idPublicacion)"
               style="background-color: #ff6c00"
               class="eliminar"
             >
