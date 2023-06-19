@@ -45,7 +45,9 @@ export class PlanService {
   }
 
   update(p:Plan){
-    return this.http.put(this.url,p);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,p,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   //
   eliminar(id: number) {
