@@ -63,7 +63,7 @@ aceptar(): void {
       });
     }
 
-    this.router.navigate(['plans']);
+    this.router.navigate(['pages/plans']);
   } else {
     this.mensaje = 'Complete todos los campos!!';
   }

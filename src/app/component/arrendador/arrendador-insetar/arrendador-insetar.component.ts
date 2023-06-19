@@ -70,7 +70,6 @@ export class ArrendadorInsetarComponent implements OnInit {
 
 
   }
-
   //agregamos el aceptar
   aceptar(): void {
     this.Arrendador.id_arrendador = this.form.value['id_arrendador']; //isArrendador es lo que va tener como nombre el componente del formulario en el html

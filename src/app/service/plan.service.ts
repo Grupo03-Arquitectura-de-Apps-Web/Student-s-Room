@@ -25,7 +25,10 @@ export class PlanService {
   }
 
   insert(plan: Plan) {
-    return this.http.post(this.url, plan);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, plan,
+      { headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   getList() {
     return this.listaCambio.asObservable();
@@ -36,7 +39,9 @@ export class PlanService {
 
   //
   listId(id:number){
-    return this.http.get<Plan>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Plan>(`${this.url}/${id}`,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
 
   update(p:Plan){
@@ -44,8 +49,9 @@ export class PlanService {
   }
   //
   eliminar(id: number) {
-
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   getConfirmaEliminacion() {
     return this.confirmaEliminacion.asObservable();
