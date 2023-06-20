@@ -1,7 +1,7 @@
-import { Ciudad } from "./ciudad"
+import { Ciudad } from './ciudad';
 
-export class Distrito{
-  id:number = 0;
-  nombre:string = "";
-  ciudad:Ciudad = new Ciudad();
+export class Distrito {
+  idDistrito: number = 0;
+  nombre: string = '';
+  ciudad: Ciudad = new Ciudad();
 }

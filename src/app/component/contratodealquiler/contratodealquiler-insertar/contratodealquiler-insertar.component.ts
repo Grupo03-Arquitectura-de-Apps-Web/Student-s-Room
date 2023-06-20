@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup,FormControl } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import * as moment from 'moment';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
@@ -11,18 +11,17 @@ import { habitacion } from 'src/app/model/habitacion';
 @Component({
   selector: 'app-contratodealquiler-insertar',
   templateUrl: './contratodealquiler-insertar.component.html',
-  styleUrls: ['./contratodealquiler-insertar.component.css']
+  styleUrls: ['./contratodealquiler-insertar.component.css'],
 })
 export class ContratodealquilerInsertarComponent {
-
-   id:number=0;
-  edicion:boolean=false;
+  id: number = 0;
+  edicion: boolean = false;
 
   //Agregamos lo siguiente
-  form: FormGroup=new FormGroup({});
-  Contratodealquiler:contratodealquiler=new contratodealquiler();
-  mensaje:string='';
-  maxFecha:Date=moment().add(-1,'days').toDate();
+  form: FormGroup = new FormGroup({});
+  Contratodealquiler: contratodealquiler = new contratodealquiler();
+  mensaje: string = '';
+  maxFecha: Date = moment().add(-1, 'days').toDate();
 
   //Estudiante
   lista_e: estudiante[] = [];
@@ -35,9 +34,9 @@ export class ContratodealquilerInsertarComponent {
   //agregamos el constructor
   constructor(
     private pS: ContratodealquilerService,
-    private router:Router,
-    private route:ActivatedRoute
-  ){}
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
   //agregamos el ngOninit
   ngOnInit(): void {
@@ -47,35 +46,40 @@ export class ContratodealquilerInsertarComponent {
       this.init();
     });
 
-    this.form=new FormGroup({
-      id:new FormControl(),
+    this.form = new FormGroup({
+      id: new FormControl(),
       descripcion: new FormControl(),
-      fecha_inicio:new FormControl(),
+      fecha_inicio: new FormControl(),
       fecha_pago: new FormControl(),
       fecha_vencimiento: new FormControl(),
       monto: new FormControl(),
       estudiante: new FormControl(),
       habitacion: new FormControl(),
-
     });
   }
 
   //Agregar este aceptar
-  aceptar():void{
-    this.Contratodealquiler.id=this.form.value['id'];
-    this.Contratodealquiler.descripcion=this.form.value['descripcion'];
-    this.Contratodealquiler.fecha_inicio=this.form.value['fecha_inicio'];
-    this.Contratodealquiler.fecha_pago=this.form.value['fecha_pago'];
-    this.Contratodealquiler.fecha_vencimiento=this.form.value['fecha_vencimiento'];
-    this.Contratodealquiler.monto=this.form.value['monto'];
-    this.Contratodealquiler.estudiante.nombre=this.form.value['estudiante.nombre'];
-    this.Contratodealquiler.habitacion.id=this.form.value['habitacion'];
+  aceptar(): void {
+    this.Contratodealquiler.id = this.form.value['id'];
+    this.Contratodealquiler.descripcion = this.form.value['descripcion'];
+    this.Contratodealquiler.fecha_inicio = this.form.value['fecha_inicio'];
+    this.Contratodealquiler.fecha_pago = this.form.value['fecha_pago'];
+    this.Contratodealquiler.fecha_vencimiento =
+      this.form.value['fecha_vencimiento'];
+    this.Contratodealquiler.monto = this.form.value['monto'];
+    this.Contratodealquiler.estudiante.nombre =
+      this.form.value['estudiante.nombre'];
+    this.Contratodealquiler.habitacion.idHabitacion =
+      this.form.value['habitacion'];
 
-    if(!this.form.valid){
+    if (!this.form.valid) {
       return;
     }
 
-    if (this.idEstudianteSeleccionado > 0 && this.idHabitacionSeleccionado>0) {
+    if (
+      this.idEstudianteSeleccionado > 0 &&
+      this.idHabitacionSeleccionado > 0
+    ) {
       if (this.edicion) {
         //guardar lo actualizado
         this.pS.update(this.Contratodealquiler).subscribe(() => {
@@ -87,11 +91,11 @@ export class ContratodealquilerInsertarComponent {
       } else {
         let e = new estudiante();
         e.idEstudiante = this.idEstudianteSeleccionado;
-        this.Contratodealquiler.estudiante=e;
+        this.Contratodealquiler.estudiante = e;
 
-        let h =new habitacion();
-        h.id=this.idHabitacionSeleccionado;
-        this.Contratodealquiler.habitacion=h;
+        let h = new habitacion();
+        h.idHabitacion = this.idHabitacionSeleccionado;
+        this.Contratodealquiler.habitacion = h;
 
         this.pS.insertar(this.Contratodealquiler).subscribe((data) => {
           this.pS.list().subscribe((data) => {
@@ -104,17 +108,14 @@ export class ContratodealquilerInsertarComponent {
     } else {
       this.mensaje = 'Ingrese la descripcion del Contrato de Alquiler!!';
     }
-
-
   }
-
 
   //Se agregar para el actualizar
   init() {
     if (this.edicion) {
       this.pS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id:new FormControl(data.id),
+          id: new FormControl(data.id),
           descripcion: new FormControl(data.descripcion),
           fecha_inicio: new FormControl(data.fecha_inicio),
           fecha_pago: new FormControl(data.fecha_pago),
@@ -126,5 +127,4 @@ export class ContratodealquilerInsertarComponent {
       });
     }
   }
-
 }

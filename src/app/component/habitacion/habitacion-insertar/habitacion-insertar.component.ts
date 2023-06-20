@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HabitacionService } from 'src/app/service/habitacion.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import * as moment from 'moment';
 import { habitacion } from 'src/app/model/habitacion';
 import { Arrendador } from 'src/app/model/arrendador';
 import { Distrito } from 'src/app/model/distrito';
@@ -21,7 +20,6 @@ export class HabitacionInsertarComponent {
   form: FormGroup = new FormGroup({});
   habitacion: habitacion = new habitacion();
   mensaje: string = '';
-  maxFecha: Date = moment().add(-1, 'days').toDate();
 
   //Arrendador
   lista_a: Arrendador[] = [];
@@ -65,20 +63,20 @@ export class HabitacionInsertarComponent {
   }
 
   aceptar(): void {
-    this.habitacion.id = this.form.value['id'];
-    this.habitacion.tipo.idTipoHabitacion = this.form.value['tipo'];
+    this.habitacion.idHabitacion = this.form.value['idHabitacion'];
+    this.habitacion.tipo.tipo = this.form.value['tipo.tipo'];
     this.habitacion.precio = this.form.value['precio'];
     this.habitacion.disponibilidad = this.form.value['disponibilidad'];
-    this.habitacion.Arrendador.id_arrendador = this.form.value['Arrendador.id'];
-    this.habitacion.Distrito.id = this.form.value['Distrito.id'];
-    this.habitacion.Universidad.idUniversidad =
-      this.form.value['Universidad.id'];
+    this.habitacion.Arrendador.nombre = this.form.value['Arrendador.nombre'];
+    this.habitacion.Distrito.nombre = this.form.value['Distrito.nombre'];
+    this.habitacion.Universidad.nombre = this.form.value['Universidad.nombre'];
 
     if (!this.form.valid) {
       return;
     }
 
     if (
+      this.idTipoSeleccionado > 0 &&
       this.idArrendadorSeleccionado > 0 &&
       this.idDistritoSeleccionado > 0 &&
       this.idUniversidadSeleccionada > 0
@@ -114,7 +112,7 @@ export class HabitacionInsertarComponent {
     if (this.edicion) {
       this.hS.listID(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id: new FormControl(data.id),
+          idHabitacion: new FormControl(data.idHabitacion),
           tipo: new FormControl(data.tipo),
           precio: new FormControl(data.precio),
           disponibilidad: new FormControl(data.disponibilidad),

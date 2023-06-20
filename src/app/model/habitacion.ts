@@ -4,7 +4,7 @@ import { Distrito } from './distrito';
 import { Universidad } from './universidad';
 
 export class habitacion {
-  id: number = 0;
+  idHabitacion: number = 0;
   tipo: tipo = new tipo();
   precio: number = 0;
   disponibilidad: string = '';

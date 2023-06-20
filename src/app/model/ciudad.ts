@@ -1,7 +1,7 @@
-import { Pais } from "./pais"
+import { Pais } from './pais';
 
-export class Ciudad{
-  id:number = 0;
-  nombre:string = "";
-  pais:Pais=new Pais();
+export class Ciudad {
+  idCiudad: number = 0;
+  nombre: string = '';
+  pais: Pais = new Pais();
 }

@@ -1,6 +1,6 @@
 <div class="container">
   <div style="text-align: center">
-    <h1 class="centrar" style="margin-top: 50px;">LISTA DE PUBLICACIONES</h1>
+    <h1 class="centrar" style="margin-top: 50px">LISTA DE PUBLICACIONES</h1>
   </div>
   <div style="text-align: right">
     <button
@@ -18,53 +18,71 @@
     <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
   </mat-form-field>
 
-
   <div class="card-container">
-  <ng-container *ngFor="let element of dataSource.data">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>ID PUBLICACIÓN: {{ element.idPublicacion }} </mat-card-title>
-      <mat-card-subtitle>Fecha: {{ element.fecha_publicacion }}</mat-card-subtitle>
-    </mat-card-header>
-    <img mat-card-image src="https://i.pinimg.com/736x/0e/b5/fa/0eb5fa5f3d0deb0486559c3c15990805.jpg" alt="Photo of a Shiba Inu">
-    <mat-card-content>
-        <p>ID DE HABITACIÓN: {{ element.habitacion.id }}</p>
-        <p>Acerca de este anuncio: {{ element.contenido }} </p>
-       <div class="reacciones">
-        <p style="margin-right: 5px;"><span class="material-icons">add_reaction</span> {{ element.num_reacciones }} </p>
-        <p style="margin-right: 5px;"><span class="material-icons">comment</span> {{ element.num_comentarios }} </p>
-        <p><span class="material-icons">share</span> {{ element.num_compartidos }}</p>
-      </div>
+    <ng-container *ngFor="let element of dataSource.data">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title
+            >ID PUBLICACIÓN: {{ element.idPublicacion }}
+          </mat-card-title>
+          <mat-card-subtitle
+            >Fecha: {{ element.fecha_publicacion }}</mat-card-subtitle
+          >
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="https://i.pinimg.com/736x/0e/b5/fa/0eb5fa5f3d0deb0486559c3c15990805.jpg"
+          alt="Photo of a Shiba Inu"
+        />
+        <mat-card-content>
+          <p>ID DE HABITACIÓN: {{ element.habitacion.idHabitacion }}</p>
+          <p>Acerca de este anuncio: {{ element.contenido }}</p>
+          <div class="reacciones">
+            <p style="margin-right: 5px">
+              <span class="material-icons">add_reaction</span>
+              {{ element.num_reacciones }}
+            </p>
+            <p style="margin-right: 5px">
+              <span class="material-icons">comment</span>
+              {{ element.num_comentarios }}
+            </p>
+            <p>
+              <span class="material-icons">share</span>
+              {{ element.num_compartidos }}
+            </p>
+          </div>
+        </mat-card-content>
+        <mat-card-actions class="botones-card">
+          <button
+            mat-raised-button
+            color="warn"
+            [routerLink]="['edicion', element.idPublicacion]"
+            style="background-color: #0b3ad1; margin-right: 15px"
+          >
+            <span class="material-icons">edit_note</span>
+          </button>
+          <button
+            mat-raised-button
+            color="accent"
+            (click)="confirmar(element.idPublicacion)"
+            style="background-color: #ff6c00"
+            class="eliminar"
+          >
+            <span class="material-icons">delete</span>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </ng-container>
+  </div>
 
-
-    </mat-card-content>
-    <mat-card-actions class="botones-card">
-      <button
-      mat-raised-button
-      color="warn"
-      [routerLink]="['edicion', element.idPublicacion]"
-      style="background-color: #0b3ad1; margin-right: 15px;"
-    >
-      <span class="material-icons">edit_note</span>
-    </button>
-      <button
-              mat-raised-button
-              color="accent"
-              (click)="confirmar(element.idPublicacion)"
-              style="background-color: #ff6c00"
-              class="eliminar"
-            >
-              <span class="material-icons">delete</span>
-            </button>
-    </mat-card-actions>
-  </mat-card>
-</ng-container>
-</div>
-
-  <br>
-  <mat-paginator [pageSizeOptions]="[2, 5,10]" showFirstLastButtons (page)="onPageChange($event)"
-  [length]="dataSource.data.length" [pageSize]="2">
+  <br />
+  <mat-paginator
+    [pageSizeOptions]="[2, 5, 10]"
+    showFirstLastButtons
+    (page)="onPageChange($event)"
+    [length]="dataSource.data.length"
+    [pageSize]="2"
+  >
   </mat-paginator>
-
 </div>

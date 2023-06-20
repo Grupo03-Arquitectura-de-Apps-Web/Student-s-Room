@@ -3,16 +3,35 @@
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field class="example-full-width">
       <mat-label style="font-family: 'Quicksand', sans-serif">ID</mat-label>
-      <input matInput required placeholder="ID" formControlName="id" />
+      <input
+        matInput
+        required
+        placeholder="ID"
+        formControlName="idHabitacion"
+      />
     </mat-form-field>
     <br />
 
     <mat-form-field appearance="fill">
       <mat-label>Tipo</mat-label>
-      <mat-select formControlName="tipo" [(value)]="id" required>
+      <mat-select
+        formControlName="tipo"
+        [(value)]="idTipoSeleccionado"
+        required
+      >
         <mat-option *ngFor="let t of lista_t" [value]="t.idTipoHabitacion">
-          {{ t.idTipoHabitacion }}
+          {{ t.tipo }}
         </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br />
+
+    <br />
+    <mat-form-field appearance="fill">
+      <mat-label>Disponibilidad</mat-label>
+      <mat-select formControlName="Disponibilidad" required>
+        <mat-option value="Sí">Sí</mat-option>
+        <mat-option value="No">No</mat-option>
       </mat-select>
     </mat-form-field>
     <br />
@@ -25,9 +44,13 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Arrendador</mat-label>
-      <mat-select formControlName="Arrendador" [(value)]="id" required>
+      <mat-select
+        formControlName="Arrendador"
+        [(value)]="idArrendadorSeleccionado"
+        required
+      >
         <mat-option *ngFor="let a of lista_a" [value]="a.id_arrendador">
-          {{ a.id_arrendador }}
+          {{ a.nombre }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -35,9 +58,13 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Distrito</mat-label>
-      <mat-select formControlName="Distrito" [(value)]="id" required>
-        <mat-option *ngFor="let d of lista_d" [value]="d.id">
-          {{ d.id }}
+      <mat-select
+        formControlName="Distrito"
+        [(value)]="idDistritoSeleccionado"
+        required
+      >
+        <mat-option *ngFor="let d of lista_d" [value]="d.idDistrito">
+          {{ d.nombre }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -45,9 +72,13 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Universidad</mat-label>
-      <mat-select formControlName="Universidad" [(value)]="id" required>
+      <mat-select
+        formControlName="Universidad"
+        [(value)]="idUniversidadSeleccionada"
+        required
+      >
         <mat-option *ngFor="let u of lista_u" [value]="u.idUniversidad">
-          {{ u.idUniversidad }}
+          {{ u.nombre }}
         </mat-option>
       </mat-select>
     </mat-form-field>
