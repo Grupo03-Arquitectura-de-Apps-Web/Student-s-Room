@@ -68,7 +68,7 @@ export class HabitacionInsertarComponent {
     this.habitacion.precio = this.form.value['precio'];
     this.habitacion.disponibilidad = this.form.value['disponibilidad'];
     this.habitacion.Arrendador.nombre = this.form.value['Arrendador.nombre'];
-    this.habitacion.Distrito.nombre = this.form.value['Distrito.nombre'];
+    this.habitacion.Distrito.nombreDistrito = this.form.value['Distrito.nombre'];
     this.habitacion.Universidad.nombre = this.form.value['Universidad.nombre'];
 
     if (!this.form.valid) {

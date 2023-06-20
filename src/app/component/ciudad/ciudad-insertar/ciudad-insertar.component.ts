@@ -45,7 +45,7 @@ export class CiudadInsertarComponent {
   }
   aceptar(): void {
     this.ciudad.idCiudad = this.form.value['id'];
-    this.ciudad.nombre = this.form.value['nombre'];
+    this.ciudad.nombreCiudad = this.form.value['nombre'];
     this.ciudad.pais.idPais = this.form.value['pais'];
 
     if (!this.form.valid) {
@@ -73,7 +73,7 @@ export class CiudadInsertarComponent {
         });
       }
 
-      this.router.navigate(['ciudad']);
+      this.router.navigate(['pages/ciudad']);
     } else {
       this.mensaje = 'Ingrese todos los datos';
     }
@@ -84,7 +84,7 @@ export class CiudadInsertarComponent {
       this.pS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.idCiudad),
-          nombre: new FormControl(data.nombre),
+          nombre: new FormControl(data.nombreCiudad),
           pais: new FormControl(data.pais),
         });
       });
