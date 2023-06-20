@@ -19,8 +19,6 @@ export class MensajeInsertarComponent {
   edicion: boolean = false;
   maxFecha: Date = moment().add(0, 'days').toDate();
   form: FormGroup = new FormGroup({});
-  arrendador: Arrendador = new Arrendador();
-  estudiante: estudiante = new estudiante();
   mensaje_: Mensaje = new Mensaje();
   mensaje: string = '';
   lista_a: Arrendador[] = [];
@@ -39,16 +37,12 @@ export class MensajeInsertarComponent {
 
   ngOnInit(): void {
     //
-    this.eS.list().subscribe((data) => {
-      this.lista_e = data;
-    });
-    this.aS.list().subscribe((data) => {
-      this.lista_a = data;
-    });
+    this.eS.list().subscribe((data) => { this.lista_e = data; });
+    this.aS.list().subscribe((data) => { this.lista_a = data; });
 
     this.route.params.subscribe((data: Params) => {
-      this.id = data['idMensaje'];
-      this.edicion = data['idMensaje'] != null;
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
       this.init();
     });
 
@@ -73,6 +67,7 @@ export class MensajeInsertarComponent {
     this.mensaje_.estado = this.form.value['estado'];
     this.mensaje_.arrendador.nombre = this.form.value['arrendador.nombre'];
     this.mensaje_.estudiante.nombre = this.form.value['estudiante.nombre'];
+
 
     if (
       this.idArrendadorSeleccionado > 0 &&
@@ -115,8 +110,8 @@ export class MensajeInsertarComponent {
           fecha_recepcion: new FormControl(data.fecha_recepcion),
           tiempo_respuesta: new FormControl(data.tiempo_respuesta),
           estado: new FormControl(data.estado),
-          arrendador: new FormControl(data.arrendador.nombre),
-          estudiante: new FormControl(data.estudiante.nombre),
+          arrendador: new FormControl(data.arrendador.id_arrendador),
+          estudiante: new FormControl(data.estudiante.idEstudiante),
         });
         console.log(data);
       });

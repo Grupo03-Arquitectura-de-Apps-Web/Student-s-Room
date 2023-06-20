@@ -39,7 +39,8 @@ export class MensajeService {
   //
   listId(id:number){
     let token = sessionStorage.getItem("token");
-    return this.http.get<Mensaje>(`${this.url}/${id}`,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+    return this.http.get<Mensaje>(`${this.url}/${id}`,{
+       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
   });
   }
 

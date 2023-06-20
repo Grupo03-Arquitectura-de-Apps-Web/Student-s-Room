@@ -37,7 +37,9 @@ export class ContratodealquilerInsertarComponent {
   constructor(
     private cS: ContratodealquilerService,
     private router:Router,
-    private route:ActivatedRoute, private eS:EstudianteService, private hS:HabitacionService  ){}
+    private route:ActivatedRoute,
+    private eS:EstudianteService,
+    private hS:HabitacionService  ){}
 
   //agregamos el ngOninit
   ngOnInit(): void {
@@ -71,7 +73,7 @@ export class ContratodealquilerInsertarComponent {
     this.Contratodealquiler.fecha_vencimiento=this.form.value['fecha_vencimiento'];
     this.Contratodealquiler.money=this.form.value['money'];
     this.Contratodealquiler.estudiante.nombre=this.form.value['estudiante.nombre'];
-    this.Contratodealquiler.habitacion.idHabitacion=this.form.value['habitacion'];
+    this.Contratodealquiler.habitacion.idHabitacion=this.form.value['habitacion.idHabitacion'];
 
     if (!this.form.valid) {
       return;
