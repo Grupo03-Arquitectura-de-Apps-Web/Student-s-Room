@@ -3,9 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { estudiante } from '../model/estudiante';
 
-//Agregar para el insertar
 import { Subject } from 'rxjs';
-
 const base_url = environment.base;
 
 @Injectable({

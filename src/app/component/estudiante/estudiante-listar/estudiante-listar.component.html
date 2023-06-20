@@ -90,7 +90,7 @@
       <ng-container  matColumnDef="celiminar" style="text-align: center;" >
         <th [hidden]="role=='ARRENDADOR'" mat-header-cell *matHeaderCellDef >ELIMINAR</th>
         <td [hidden]="role=='ARRENDADOR'" mat-cell *matCellDef="let element">
-          <button mat-raised-button style="background-color:  #ff6c00;;" (click)="confirmar(element.id)"><span style="color: white;" class="material-icons">delete</span></button>
+          <button mat-raised-button style="background-color:  #ff6c00;;" (click)="confirmar(element.idEstudiante)"><span style="color: white;" class="material-icons">delete</span></button>
         </td>
       </ng-container>
 
