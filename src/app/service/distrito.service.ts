@@ -7,13 +7,13 @@ import { HttpClient } from '@angular/common/http';
 const base_url = environment.base;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DistritoService {
   private url = `${base_url}/distrito`;
-  private listaCambio=new Subject<Distrito[]>;
+  private listaCambio = new Subject<Distrito[]>();
 
-  private confirmaEliminacion = new Subject<Boolean>()
+  private confirmaEliminacion = new Subject<Boolean>();
 
   constructor(private http: HttpClient) {}
 
@@ -22,13 +22,13 @@ export class DistritoService {
   }
 
   //Agregar para el insertar
-  insertar (contratodealquiler:Distrito){
-    return this.http.post(this.url,contratodealquiler);
+  insertar(contratodealquiler: Distrito) {
+    return this.http.post(this.url, contratodealquiler);
   }
-  getlist(){
+  getlist() {
     return this.listaCambio.asObservable();
   }
-  setlist(listaNueva:Distrito[]){
+  setlist(listaNueva: Distrito[]) {
     this.listaCambio.next(listaNueva);
   }
 
@@ -38,16 +38,16 @@ export class DistritoService {
   }
 
   update(c: Distrito) {
-    return this.http.put(this.url + '/' + c.id, c);
+    return this.http.put(this.url + '/' + c.idDistrito, c);
   }
   //para el eliminar
   eliminar(id: number) {
-
     return this.http.delete(`${this.url}/${id}`);
   }
   getConfirmaEliminacion() {
     return this.confirmaEliminacion.asObservable();
   }
   setConfirmaEliminacion(estado: Boolean) {
-    this.confirmaEliminacion.next(estado);}
+    this.confirmaEliminacion.next(estado);
+  }
 }
