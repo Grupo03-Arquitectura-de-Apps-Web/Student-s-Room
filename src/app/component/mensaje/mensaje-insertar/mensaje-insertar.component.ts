@@ -7,6 +7,7 @@ import * as moment from 'moment';
 import { Mensaje } from 'src/app/model/mensaje';
 import { MensajeService } from 'src/app/service/mensaje.service';
 import { EstudianteService } from 'src/app/service/estudiante.service';
+import { ArrendadorService } from 'src/app/service/arrendador.service';
 
 @Component({
   selector: 'app-mensaje-insertar',
@@ -32,7 +33,8 @@ export class MensajeInsertarComponent {
     private mS: MensajeService,
     private router: Router,
     private route: ActivatedRoute,
-    private eS: EstudianteService /*, private aS:ArrendadorService*/
+    private eS: EstudianteService,
+    private aS: ArrendadorService
   ) {}
 
   ngOnInit(): void {
@@ -40,7 +42,9 @@ export class MensajeInsertarComponent {
     this.eS.list().subscribe((data) => {
       this.lista_e = data;
     });
-    //this.aS.list().subscribe(data => { this.lista_a = data });
+    this.aS.list().subscribe((data) => {
+      this.lista_a = data;
+    });
 
     this.route.params.subscribe((data: Params) => {
       this.id = data['idMensaje'];
@@ -67,21 +71,13 @@ export class MensajeInsertarComponent {
     this.mensaje_.fecha_recepcion = this.form.value['fecha_recepcion'];
     this.mensaje_.tiempo_respuesta = this.form.value['tiempo_respuesta'];
     this.mensaje_.estado = this.form.value['estado'];
-    this.mensaje_.arrendador.id_arrendador =
-      this.form.value['arrendador.id_arrendador'];
+    this.mensaje_.arrendador.nombre = this.form.value['arrendador.nombre'];
     this.mensaje_.estudiante.nombre = this.form.value['estudiante.nombre'];
 
     if (
       this.idArrendadorSeleccionado > 0 &&
       this.idEstudianteSeleccionado > 0
     ) {
-      let a = new Arrendador();
-      let e = new estudiante();
-      a.id_arrendador = this.idArrendadorSeleccionado;
-      e.idEstudiante = this.idEstudianteSeleccionado;
-      this.mensaje_.arrendador = a;
-      this.mensaje_.estudiante = e;
-
       if (this.edicion) {
         this.mS.update(this.mensaje_).subscribe(() => {
           this.mS.list().subscribe((data) => {
@@ -89,6 +85,12 @@ export class MensajeInsertarComponent {
           });
         });
       } else {
+        let a = new Arrendador();
+        let e = new estudiante();
+        a.id_arrendador = this.idArrendadorSeleccionado;
+        e.idEstudiante = this.idEstudianteSeleccionado;
+        this.mensaje_.arrendador = a;
+        this.mensaje_.estudiante = e;
         this.mS.insert(this.mensaje_).subscribe(() => {
           this.mS.list().subscribe((data) => {
             this.mS.setList(data);
@@ -96,7 +98,7 @@ export class MensajeInsertarComponent {
         });
       }
 
-      this.router.navigate(['mensajes']);
+      this.router.navigate(['/pages/mensaje']);
     } else {
       this.mensaje = 'Complete todos los campos!!';
     }
@@ -113,8 +115,8 @@ export class MensajeInsertarComponent {
           fecha_recepcion: new FormControl(data.fecha_recepcion),
           tiempo_respuesta: new FormControl(data.tiempo_respuesta),
           estado: new FormControl(data.estado),
-          arrendador: new FormControl(data.arrendador),
-          estudiante: new FormControl(data.estudiante),
+          arrendador: new FormControl(data.arrendador.nombre),
+          estudiante: new FormControl(data.estudiante.nombre),
         });
         console.log(data);
       });

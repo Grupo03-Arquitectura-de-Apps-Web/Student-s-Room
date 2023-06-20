@@ -6,7 +6,7 @@
     <button
       mat-raised-button
       color="warn"
-      routerLink="/mensaje/mensajesinsertar"
+      routerLink="/pages/mensaje/mensajesinsertar"
       style="background-color: #0b3ad1"
     >
       Nuevo
@@ -58,7 +58,7 @@
     <ng-container matColumnDef="arrendador"
       ><th mat-header-cell *matHeaderCellDef>ARRENDADOR</th>
       <td mat-cell *matCellDef="let element">
-        {{ element.arrendador.id_arrendador }}
+        {{ element.arrendador.nombre }}
       </td></ng-container
     >
     <ng-container matColumnDef="estudiante"
