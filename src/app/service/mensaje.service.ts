@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Mensaje } from '../model/mensaje';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Subject } from 'rxjs';
 
 const base_url = environment.base;
@@ -19,11 +19,15 @@ export class MensajeService {
 
 
   list() {
-    return this.http.get<Mensaje[]>(this.url);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Mensaje[]>(this.url,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
 
   insert(mensaje: Mensaje) {
-    return this.http.post(this.url, mensaje);
+    let token = sessionStorage.getItem("token");
+    return this.http.post(this.url, mensaje,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   getList() {
     return this.listaCambio.asObservable();
@@ -34,16 +38,22 @@ export class MensajeService {
 
   //
   listId(id:number){
-    return this.http.get<Mensaje>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.get<Mensaje>(`${this.url}/${id}`,{
+       headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
 
   update(p:Mensaje){
-    return this.http.put(this.url + '/' + p.idMensaje,p);
+    let token = sessionStorage.getItem("token");
+    return this.http.put(this.url,p,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   //
   eliminar(id: number) {
-
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem("token");
+    return this.http.delete(`${this.url}/${id}`,{ headers: new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Content-Type', 'application/json')
+  });
   }
   getConfirmaEliminacion() {
     return this.confirmaEliminacion.asObservable();

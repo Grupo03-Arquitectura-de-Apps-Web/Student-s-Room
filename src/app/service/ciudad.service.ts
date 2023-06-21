@@ -10,7 +10,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class CiudadService {
-  private url = `${base_url}/ciudad`;
+  private url = `${base_url}/ciudadades`;
   private listaCambio = new Subject<Ciudad[]>();
 
   private confirmaEliminacion = new Subject<Boolean>();

@@ -29,32 +29,33 @@
       <mat-datepicker-toggle matSuffix [for]="picker_recepcion"></mat-datepicker-toggle>
       <mat-datepicker #picker_recepcion></mat-datepicker>
     </mat-form-field>
-    <br />
-    <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">TIEMPO DE RESPUESTA</mat-label>
-      <input
-        matInput
-        required
-        placeholder="tiempo_respuesta"
-        formControlName="tiempo_respuesta"
-      />
-    </mat-form-field>
-    <br />
-    <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">ESTADO</mat-label>
-      <input
-        matInput
-        required
-        placeholder="estado"
-        formControlName="estado"
-      />
-    </mat-form-field>
-    <br />
+
+    <br>
+      <mat-form-field appearance="fill">
+        <mat-label>TIEMPO DE RESPUESTA</mat-label>
+        <mat-select required placeholder="tiempo_respuesta" formControlName="tiempo_respuesta">
+          <mat-option value="0-5 min">0-5 min</mat-option>
+          <mat-option value="5-10 min">5-10 min</mat-option>
+          <mat-option value="10-30 min">10-30 min</mat-option>
+          <mat-option value="+30 min">+30 min</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br>
+      <mat-form-field appearance="fill">
+        <mat-label>GRAVEDAD</mat-label>
+        <mat-select required placeholder="estado" formControlName="estado">
+          <mat-option value="Baja">Baja</mat-option>
+          <mat-option value="Media">Media</mat-option>
+          <mat-option value="Alta">Alta</mat-option>
+          <mat-option value="Urgente">Urgente</mat-option>
+        </mat-select>
+      </mat-form-field>
+    <br>
     <mat-form-field appearance="fill">
       <mat-label>ARRENDADOR</mat-label>
       <mat-select formControlName="arrendador" [(value)]="idArrendadorSeleccionado" required>
         <mat-option *ngFor="let a of lista_a" [value]="a.id_arrendador">
-          {{a.id_arrendador}}
+          {{a.nombre}}
       </mat-option>
       </mat-select>
     </mat-form-field>
@@ -75,7 +76,7 @@
     <button
       mat-raised-button
       color="warn"
-      routerLink="/mensaje"
+      routerLink="/pages/mensaje"
       style="background-color: #ff6c00"
     >
     Cancelar <span class='material-icons'>cancel</span>

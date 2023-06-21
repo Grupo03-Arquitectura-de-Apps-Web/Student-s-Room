@@ -19,7 +19,7 @@
         required
       >
         <mat-option *ngFor="let c of lista_c" [value]="c.idCiudad">
-          {{ c.idCiudad }}
+          {{ c.nombreCiudad }}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -30,7 +30,7 @@
     <button
       mat-raised-button
       color="warn"
-      routerLink="/distrito"
+      routerLink="/pages/distrito"
       style="background-color: #ff6c00"
     >
       Cancelar <span class="material-icons">cancel</span>

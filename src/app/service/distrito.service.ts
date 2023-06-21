@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Distrito } from '../model/distrito';
 import { Subject } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 
 const base_url = environment.base;
 
@@ -10,7 +10,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class DistritoService {
-  private url = `${base_url}/distrito`;
+  private url = `${base_url}/distritos`;
   private listaCambio = new Subject<Distrito[]>();
 
   private confirmaEliminacion = new Subject<Boolean>();
@@ -18,12 +18,24 @@ export class DistritoService {
   constructor(private http: HttpClient) {}
 
   list() {
-    return this.http.get<Distrito[]>(this.url);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<Distrito[]>(this.url, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   //Agregar para el insertar
   insertar(contratodealquiler: Distrito) {
-    return this.http.post(this.url, contratodealquiler);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.post(this.url, contratodealquiler, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   getlist() {
     return this.listaCambio.asObservable();
@@ -34,15 +46,33 @@ export class DistritoService {
 
   //Para el actualizar
   listId(id: number) {
-    return this.http.get<Distrito>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<Distrito>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   update(c: Distrito) {
-    return this.http.put(this.url + '/' + c.idDistrito, c);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.put(this.url, c, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   //para el eliminar
   eliminar(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   getConfirmaEliminacion() {
     return this.confirmaEliminacion.asObservable();

@@ -51,8 +51,8 @@ export class CiudadInsertarComponent {
   }
   aceptar(): void {
     this.ciudad.idCiudad = this.form.value['id'];
-    this.ciudad.nombre = this.form.value['nombre'];
-    this.ciudad.pais.nombrePais = this.form.value['pais.nombrePais'];
+    this.ciudad.nombreCiudad = this.form.value['nombre'];
+    this.ciudad.pais.idPais = this.form.value['pais'];
 
     if (!this.form.valid) {
       return;
@@ -89,9 +89,9 @@ export class CiudadInsertarComponent {
     if (this.edicion) {
       this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          idCiudad: new FormControl(data.idCiudad),
+          id: new FormControl(data.idCiudad),
           nombre: new FormControl(data.nombre),
-          pais: new FormControl(data.pais.idPais),
+          pais: new FormControl(data.pais),
         });
       });
     }
