@@ -51,7 +51,7 @@ export class CiudadInsertarComponent {
   }
   aceptar(): void {
     this.ciudad.idCiudad = this.form.value['id'];
-    this.ciudad.nombreCiudad = this.form.value['nombre'];
+    this.ciudad.nombreCiudad = this.form.value['nombreCiudad'];
     this.ciudad.pais.idPais = this.form.value['pais'];
 
     if (!this.form.valid) {
@@ -90,7 +90,7 @@ export class CiudadInsertarComponent {
       this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.idCiudad),
-          nombre: new FormControl(data.nombre),
+          nombre: new FormControl(data.nombreCiudad),
           pais: new FormControl(data.pais),
         });
       });
