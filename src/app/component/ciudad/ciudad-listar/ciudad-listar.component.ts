@@ -1,27 +1,42 @@
-import { Component,OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
 import { Ciudad } from 'src/app/model/ciudad';
 import { CiudadService } from 'src/app/service/ciudad.service';
 import { CiudadEliminarComponent } from './ciudad-eliminar/ciudad-eliminar.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-ciudad-listar',
   templateUrl: './ciudad-listar.component.html',
-  styleUrls: ['./ciudad-listar.component.css']
+  styleUrls: ['./ciudad-listar.component.css'],
 })
-export class CiudadListarComponent implements OnInit{
+export class CiudadListarComponent implements OnInit {
+  role: string = '';
   dataSource: MatTableDataSource<Ciudad> = new MatTableDataSource();
   lista: Ciudad[] = [];
-  displayedColumns: string[] = ['id','nombre','pais','actualizar','eliminar'];
+  displayedColumns: string[] = [
+    'id',
+    'nombre',
+    'pais',
+    'actualizar',
+    'eliminar',
+  ];
 
   //para el eliminar
   private idMayor: number = 0;
-  constructor(private pS: CiudadService, private dialog: MatDialog) {}
+  constructor(
+    private pS: CiudadService,
+    private dialog: MatDialog,
+    private ls: LoginService
+  ) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngOnInit(): void {
+    this.role = this.ls.showRole();
+    console.log(this.role);
+
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -33,23 +48,22 @@ export class CiudadListarComponent implements OnInit{
     });
 
     //agregar para eliminar
-    this.pS.getConfirmaEliminacion().subscribe(data => {
+    this.pS.getConfirmaEliminacion().subscribe((data) => {
       data == true ? this.eliminar(this.idMayor) : false;
     });
   }
-
 
   filtrar(e: any) {
     this.dataSource.filter = e.target.value.trim();
   }
   //para el eliminar
   confirmar(id: number) {
-  this.idMayor = id;
-  this.dialog.open(CiudadEliminarComponent);
+    this.idMayor = id;
+    this.dialog.open(CiudadEliminarComponent);
   }
   eliminar(id: number) {
     this.pS.eliminar(id).subscribe(() => {
-      this.pS.list().subscribe(data => {
+      this.pS.list().subscribe((data) => {
         this.pS.setlist(data);
         this.dataSource.paginator = this.paginator;
       });

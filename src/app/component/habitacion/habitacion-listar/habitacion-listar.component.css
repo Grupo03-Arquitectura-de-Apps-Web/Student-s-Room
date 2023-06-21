@@ -1,11 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand&display=swap');
 th,h1{
+  text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
 td, button{
   font-family: 'Quicksand', sans-serif;
 }
-
-.centrar {
+.centrar{
   display: flex;
   align-items: center;
   flex-direction: column;

@@ -1,27 +1,26 @@
 <div class="container" style="text-align: center">
-  <h1 class="centrar" style="margin-top: 50px;">REGISTRAR CIUDAD</h1>
+  <h1 class="centrar" style="margin-top: 50px">REGISTRAR CIUDAD</h1>
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">ID</mat-label>
+      <mat-label style="font-family: 'Quicksand', sans-serif">ID</mat-label>
       <input matInput required placeholder="Código" formControlName="id" />
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif;">NOMBRE</mat-label>
-      <input
-        matInput
-        required
-        placeholder="nombre"
-        formControlName="nombre"
-      />
+      <mat-label style="font-family: 'Quicksand', sans-serif">NOMBRE</mat-label>
+      <input matInput required placeholder="nombre" formControlName="nombre" />
     </mat-form-field>
     <br />
     <mat-form-field appearance="fill">
       <mat-label>PAIS</mat-label>
-      <mat-select formControlName="pais" [(value)]="idPaisSeleccionado" required>
+      <mat-select
+        formControlName="pais"
+        [(value)]="idPaisSeleccionado"
+        required
+      >
         <mat-option *ngFor="let p of lista_p" [value]="p.idPais">
-          {{p.idPais}}
-      </mat-option>
+          {{ p.nombrePais }}
+        </mat-option>
       </mat-select>
     </mat-form-field>
     <br />
@@ -31,10 +30,10 @@
     <button
       mat-raised-button
       color="warn"
-      routerLink="/ciudad"
+      routerLink="/pages/ciudad"
       style="background-color: #ff6c00"
     >
-    Cancelar <span class='material-icons'>cancel</span>
+      Cancelar <span class="material-icons">cancel</span>
     </button>
     <br />
 

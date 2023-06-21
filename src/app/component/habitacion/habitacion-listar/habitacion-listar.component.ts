@@ -5,6 +5,7 @@ import { HabitacionEliminarComponent } from './habitacion-eliminar/habitacion-el
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-habitacion-listar',
@@ -12,6 +13,7 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./habitacion-listar.component.css'],
 })
 export class HabitacionListarComponent implements OnInit {
+  role: string = '';
   dataSource: MatTableDataSource<habitacion> = new MatTableDataSource();
   lista: habitacion[] = [];
   displayedColumns: string[] = [
@@ -28,10 +30,17 @@ export class HabitacionListarComponent implements OnInit {
 
   //para el eliminar
   private idMayor: number = 0;
-  constructor(private hS: HabitacionService, private dialog: MatDialog) {}
+  constructor(
+    private hS: HabitacionService,
+    private dialog: MatDialog,
+    private ls: LoginService
+  ) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngOnInit(): void {
+    this.role = this.ls.showRole();
+    console.log(this.role);
+
     this.hS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

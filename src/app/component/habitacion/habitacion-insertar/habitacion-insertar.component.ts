@@ -7,6 +7,10 @@ import { Arrendador } from 'src/app/model/arrendador';
 import { Distrito } from 'src/app/model/distrito';
 import { Universidad } from 'src/app/model/universidad';
 import { tipo } from 'src/app/model/tipo';
+import { ArrendadorService } from 'src/app/service/arrendador.service';
+import { TipoService } from 'src/app/service/tipo.service';
+import { DistritoService } from 'src/app/service/distrito.service';
+import { UniversidadService } from 'src/app/service/universidad.service';
 @Component({
   selector: 'app-habitacion-insertar',
   templateUrl: './habitacion-insertar.component.html',
@@ -21,6 +25,10 @@ export class HabitacionInsertarComponent {
   habitacion: habitacion = new habitacion();
   mensaje: string = '';
 
+  //Tipo
+  lista_t: tipo[] = [];
+  idTipoSeleccionado: number = 0;
+
   //Arrendador
   lista_a: Arrendador[] = [];
   idArrendadorSeleccionado: number = 0;
@@ -33,19 +41,32 @@ export class HabitacionInsertarComponent {
   lista_u: Universidad[] = [];
   idUniversidadSeleccionada: number = 0;
 
-  //Tipo
-  lista_t: tipo[] = [];
-  idTipoSeleccionado: number = 0;
-
   //agregamos el constructor
   constructor(
     private hS: HabitacionService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private tS: TipoService,
+    private aS: ArrendadorService,
+    private dS: DistritoService,
+    private uS: UniversidadService
   ) {}
 
   //agregamos el ngOninit
   ngOnInit(): void {
+    this.tS.list().subscribe((data) => {
+      this.lista_t = data;
+    });
+    this.aS.list().subscribe((data) => {
+      this.lista_a = data;
+    });
+
+    this.dS.list().subscribe((data) => {
+      this.lista_d = data;
+    });
+    this.uS.list().subscribe((data) => {
+      this.lista_u = data;
+    });
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -63,7 +84,7 @@ export class HabitacionInsertarComponent {
   }
 
   aceptar(): void {
-    this.habitacion.idHabitacion = this.form.value['idHabitacion'];
+    this.habitacion.idHabitacion = this.form.value['id'];
     this.habitacion.tipo.tipo = this.form.value['tipo.tipo'];
     this.habitacion.precio = this.form.value['precio'];
     this.habitacion.disponibilidad = this.form.value['disponibilidad'];
@@ -91,9 +112,21 @@ export class HabitacionInsertarComponent {
 
         //AQUI VERIFICAR SI FALTA EL DISTRITO Y UNIVERSIDAD
       } else {
+        let t = new tipo();
+        t.idTipoHabitacion = this.idTipoSeleccionado;
+        this.habitacion.tipo = t;
+
         let a = new Arrendador();
         a.id_arrendador = this.idArrendadorSeleccionado;
         this.habitacion.Arrendador = a;
+
+        let d = new Distrito();
+        d.idDistrito = this.idDistritoSeleccionado;
+        this.habitacion.Distrito = d;
+
+        let u = new Universidad();
+        u.idUniversidad = this.idUniversidadSeleccionada;
+        this.habitacion.Universidad = u;
 
         this.hS.insert(this.habitacion).subscribe((data) => {
           this.hS.list().subscribe((data) => {
@@ -113,12 +146,12 @@ export class HabitacionInsertarComponent {
       this.hS.listID(this.id).subscribe((data) => {
         this.form = new FormGroup({
           idHabitacion: new FormControl(data.idHabitacion),
-          tipo: new FormControl(data.tipo),
+          tipo: new FormControl(data.tipo.idTipoHabitacion),
           precio: new FormControl(data.precio),
           disponibilidad: new FormControl(data.disponibilidad),
-          Arrendador: new FormControl(data.Arrendador),
-          Distrito: new FormControl(data.Distrito),
-          Universidad: new FormControl(data.Universidad),
+          Arrendador: new FormControl(data.Arrendador.id_arrendador),
+          Distrito: new FormControl(data.Distrito.idDistrito),
+          Universidad: new FormControl(data.Universidad.idUniversidad),
         });
       });
     }

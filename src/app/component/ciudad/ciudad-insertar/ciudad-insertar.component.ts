@@ -4,6 +4,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Ciudad } from 'src/app/model/ciudad';
 import { Pais } from 'src/app/model/pais';
 import { CiudadService } from 'src/app/service/ciudad.service';
+import { PaisService } from 'src/app/service/pais.service';
 
 @Component({
   selector: 'app-ciudad-insertar',
@@ -25,13 +26,18 @@ export class CiudadInsertarComponent {
 
   //agregamos el constructor
   constructor(
-    private pS: CiudadService,
+    private cS: CiudadService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private pS: PaisService
   ) {}
 
   //agregamos el ngOninit
   ngOnInit(): void {
+    this.pS.list().subscribe((data) => {
+      this.lista_p = data;
+    });
+
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -46,7 +52,7 @@ export class CiudadInsertarComponent {
   aceptar(): void {
     this.ciudad.idCiudad = this.form.value['id'];
     this.ciudad.nombre = this.form.value['nombre'];
-    this.ciudad.pais.idPais = this.form.value['pais'];
+    this.ciudad.pais.nombrePais = this.form.value['pais.nombrePais'];
 
     if (!this.form.valid) {
       return;
@@ -55,9 +61,9 @@ export class CiudadInsertarComponent {
     if (this.idPaisSeleccionado > 0) {
       if (this.edicion) {
         //guardar lo actualizado
-        this.pS.update(this.ciudad).subscribe(() => {
-          this.pS.list().subscribe((data) => {
-            this.pS.setlist(data);
+        this.cS.update(this.ciudad).subscribe(() => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setlist(data);
           });
         });
         //
@@ -66,14 +72,14 @@ export class CiudadInsertarComponent {
         p.idPais = this.idPaisSeleccionado;
         this.ciudad.pais = p;
 
-        this.pS.insertar(this.ciudad).subscribe((data) => {
-          this.pS.list().subscribe((data) => {
-            this.pS.setlist(data);
+        this.cS.insertar(this.ciudad).subscribe((data) => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setlist(data);
           });
         });
       }
 
-      this.router.navigate(['ciudad']);
+      this.router.navigate(['pages/ciudad']);
     } else {
       this.mensaje = 'Ingrese todos los datos';
     }
@@ -81,11 +87,11 @@ export class CiudadInsertarComponent {
 
   init() {
     if (this.edicion) {
-      this.pS.listId(this.id).subscribe((data) => {
+      this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          id: new FormControl(data.idCiudad),
+          idCiudad: new FormControl(data.idCiudad),
           nombre: new FormControl(data.nombre),
-          pais: new FormControl(data.pais),
+          pais: new FormControl(data.pais.idPais),
         });
       });
     }

@@ -3,17 +3,12 @@
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field class="example-full-width">
       <mat-label style="font-family: 'Quicksand', sans-serif">ID</mat-label>
-      <input
-        matInput
-        required
-        placeholder="ID"
-        formControlName="idHabitacion"
-      />
+      <input matInput required placeholder="ID" formControlName="id" />
     </mat-form-field>
     <br />
 
     <mat-form-field appearance="fill">
-      <mat-label>Tipo</mat-label>
+      <mat-label>TIPO</mat-label>
       <mat-select
         formControlName="tipo"
         [(value)]="idTipoSeleccionado"
@@ -28,7 +23,7 @@
 
     <br />
     <mat-form-field appearance="fill">
-      <mat-label>Disponibilidad</mat-label>
+      <mat-label>DISPONIBILIDAD</mat-label>
       <mat-select formControlName="Disponibilidad" required>
         <mat-option value="Sí">Sí</mat-option>
         <mat-option value="No">No</mat-option>
@@ -37,13 +32,13 @@
     <br />
 
     <mat-form-field class="example-full-width">
-      <mat-label style="font-family: 'Quicksand', sans-serif">Precio</mat-label>
+      <mat-label>PRECIO</mat-label>
       <input matInput required placeholder="precio" formControlName="precio" />
     </mat-form-field>
     <br />
 
     <mat-form-field appearance="fill">
-      <mat-label>Arrendador</mat-label>
+      <mat-label>ARRENDADOR</mat-label>
       <mat-select
         formControlName="Arrendador"
         [(value)]="idArrendadorSeleccionado"
@@ -57,7 +52,7 @@
     <br />
 
     <mat-form-field appearance="fill">
-      <mat-label>Distrito</mat-label>
+      <mat-label>DISTRITO</mat-label>
       <mat-select
         formControlName="Distrito"
         [(value)]="idDistritoSeleccionado"
@@ -71,7 +66,7 @@
     <br />
 
     <mat-form-field appearance="fill">
-      <mat-label>Universidad</mat-label>
+      <mat-label>UNIVERSIDAD</mat-label>
       <mat-select
         formControlName="Universidad"
         [(value)]="idUniversidadSeleccionada"
@@ -90,7 +85,7 @@
     <button
       mat-raised-button
       color="warn"
-      routerLink="/pages/publicacion"
+      routerLink="/pages/habitacion"
       style="background-color: #ff6c00"
     >
       Cancelar <span class="material-icons">cancel</span>
