@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PaisComponent } from './component/pais/pais.component';
 import { PaisInsertarComponent } from './component/pais/pais-insertar/pais-insertar.component';
@@ -35,6 +35,9 @@ import { LoginComponent } from './component/login/login.component';
 import { GuardService } from './service/guard.service';
 import { MainNavComponent } from './component/navs/main-nav/main-nav.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
+import { ReportsComponent } from './component/reports/reports.component';
+import { Report01Component } from './component/reports/report01/report01.component';
+import { Report02Component } from './component/reports/report02/report02.component';
 
 const routes: Routes = [
   {
@@ -178,6 +181,22 @@ const routes: Routes = [
         component: UsuarioComponent
         ,canActivate:[GuardService]
       },
+
+      {
+        path:'reports',
+        component:ReportsComponent,
+        children:[
+          {
+            path: 'report1',
+            component: Report01Component,
+          },
+          {
+            path: 'report2',
+            component: Report02Component,
+          },
+          //colocar aqui los reportes
+        ]
+      }
     ],
     canActivate:[GuardService]
 

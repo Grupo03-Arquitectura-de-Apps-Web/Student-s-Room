@@ -104,8 +104,9 @@ import { SidebarComponent } from './component/navs/sidebar/sidebar.component';
 import { SideNavbarComponent } from './component/navs/side-navbar/side-navbar.component';
 import { MainNavComponent } from './component/navs/main-nav/main-nav.component';
 import { UsuarioComponent } from './component/usuario/usuario.component';
-import { HabitacionEntrePreciosComponent } from './component/habitacion-entre-precios/habitacion-entre-precios.component';
-import { HabitacionDisponibleUbiComponent } from './component/habitacion-disponible-ubi/habitacion-disponible-ubi.component';
+import { ReportsComponent } from './component/reports/reports.component';
+import { Report01Component } from './component/reports/report01/report01.component';
+import { Report02Component } from './component/reports/report02/report02.component';
 //delete
 
 @NgModule({
@@ -171,8 +172,9 @@ import { HabitacionDisponibleUbiComponent } from './component/habitacion-disponi
     SideNavbarComponent,
     MainNavComponent,
     UsuarioComponent,
-    HabitacionEntrePreciosComponent,
-    HabitacionDisponibleUbiComponent,
+    ReportsComponent,
+    Report01Component,
+    Report02Component
   ],
   imports: [
     BrowserModule,
