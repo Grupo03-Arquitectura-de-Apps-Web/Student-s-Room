@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { habitacion } from '../model/habitacion';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { disponiblesDTO } from '../model/disponiblesDTO';
 
 const base_url = environment.base;
 
@@ -10,7 +11,7 @@ const base_url = environment.base;
   providedIn: 'root',
 })
 export class HabitacionService {
-  private url = `${base_url}/habitacion`;
+  private url = `${base_url}/habitaciones`;
   private listaCambio = new Subject<habitacion[]>();
   private confirmaEliminacion = new Subject<Boolean>();
 
@@ -78,5 +79,23 @@ export class HabitacionService {
   }
   setConfirmaEliminacion(estado: Boolean) {
     this.confirmaEliminacion.next(estado);
+  }
+  roomsAvailableBYcity():Observable<disponiblesDTO[]>{
+    let token = sessionStorage.getItem('token');
+    return this.http.get<disponiblesDTO[]>(`${this.url}/disponibles`,{
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    })
+  }
+
+  searchByPrice(p1:number,p2:number) {
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<habitacion[]>(`${this.url}/${p1}/${p2}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 }

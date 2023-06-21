@@ -61,15 +61,49 @@
     color: #0b3ad1;
   }
 }
+
+.nave-list2 .is-active2{
+
+  &.items-menu span{
+    color: #0b3ad1;
+  }
+  &.expansion-men{
+    border-left: 8px solid #ff6c00 !important;
+    &.items-menu span{
+      color: #0b3ad1;
+    }
+  }
+}
+
+.expansion-men{
+  align-items: center;
+}
+
+
 .items-menu .mat-icon{
   margin-left: 15px;
 
 }
-.items-menu span {
+
+.expansion-men .mat-icon{
+  margin-left: 15px;
+
+}
+
+.items-menu span{
   position: absolute;
   text-align: center;
   align-items: center;
   margin-left: 15px;
+}
+
+.expansion-men span{
+  text-align: center;
+  align-items: center;
+  margin-left: 15px;
+}
+.nave-list2 .items-menu .mat-icon{
+  margin-left: 40px;
 }
 
 
