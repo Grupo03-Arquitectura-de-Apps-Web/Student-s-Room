@@ -97,14 +97,7 @@ export class HabitacionInsertarComponent {
       return;
     }
 
-    if (
-      this.form.value['disponibilidad'].length > 0 ||
-      this.form.value['precio'].length > 0 ||
-      this.idArrendadorSeleccionado > 0 ||
-      this.idDistritoSeleccionado > 0 ||
-      this.idTipoSeleccionado > 0 ||
-      this.idUniversidadSeleccionada > 0
-    ) {
+    if (this.form.value['disponibilidad'].length > 0) {
       let t = new tipo();
       t.idTipoHabitacion = this.idTipoSeleccionado;
       this.habitacion.tipo = t;
