@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { HabitacionService } from 'src/app/service/habitacion.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -77,9 +77,9 @@ export class HabitacionInsertarComponent {
       tipo: new FormControl(),
       precio: new FormControl(),
       disponibilidad: new FormControl(),
-      Arrendador: new FormControl(),
+      arrendador: new FormControl(),
       distrito: new FormControl(),
-      Universidad: new FormControl(),
+      universidad: new FormControl(),
     });
   }
 
@@ -88,20 +88,38 @@ export class HabitacionInsertarComponent {
     this.habitacion.tipo.tipo = this.form.value['tipo.tipo'];
     this.habitacion.precio = this.form.value['precio'];
     this.habitacion.disponibilidad = this.form.value['disponibilidad'];
-    this.habitacion.Arrendador.nombre = this.form.value['Arrendador.nombre'];
-    this.habitacion.Distrito.nombreDistrito = this.form.value['Distrito.nombre'];
-    this.habitacion.Universidad.nombre = this.form.value['Universidad.nombre'];
+    this.habitacion.arrendador.nombre = this.form.value['arrendador.nombre'];
+    this.habitacion.distrito.nombreDistrito =
+      this.form.value['distrito.nombreDistrito'];
+    this.habitacion.universidad.nombre = this.form.value['universidad.nombre'];
 
     if (!this.form.valid) {
       return;
     }
 
     if (
-      this.idTipoSeleccionado > 0 &&
-      this.idArrendadorSeleccionado > 0 &&
-      this.idDistritoSeleccionado > 0 &&
+      this.form.value['disponibilidad'].length > 0 ||
+      this.form.value['precio'].length > 0 ||
+      this.idArrendadorSeleccionado > 0 ||
+      this.idDistritoSeleccionado > 0 ||
+      this.idTipoSeleccionado > 0 ||
       this.idUniversidadSeleccionada > 0
     ) {
+      let t = new tipo();
+      t.idTipoHabitacion = this.idTipoSeleccionado;
+      this.habitacion.tipo = t;
+
+      let a = new Arrendador();
+      a.id_arrendador = this.idArrendadorSeleccionado;
+      this.habitacion.arrendador = a;
+
+      let d = new Distrito();
+      d.idDistrito = this.idDistritoSeleccionado;
+      this.habitacion.distrito = d;
+
+      let u = new Universidad();
+      u.idUniversidad = this.idUniversidadSeleccionada;
+      this.habitacion.universidad = u;
       if (this.edicion) {
         //guardar lo actualizado
         this.hS.update(this.habitacion).subscribe(() => {
@@ -112,22 +130,6 @@ export class HabitacionInsertarComponent {
 
         //AQUI VERIFICAR SI FALTA EL DISTRITO Y UNIVERSIDAD
       } else {
-        let t = new tipo();
-        t.idTipoHabitacion = this.idTipoSeleccionado;
-        this.habitacion.tipo = t;
-
-        let a = new Arrendador();
-        a.id_arrendador = this.idArrendadorSeleccionado;
-        this.habitacion.Arrendador = a;
-
-        let d = new Distrito();
-        d.idDistrito = this.idDistritoSeleccionado;
-        this.habitacion.Distrito = d;
-
-        let u = new Universidad();
-        u.idUniversidad = this.idUniversidadSeleccionada;
-        this.habitacion.Universidad = u;
-
         this.hS.insert(this.habitacion).subscribe((data) => {
           this.hS.list().subscribe((data) => {
             this.hS.setList(data);
@@ -145,14 +147,18 @@ export class HabitacionInsertarComponent {
     if (this.edicion) {
       this.hS.listID(this.id).subscribe((data) => {
         this.form = new FormGroup({
-          idHabitacion: new FormControl(data.idHabitacion),
+          id: new FormControl(data.idHabitacion),
           tipo: new FormControl(data.tipo.idTipoHabitacion),
           precio: new FormControl(data.precio),
           disponibilidad: new FormControl(data.disponibilidad),
-          Arrendador: new FormControl(data.Arrendador.id_arrendador),
-          Distrito: new FormControl(data.Distrito.idDistrito),
-          Universidad: new FormControl(data.Universidad.idUniversidad),
+          arrendador: new FormControl(data.arrendador.id_arrendador),
+          distrito: new FormControl(data.distrito.idDistrito),
+          universidad: new FormControl(data.universidad.idUniversidad),
         });
+        this.idArrendadorSeleccionado = data.arrendador.id_arrendador;
+        this.idUniversidadSeleccionada = data.universidad.idUniversidad;
+        this.idDistritoSeleccionado = data.distrito.idDistrito;
+        this.idTipoSeleccionado = data.tipo.idTipoHabitacion;
       });
     }
   }

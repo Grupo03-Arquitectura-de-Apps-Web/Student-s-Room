@@ -80,16 +80,16 @@ export class HabitacionService {
   setConfirmaEliminacion(estado: Boolean) {
     this.confirmaEliminacion.next(estado);
   }
-  roomsAvailableBYcity():Observable<disponiblesDTO[]>{
+  roomsAvailableBYcity(): Observable<disponiblesDTO[]> {
     let token = sessionStorage.getItem('token');
-    return this.http.get<disponiblesDTO[]>(`${this.url}/disponibles`,{
+    return this.http.get<disponiblesDTO[]>(`${this.url}/disponibles`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
-    })
+    });
   }
 
-  searchByPrice(p1:number,p2:number) {
+  searchByPrice(p1: number, p2: number) {
     let token = sessionStorage.getItem('token');
 
     return this.http.get<habitacion[]>(`${this.url}/${p1}/${p2}`, {

@@ -3,12 +3,17 @@
   <form [formGroup]="form" (submit)="aceptar()">
     <mat-form-field class="example-full-width">
       <mat-label style="font-family: 'Quicksand', sans-serif">ID</mat-label>
-      <input matInput required placeholder="Código" formControlName="id" />
+      <input matInput required placeholder="ID" formControlName="id" />
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
       <mat-label style="font-family: 'Quicksand', sans-serif">NOMBRE</mat-label>
-      <input matInput required placeholder="nombre" formControlName="nombre" />
+      <input
+        matInput
+        required
+        placeholder="nombre"
+        formControlName="nombreCiudad"
+      />
     </mat-form-field>
     <br />
     <mat-form-field appearance="fill">

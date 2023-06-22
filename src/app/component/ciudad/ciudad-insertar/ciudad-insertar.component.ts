@@ -52,7 +52,7 @@ export class CiudadInsertarComponent {
   aceptar(): void {
     this.ciudad.idCiudad = this.form.value['id'];
     this.ciudad.nombreCiudad = this.form.value['nombreCiudad'];
-    this.ciudad.pais.idPais = this.form.value['pais'];
+    this.ciudad.pais.nombrePais = this.form.value['pais.nombrePais'];
 
     if (!this.form.valid) {
       return;
@@ -91,7 +91,7 @@ export class CiudadInsertarComponent {
         this.form = new FormGroup({
           id: new FormControl(data.idCiudad),
           nombre: new FormControl(data.nombreCiudad),
-          pais: new FormControl(data.pais),
+          pais: new FormControl(data.pais.idPais),
         });
       });
     }
