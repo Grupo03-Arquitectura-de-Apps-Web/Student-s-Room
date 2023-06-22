@@ -5,6 +5,7 @@ import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Publicacion } from 'src/app/model/publicacion';
 import { PublicacionService } from 'src/app/service/publicacion.service';
 import { PublicacionEliminarComponent } from './publicacion-eliminar/publicacion-eliminar.component';
+import { LoginService } from 'src/app/service/login.service';
 
 @Component({
   selector: 'app-publicacion-listar',
@@ -12,14 +13,17 @@ import { PublicacionEliminarComponent } from './publicacion-eliminar/publicacion
   styleUrls: ['./publicacion-listar.component.css']
 })
 export class PublicacionListarComponent implements OnInit {
+  role: string = '';
   dataSource: MatTableDataSource<Publicacion> = new MatTableDataSource();
   lista: Publicacion[] = [];
   //para el eliminar
   private idMayor: number = 0;
-  constructor(private pS: PublicacionService, private dialog: MatDialog) {}
+  constructor(private pS: PublicacionService, private dialog: MatDialog,private ls: LoginService) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   ngOnInit(): void {
+    this.role = this.ls.showRole();
+    console.log(this.role);
     this.pS.list().subscribe((data) => {
       this.lista = data;
       this.dataSource = new MatTableDataSource<Publicacion>(this.lista);

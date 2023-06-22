@@ -26,7 +26,13 @@ export class PublicacionService {
 
   //Agregar para el insertar
   insertar(Publicacion: Publicacion) {
-    return this.http.post(this.url, Publicacion);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.post(this.url, Publicacion, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   getlist() {
     return this.listaCambio.asObservable();
@@ -37,15 +43,33 @@ export class PublicacionService {
 
   //Para el actualizar
   listId(id: number) {
-    return this.http.get<Publicacion>(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<Publicacion>(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 
   update(c: Publicacion) {
-    return this.http.put(this.url, c);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.put(this.url, c, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   //para el eliminar
   eliminar(id: number) {
-    return this.http.delete(`${this.url}/${id}`);
+    let token = sessionStorage.getItem('token');
+
+    return this.http.delete(`${this.url}/${id}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
   getConfirmaEliminacion() {
     return this.confirmaEliminacion.asObservable();

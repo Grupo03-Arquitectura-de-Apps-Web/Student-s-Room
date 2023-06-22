@@ -8,6 +8,7 @@
       color="warn"
       routerLink="/pages/distrito/distritoinsertar"
       style="background-color: #0b3ad1"
+      [hidden]="role === 'ESTUDIANTE' || role === 'ARRENDADOR'"
     >
       Nuevo
     </button>
@@ -47,6 +48,7 @@
           color="warn"
           [routerLink]="['edicion', element.idDistrito]"
           style="background-color: #0b3ad1"
+          [hidden]="role === 'ESTUDIANTE' || role === 'ARRENDADOR'"
         >
           <span class="material-icons">edit_note</span>
         </button>
@@ -61,7 +63,7 @@
           color="accent"
           (click)="confirmar(element.idDistrito)"
           style="background-color: #ff6c00"
-          class="eliminar"
+          class="eliminar" [hidden]="role === 'ESTUDIANTE' || role === 'ARRENDADOR'"
         >
           <span class="material-icons">delete</span>
         </button>

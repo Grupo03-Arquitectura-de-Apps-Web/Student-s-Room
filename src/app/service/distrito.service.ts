@@ -28,10 +28,10 @@ export class DistritoService {
   }
 
   //Agregar para el insertar
-  insertar(contratodealquiler: Distrito) {
+  insertar(distrito: Distrito) {
     let token = sessionStorage.getItem('token');
 
-    return this.http.post(this.url, contratodealquiler, {
+    return this.http.post(this.url, distrito, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),

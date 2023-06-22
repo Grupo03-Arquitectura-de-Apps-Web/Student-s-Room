@@ -5,6 +5,7 @@ import { PublicacionService } from 'src/app/service/publicacion.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import * as moment from 'moment';
 import { Publicacion } from 'src/app/model/publicacion';
+import { HabitacionService } from 'src/app/service/habitacion.service';
 
 @Component({
   selector: 'app-publicacion-insertar',
@@ -29,11 +30,17 @@ export class PublicacionInsertarComponent {
   constructor(
     private pS: PublicacionService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private hS: HabitacionService
   ) {}
 
   //agregamos el ngOninit
   ngOnInit(): void {
+    this.hS.list().subscribe(
+      (data)=>{
+        this.lista_h=data;
+      }
+    )
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -63,7 +70,7 @@ export class PublicacionInsertarComponent {
       return;
     }
 
-    if (this.idHabitacionSeleccionado > 0) {
+    if (this.idHabitacionSeleccionado.toString().length > 0) {
       if (this.edicion) {
         //guardar lo actualizado
         this.pS.update(this.publicacion).subscribe(() => {
@@ -84,7 +91,7 @@ export class PublicacionInsertarComponent {
         });
       }
 
-      this.router.navigate(['publicacion']);
+      this.router.navigate(['pages/publicacion']);
     } else {
       this.mensaje = 'Ingrese todos los datos';
     }
@@ -100,7 +107,7 @@ export class PublicacionInsertarComponent {
           num_reacciones: new FormControl(data.num_reacciones),
           num_comentarios: new FormControl(data.num_comentarios),
           num_compartidos: new FormControl(data.num_compartidos),
-          habitacion: new FormControl(data.habitacion),
+          habitacion: new FormControl(data.habitacion.idHabitacion),
         });
       });
     }
