@@ -16,7 +16,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class ContratodealquilerListarComponent implements OnInit{
   dataSource: MatTableDataSource<contratodealquiler> = new MatTableDataSource();
   lista: contratodealquiler[] = [];
-  displayedColumns: string[] = ['numero', 'descripcion', 'Fecha de Inicio', 'Fecha de Pago','Fecha de Vencimiento','Monto','Estudiante','Habitacion','ceditar','celiminar'];
+  displayedColumns: string[] = ['numero','Estudiante','Habitacion','ceditar','celiminar'];
 
   //para el eliminar
   private idMayor: number = 0;

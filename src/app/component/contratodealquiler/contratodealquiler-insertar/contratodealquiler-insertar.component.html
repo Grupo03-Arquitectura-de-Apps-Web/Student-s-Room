@@ -1,6 +1,6 @@
 <div class="container" style="text-align: center">
   <h1 class="centrar" style="margin-top: 50px">
-    REGISTRAR CONTRATO DE ALQUILER
+    CONTRATO DE ALQUILER
   </h1>
 
   <form [formGroup]="form" (submit)="aceptar()">
@@ -28,44 +28,37 @@
       <input
         matInput
         required
-        [matDatepicker]="picker"
+        [matDatepicker]="picker_inicio"
         placeholder="fecha_inicio"
         formControlName="fecha_inicio"
         [max]="maxFecha"
       />
 
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker-toggle matSuffix [for]="picker_inicio"></mat-datepicker-toggle>
+      <mat-datepicker #picker_inicio></mat-datepicker>
     </mat-form-field>
 
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field class="example-full-width">
       <mat-label>FECHA DE PAGO</mat-label>
-      <input
-        matInput
-        required
-        [matDatepicker]="picker"
-        placeholder="fecha_pago"
-        formControlName="fecha_pago"
-      />
-
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <input matInput required [matDatepicker]="picker_pago" placeholder="fecha_pago" formControlName="fecha_pago"/>
+      <mat-datepicker-toggle matSuffix [for]="picker_pago"></mat-datepicker-toggle>
+      <mat-datepicker #picker_pago></mat-datepicker>
     </mat-form-field>
 
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field class="example-full-width">
       <mat-label>FECHA DE VENCIMIENTO</mat-label>
       <input
         matInput
         required
-        [matDatepicker]="picker"
+        [matDatepicker]="picker_vencimiento"
         placeholder="fecha_vencimiento"
         formControlName="fecha_vencimiento"
       />
 
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+      <mat-datepicker-toggle matSuffix [for]="picker_vencimiento"></mat-datepicker-toggle>
+      <mat-datepicker #picker_vencimiento></mat-datepicker>
     </mat-form-field>
 
   <br />
@@ -76,17 +69,10 @@
 
     <br />
 
-    <br />
     <mat-form-field appearance="fill">
       <mat-label>NOMBRE</mat-label>
-      <mat-select
-        formControlName="estudiante"
-        [(value)]="idEstudianteSeleccionado"
-        required
-      >
-        <mat-option *ngFor="let e of lista_e" [value]="e.idEstudiante">
-          {{ e.nombre }}
-        </mat-option>
+      <mat-select formControlName="estudiante" [(value)]="idEstudianteSeleccionado" required >
+        <mat-option *ngFor="let e of lista_e" [value]="e.idEstudiante"> {{ e.nombre }} </mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -94,31 +80,19 @@
 
     <mat-form-field appearance="fill">
       <mat-label>ID HABITACION</mat-label>
-      <mat-select
-        formControlName="habitacion"
-        [(value)]="idHabitacionSeleccionado"
-        required
-      >
-        <mat-option *ngFor="let h of lista_h" [value]="h.idHabitacion">
-          {{ h.idHabitacion }}
-        </mat-option>
+      <mat-select formControlName="habitacion" [(value)]="idHabitacionSeleccionado" required >
+        <mat-option *ngFor="let h of lista_h" [value]="h.idHabitacion"> {{ h.idHabitacion }}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br />
 
     <div style="text-align: center">
-      <button
-        mat-raised-button
-        style="background-color: #0b3ad1; color: white; margin-right: 70px"
-      >
+      <button mat-raised-button style="background-color: #0b3ad1; color: white; margin-right: 70px">
         Guardar<span class="material-icons">save</span>
       </button>
-      <button
-        mat-raised-button
-        style="background-color: #ff6c00; color: white"
-        routerLink="/pages/contratodealquiler"
-      >
+
+      <button mat-raised-button style="background-color: #ff6c00; color: white" routerLink="/pages/contratodealquiler" >
         Cancelar<span class="material-icons">cancel</span>
       </button>
     </div>

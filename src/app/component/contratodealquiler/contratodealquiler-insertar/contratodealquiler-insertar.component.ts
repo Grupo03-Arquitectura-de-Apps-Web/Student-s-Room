@@ -75,39 +75,31 @@ export class ContratodealquilerInsertarComponent {
     this.Contratodealquiler.estudiante.nombre=this.form.value['estudiante.nombre'];
     this.Contratodealquiler.habitacion.idHabitacion=this.form.value['habitacion.idHabitacion'];
 
-    if (!this.form.valid) {
-      return;
-    }
-
     if (
-      this.idEstudianteSeleccionado > 0 &&
-      this.idHabitacionSeleccionado > 0
+      this.form.value['descripcion'].length > 0
     ) {
-      if (this.edicion) {
-        //guardar lo actualizado
-        this.cS.update(this.Contratodealquiler).subscribe(() => {
-          this.cS.list().subscribe((data) => {
-            this.cS.setlist(data);
-          });
-        });
-        //
-      } else {
-        let e = new estudiante();
+      let e = new estudiante();
         e.idEstudiante = this.idEstudianteSeleccionado;
         this.Contratodealquiler.estudiante = e;
 
         let h = new habitacion();
         h.idHabitacion = this.idHabitacionSeleccionado;
         this.Contratodealquiler.habitacion = h;
-
-        this.cS.insertar(this.Contratodealquiler).subscribe((data) => {
+      if (this.edicion) {
+        this.cS.update(this.Contratodealquiler).subscribe(() => {
+          this.cS.list().subscribe((data) => {
+            this.cS.setlist(data);
+          });
+        });
+      } else {
+        this.cS.insertar(this.Contratodealquiler).subscribe(() => {
           this.cS.list().subscribe((data) => {
             this.cS.setlist(data);
           });
         });
       }
 
-      this.router.navigate(['contratodealquiler']);
+      this.router.navigate(['/pages/contratodealquiler']);
     } else {
       this.mensaje = 'Ingrese la descripcion del Contrato de Alquiler!!';
     }
@@ -127,6 +119,8 @@ export class ContratodealquilerInsertarComponent {
           estudiante: new FormControl(data.estudiante.idEstudiante),
           habitacion: new FormControl(data.habitacion.idHabitacion),
         });
+        this.idEstudianteSeleccionado=data.estudiante.idEstudiante;
+        this.idHabitacionSeleccionado=data.habitacion.idHabitacion;
       });
     }
   }

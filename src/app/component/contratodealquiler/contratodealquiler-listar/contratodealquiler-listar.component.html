@@ -26,72 +26,6 @@
         </td>
       </ng-container>
 
-      <!-- Name Column -->
-      <ng-container matColumnDef="descripcion">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-
-        >
-          DESCRIPCION
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.descripcion }}</td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="Fecha de Inicio" class="titulo">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-
-        >
-          FECHA DE INICIO
-        </th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.fecha_inicio|date:'dd//MM/yyyy' }}
-        </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="Fecha de Pago" class="titulo">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-
-        >
-          FECHA DE PAGO
-        </th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.fecha_pago|date:'dd//MM/yyyy' }}
-        </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="Fecha de Vencimiento" class="titulo">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-
-        >
-          FECHA DE VENCIMIENTO
-        </th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.fecha_vencimiento|date:'dd//MM/yyyy' }}
-        </td>
-      </ng-container>
-
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="Monto">
-        <th
-          mat-header-cell
-          *matHeaderCellDef
-
-        >
-          MONTO
-        </th>
-        <td mat-cell *matCellDef="let element">{{ element.money }}</td>
-      </ng-container>
-
       <!-- Symbol Column -->
       <ng-container matColumnDef="Estudiante">
         <th
@@ -117,10 +51,10 @@
       </ng-container>
 
       <ng-container matColumnDef="ceditar" style="text-align: center;">
-        <th mat-header-cell *matHeaderCellDef >ACTUALIZAR</th>
+        <th mat-header-cell *matHeaderCellDef >INFORME</th>
         <td mat-cell *matCellDef="let element">
           <button mat-raised-button color="primary" style="background-color: #0b3ad1;"
-            [routerLink]="['edicion', element.id_contratodealquier]"><span class="material-icons">edit_note</span>
+            [routerLink]="['edicion', element.id_contratodealquier]"><span class="material-icons">remove_red_eye</span>
           </button>
         </td>
       </ng-container>
