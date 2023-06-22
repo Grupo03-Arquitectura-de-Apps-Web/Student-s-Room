@@ -70,9 +70,14 @@ export class MensajeInsertarComponent {
 
 
     if (
-      this.idArrendadorSeleccionado > 0 &&
-      this.idEstudianteSeleccionado > 0
+      this.form.value['descripcion'].length > 0
     ) {
+      let a = new Arrendador();
+        let e = new estudiante();
+        a.id_arrendador = this.idArrendadorSeleccionado;
+        e.idEstudiante = this.idEstudianteSeleccionado;
+        this.mensaje_.arrendador = a;
+        this.mensaje_.estudiante = e;
       if (this.edicion) {
         this.mS.update(this.mensaje_).subscribe(() => {
           this.mS.list().subscribe((data) => {
@@ -80,12 +85,6 @@ export class MensajeInsertarComponent {
           });
         });
       } else {
-        let a = new Arrendador();
-        let e = new estudiante();
-        a.id_arrendador = this.idArrendadorSeleccionado;
-        e.idEstudiante = this.idEstudianteSeleccionado;
-        this.mensaje_.arrendador = a;
-        this.mensaje_.estudiante = e;
         this.mS.insert(this.mensaje_).subscribe(() => {
           this.mS.list().subscribe((data) => {
             this.mS.setList(data);
@@ -113,7 +112,8 @@ export class MensajeInsertarComponent {
           arrendador: new FormControl(data.arrendador.id_arrendador),
           estudiante: new FormControl(data.estudiante.idEstudiante),
         });
-        console.log(data);
+        this.idArrendadorSeleccionado=data.arrendador.id_arrendador;
+        this.idEstudianteSeleccionado=data.estudiante.idEstudiante;
       });
     }
   }
