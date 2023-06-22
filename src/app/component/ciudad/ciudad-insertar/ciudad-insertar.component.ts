@@ -45,7 +45,7 @@ export class CiudadInsertarComponent {
     });
     this.form = new FormGroup({
       id: new FormControl(),
-      nombre: new FormControl(),
+      nombreCiudad: new FormControl(),
       pais: new FormControl(),
     });
   }
@@ -58,7 +58,11 @@ export class CiudadInsertarComponent {
       return;
     }
 
-    if (this.idPaisSeleccionado > 0) {
+    if (this.idPaisSeleccionado.toString().length > 0) {
+      let p = new Pais();
+      p.idPais = this.idPaisSeleccionado;
+      this.ciudad.pais = p;
+
       if (this.edicion) {
         //guardar lo actualizado
         this.cS.update(this.ciudad).subscribe(() => {
@@ -68,10 +72,6 @@ export class CiudadInsertarComponent {
         });
         //
       } else {
-        let p = new Pais();
-        p.idPais = this.idPaisSeleccionado;
-        this.ciudad.pais = p;
-
         this.cS.insertar(this.ciudad).subscribe((data) => {
           this.cS.list().subscribe((data) => {
             this.cS.setlist(data);
@@ -90,9 +90,10 @@ export class CiudadInsertarComponent {
       this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.idCiudad),
-          nombre: new FormControl(data.nombreCiudad),
+          nombreCiudad: new FormControl(data.nombreCiudad),
           pais: new FormControl(data.pais.idPais),
         });
+        this.idPaisSeleccionado = data.pais.idPais;
       });
     }
   }

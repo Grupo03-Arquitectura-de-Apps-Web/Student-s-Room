@@ -30,8 +30,7 @@ export class CiudadListarComponent implements OnInit {
   constructor(
     private cS: CiudadService,
     private dialog: MatDialog,
-    private ls: LoginService,
-    private pS: PaisService
+    private ls: LoginService
   ) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;

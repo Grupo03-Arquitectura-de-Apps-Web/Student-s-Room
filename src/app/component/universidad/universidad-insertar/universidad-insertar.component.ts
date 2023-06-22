@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Universidad } from 'src/app/model/universidad';
 import { FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
@@ -9,7 +9,7 @@ import { UniversidadService } from 'src/app/service/universidad.service';
   templateUrl: './universidad-insertar.component.html',
   styleUrls: ['./universidad-insertar.component.css'],
 })
-export class UniversidadInsertarComponent implements OnInit {
+export class UniversidadInsertarComponent {
   form: FormGroup = new FormGroup({});
   universidad: Universidad = new Universidad();
   mensaje: string = '';
@@ -25,6 +25,9 @@ export class UniversidadInsertarComponent implements OnInit {
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
+
+      console.log(this.edicion);
+      console.log(this.id);
       this.init();
     });
 
