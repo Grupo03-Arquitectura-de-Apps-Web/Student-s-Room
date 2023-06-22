@@ -59,7 +59,10 @@ export class DistritoInsertarComponent {
       return;
     }
 
-    if (this.idCiudadSeleccionada > 0) {
+    if (this.idCiudadSeleccionada.toString().length > 0) {
+      let c = new Ciudad();
+        c.idCiudad = this.idCiudadSeleccionada;
+        this.distrito.ciudad = c;
       if (this.edicion) {
         //guardar lo actualizado
         this.pS.update(this.distrito).subscribe(() => {
@@ -69,10 +72,6 @@ export class DistritoInsertarComponent {
         });
         //
       } else {
-        let c = new Ciudad();
-        c.idCiudad = this.idCiudadSeleccionada;
-        this.distrito.ciudad = c;
-
         this.pS.insertar(this.distrito).subscribe((data) => {
           this.pS.list().subscribe((data) => {
             this.pS.setlist(data);

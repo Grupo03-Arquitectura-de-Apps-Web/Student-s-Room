@@ -70,7 +70,11 @@ export class PublicacionInsertarComponent {
       return;
     }
 
-    if (this.idHabitacionSeleccionado.toString().length > 0) {
+    if (this.idHabitacionSeleccionado.toString().length > 0)
+    {
+      let h = new habitacion();
+        h.idHabitacion = this.idHabitacionSeleccionado;
+        this.publicacion.habitacion = h;
       if (this.edicion) {
         //guardar lo actualizado
         this.pS.update(this.publicacion).subscribe(() => {
@@ -80,10 +84,6 @@ export class PublicacionInsertarComponent {
         });
         //
       } else {
-        let h = new habitacion();
-        h.idHabitacion = this.idHabitacionSeleccionado;
-        this.publicacion.habitacion = h;
-
         this.pS.insertar(this.publicacion).subscribe((data) => {
           this.pS.list().subscribe((data) => {
             this.pS.setlist(data);
@@ -109,6 +109,7 @@ export class PublicacionInsertarComponent {
           num_compartidos: new FormControl(data.num_compartidos),
           habitacion: new FormControl(data.habitacion.idHabitacion),
         });
+        this.idHabitacionSeleccionado=data.habitacion.idHabitacion;
       });
     }
   }
