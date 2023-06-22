@@ -34,11 +34,9 @@ export class DistritoInsertarComponent {
 
   //agregamos el ngOninit
   ngOnInit(): void {
-    this.cS.list().subscribe(
-      (data)=>{
-        this.lista_c=data;
-      }
-    )
+    this.cS.list().subscribe((data) => {
+      this.lista_c = data;
+    });
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -93,7 +91,7 @@ export class DistritoInsertarComponent {
           nombre: new FormControl(data.nombreDistrito),
           ciudad: new FormControl(data.ciudad.nombreCiudad),
         });
-        this.idCiudadSeleccionada= data.ciudad.idCiudad;
+        this.idCiudadSeleccionada = data.ciudad.idCiudad;
       });
     }
   }

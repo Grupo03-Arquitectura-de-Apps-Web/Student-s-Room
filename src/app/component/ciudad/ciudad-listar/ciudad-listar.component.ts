@@ -6,6 +6,7 @@ import { Ciudad } from 'src/app/model/ciudad';
 import { CiudadService } from 'src/app/service/ciudad.service';
 import { CiudadEliminarComponent } from './ciudad-eliminar/ciudad-eliminar.component';
 import { LoginService } from 'src/app/service/login.service';
+import { PaisService } from 'src/app/service/pais.service';
 
 @Component({
   selector: 'app-ciudad-listar',
@@ -27,9 +28,10 @@ export class CiudadListarComponent implements OnInit {
   //para el eliminar
   private idMayor: number = 0;
   constructor(
-    private pS: CiudadService,
+    private cS: CiudadService,
     private dialog: MatDialog,
-    private ls: LoginService
+    private ls: LoginService,
+    private pS: PaisService
   ) {}
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -37,18 +39,18 @@ export class CiudadListarComponent implements OnInit {
     this.role = this.ls.showRole();
     console.log(this.role);
 
-    this.pS.list().subscribe((data) => {
+    this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
 
-    this.pS.getlist().subscribe((data) => {
+    this.cS.getlist().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
 
     //agregar para eliminar
-    this.pS.getConfirmaEliminacion().subscribe((data) => {
+    this.cS.getConfirmaEliminacion().subscribe((data) => {
       data == true ? this.eliminar(this.idMayor) : false;
     });
   }
@@ -62,9 +64,9 @@ export class CiudadListarComponent implements OnInit {
     this.dialog.open(CiudadEliminarComponent);
   }
   eliminar(id: number) {
-    this.pS.eliminar(id).subscribe(() => {
-      this.pS.list().subscribe((data) => {
-        this.pS.setlist(data);
+    this.cS.eliminar(id).subscribe(() => {
+      this.cS.list().subscribe((data) => {
+        this.cS.setlist(data);
         this.dataSource.paginator = this.paginator;
       });
     });

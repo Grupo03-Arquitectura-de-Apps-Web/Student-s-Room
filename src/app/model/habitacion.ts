@@ -8,7 +8,7 @@ export class habitacion {
   tipo: tipo = new tipo();
   precio: number = 0;
   disponibilidad: string = '';
-  Arrendador: Arrendador = new Arrendador();
-  Distrito: Distrito = new Distrito();
-  Universidad: Universidad = new Universidad();
+  arrendador: Arrendador = new Arrendador();
+  distrito: Distrito = new Distrito();
+  universidad: Universidad = new Universidad();
 }
