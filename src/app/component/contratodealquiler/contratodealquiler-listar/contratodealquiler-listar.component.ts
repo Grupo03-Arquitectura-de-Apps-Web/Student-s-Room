@@ -7,21 +7,27 @@ import { ContratodealquilerEliminarComponent } from '../contratodealquiler-elimi
 import { MatTableDataSource } from '@angular/material/table';
 import { MatDialog } from '@angular/material/dialog';
 import { MatPaginator } from '@angular/material/paginator';
-
+import { LoginService } from 'src/app/service/login.service';
 @Component({
   selector: 'app-contratodealquiler-listar',
   templateUrl: './contratodealquiler-listar.component.html',
   styleUrls: ['./contratodealquiler-listar.component.css']
 })
 export class ContratodealquilerListarComponent implements OnInit{
+  role:string="";
   dataSource: MatTableDataSource<contratodealquiler> = new MatTableDataSource();
   lista: contratodealquiler[] = [];
   displayedColumns: string[] = ['numero','Estudiante','Habitacion','ceditar','onlyread','celiminar'];
 
   //para el eliminar
   private idMayor: number = 0;
+  constructor(private pS: ContratodealquilerService, private dialog: MatDialog, private ls:LoginService) {}
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   ngOnInit(): void {
+    this.role=this.ls.showRole();
+    console.log(this.role);
+
     this.pS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
@@ -38,13 +44,7 @@ export class ContratodealquilerListarComponent implements OnInit{
     });
   }
 
-  constructor(private pS: ContratodealquilerService, private dialog: MatDialog) {}
 
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-
-  filtrar(e: any) {
-    this.dataSource.filter = e.target.value.trim();
-  }
   //para el eliminar
   confirmar(id: number) {
   this.idMayor = id;
@@ -58,6 +58,8 @@ export class ContratodealquilerListarComponent implements OnInit{
       });
     });
   }
-
+  filtrar(e: any) {
+    this.dataSource.filter = e.target.value.trim();
+  }
 
 }

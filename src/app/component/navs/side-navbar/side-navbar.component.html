@@ -5,7 +5,7 @@
     <span>Usuario</span>
   </mat-list-item>
 
-  <mat-list-item   routerLink="/pages/estudiante" class="items-menu" routerLinkActive="is-active">
+  <mat-list-item [hidden]="role=='ARRENDADOR'"  routerLink="/pages/estudiante" class="items-menu" routerLinkActive="is-active">
     <mat-icon> group </mat-icon>
     <span>Estudiante</span>
   </mat-list-item>
