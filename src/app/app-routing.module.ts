@@ -39,6 +39,7 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
 import { ReportsComponent } from './component/reports/reports.component';
 import { Report01Component } from './component/reports/report01/report01.component';
 import { Report02Component } from './component/reports/report02/report02.component';
+import { RegisterUserComponent } from './component/register-user/register-user.component';
 
 const routes: Routes = [
   {
@@ -198,6 +199,10 @@ const routes: Routes = [
           },
           //colocar aqui los reportes
         ]
+      },
+      {
+        path:'registeruser',
+        component:RegisterUserComponent
       }
     ],
     canActivate:[GuardService]

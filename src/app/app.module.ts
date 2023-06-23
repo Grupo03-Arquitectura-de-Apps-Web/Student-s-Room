@@ -107,7 +107,12 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
 import { ReportsComponent } from './component/reports/reports.component';
 import { Report01Component } from './component/reports/report01/report01.component';
 import { Report02Component } from './component/reports/report02/report02.component';
+<<<<<<< HEAD
 import { ContratodealquilerOnlyreadComponent } from './component/contratodealquiler/contratodealquiler-onlyread/contratodealquiler-onlyread.component';
+=======
+import { RegisterUserComponent } from './component/register-user/register-user.component';
+import { RegisterRolComponent } from './component/register-rol/register-rol.component';
+>>>>>>> feature/pais
 //delete
 
 @NgModule({
@@ -176,7 +181,12 @@ import { ContratodealquilerOnlyreadComponent } from './component/contratodealqui
     ReportsComponent,
     Report01Component,
     Report02Component,
+<<<<<<< HEAD
     ContratodealquilerOnlyreadComponent
+=======
+    RegisterUserComponent,
+    RegisterRolComponent
+>>>>>>> feature/pais
   ],
   imports: [
     BrowserModule,
