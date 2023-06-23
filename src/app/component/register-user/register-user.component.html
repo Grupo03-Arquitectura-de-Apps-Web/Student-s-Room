@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Webleb</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+<body>
+  <div class="login-box">
+    <h2>Login</h2>
+
+      <div class="user-box">
+        <input type="text"  required="" matInput [(ngModel)]="username">
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" required="" matInput  [(ngModel)]="password">
+        <label>Password</label>
+      </div>
+      <div class="user-box">
+        <input type="text"  required="" matInput [(ngModel)]="username">
+        <label>Username</label>
+      </div>
+      <div class="user-box">
+        <input type="password" required="" matInput  [(ngModel)]="password">
+        <label>Password</label>
+      </div>
+      <div class="button-container">
+        <a routerLink="/" >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Back
+        </a>
+        <a type="submit" (click)="registrarUsuario()" >
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          Submit
+        </a>
+      </div>
+
+  </div>
+</body>
+</html>
