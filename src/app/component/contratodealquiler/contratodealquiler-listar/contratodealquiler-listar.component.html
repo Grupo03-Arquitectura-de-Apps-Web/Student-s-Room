@@ -47,14 +47,23 @@
         >
           HABITACION
         </th>
-        <td mat-cell *matCellDef="let element">{{ element.habitacion.idHabitacion }}</td>
+        <td mat-cell *matCellDef="let element">{{ element.habitacion.tipo.tipo }}</td>
       </ng-container>
 
       <ng-container matColumnDef="ceditar" style="text-align: center;">
         <th mat-header-cell *matHeaderCellDef >INFORME</th>
         <td mat-cell *matCellDef="let element">
           <button mat-raised-button color="primary" style="background-color: #0b3ad1;"
-            [routerLink]="['edicion', element.id_contratodealquier]"><span class="material-icons">remove_red_eye</span>
+            [routerLink]="['edicion', element.id_contratodealquier]"><span class="material-icons">edit_note</span>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="onlyread" style="text-align: center;">
+        <th mat-header-cell *matHeaderCellDef >INFORME</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" style="background-color: #0b3ad1;"
+            [routerLink]="['onlyread', element.id_contratodealquier]"><span class="material-icons">remove_red_eye</span>
           </button>
         </td>
       </ng-container>

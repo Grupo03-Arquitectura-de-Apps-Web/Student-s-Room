@@ -17,6 +17,7 @@ import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/m
 
 import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
 import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
+import { ContratodealquilerOnlyreadComponent } from './component/contratodealquiler/contratodealquiler-onlyread/contratodealquiler-onlyread.component';
 import { PublicacionComponent } from './component/publicacion/publicacion.component';
 import { PublicacionInsertarComponent } from './component/publicacion/publicacion-insertar/publicacion-insertar.component';
 import { DistritoComponent } from './component/distrito/distrito.component';
@@ -114,6 +115,7 @@ const routes: Routes = [
             component: ContratodealquilerInsertarComponent,
           },
           { path: 'edicion/:id', component: ContratodealquilerInsertarComponent },
+          { path: 'onlyread/:id', component: ContratodealquilerOnlyreadComponent },
         ],canActivate:[GuardService]
       },
 

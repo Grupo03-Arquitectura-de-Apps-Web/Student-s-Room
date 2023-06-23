@@ -19,12 +19,12 @@
         placeholder="descripcion"
         formControlName="descripcion"
         required
-
+        readonly=""
       />
     </mat-form-field>
 
     <br />
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="fill" >
       <mat-label>FECHA DE INICIO</mat-label>
       <input
         matInput
@@ -32,19 +32,18 @@
         [matDatepicker]="picker_inicio"
         placeholder="fecha_inicio"
         formControlName="fecha_inicio"
-        [max]="maxFecha"
-
+        readonly=""
       />
 
-      <mat-datepicker-toggle matSuffix [for]="picker_inicio"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix></mat-datepicker-toggle>
       <mat-datepicker #picker_inicio></mat-datepicker>
     </mat-form-field>
 
     <br />
     <mat-form-field class="example-full-width">
       <mat-label>FECHA DE PAGO</mat-label>
-      <input matInput required [matDatepicker]="picker_pago" placeholder="fecha_pago" formControlName="fecha_pago" />
-      <mat-datepicker-toggle matSuffix [for]="picker_pago"></mat-datepicker-toggle>
+      <input matInput required [matDatepicker]="picker_pago" placeholder="fecha_pago" formControlName="fecha_pago" readonly="" [disabled]="true"/>
+      <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
       <mat-datepicker #picker_pago></mat-datepicker>
     </mat-form-field>
 
@@ -57,17 +56,18 @@
         [matDatepicker]="picker_vencimiento"
         placeholder="fecha_vencimiento"
         formControlName="fecha_vencimiento"
-
+        readonly=""
+        [disabled]="true"
       />
 
-      <mat-datepicker-toggle matSuffix [for]="picker_vencimiento"></mat-datepicker-toggle>
+      <mat-datepicker-toggle matSuffix ></mat-datepicker-toggle>
       <mat-datepicker #picker_vencimiento></mat-datepicker>
     </mat-form-field>
 
   <br />
   <mat-form-field class="example-full-width">
     <mat-label>MONTO</mat-label>
-    <input matInput required placeholder="money" formControlName="money" />
+    <input matInput required placeholder="money" formControlName="money" readonly=""/>
   </mat-form-field>
 
     <br />
@@ -75,7 +75,7 @@
     <mat-form-field appearance="fill" >
       <mat-label>NOMBRE</mat-label>
       <mat-select formControlName="estudiante" [(value)]="idEstudianteSeleccionado" required >
-        <mat-option *ngFor="let e of lista_e" [value]="e.idEstudiante" > {{ e.nombre }} </mat-option>
+        <mat-option *ngFor="let e of lista_e" [value]="e.idEstudiante" [disabled]="true"> {{ e.nombre }} </mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -84,22 +84,18 @@
     <mat-form-field appearance="fill">
       <mat-label>HABITACION</mat-label>
       <mat-select formControlName="habitacion" [(value)]="idHabitacionSeleccionado" required >
-        <mat-option *ngFor="let h of lista_h" [value]="h.idHabitacion" > {{ h.tipo.tipo }}</mat-option>
+        <mat-option *ngFor="let h of lista_h" [value]="h.idHabitacion" [disabled]="true"> {{ h.tipo.tipo }}</mat-option>
       </mat-select>
     </mat-form-field>
 
     <br />
 
     <div style="text-align: center">
-      <button mat-raised-button style="background-color: #0b3ad1; color: white; margin-right: 70px">
-        Guardar<span class="material-icons">save</span>
-      </button>
 
       <button mat-raised-button style="background-color: #ff6c00; color: white" routerLink="/pages/contratodealquiler" >
-        Cancelar<span class="material-icons">cancel</span>
+        Atras<span class="material-icons">arrow_back</span>
       </button>
     </div>
 
-    <p>{{ mensaje }}</p>
   </form>
 </div>
