@@ -66,4 +66,14 @@ export class EstudianteService {
   setConfirmaEliminacion(estado: Boolean) {
     this.confirmaEliminacion.next(estado);
   }
+
+  findByEmail(email:string){
+    let token = sessionStorage.getItem('token');
+
+    return this.http.get<estudiante[]>(`${this.url}/buscador?busqueda=${email}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
 }

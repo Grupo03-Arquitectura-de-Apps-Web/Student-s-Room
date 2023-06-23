@@ -40,6 +40,7 @@ import { ReportsComponent } from './component/reports/reports.component';
 import { Report01Component } from './component/reports/report01/report01.component';
 import { Report02Component } from './component/reports/report02/report02.component';
 import { RegisterUserComponent } from './component/register-user/register-user.component';
+import { Report03Component } from './component/reports/report03/report03.component';
 
 const routes: Routes = [
   {
@@ -197,7 +198,10 @@ const routes: Routes = [
             path: 'report2',
             component: Report02Component,
           },
-          //colocar aqui los reportes
+          {
+            path: 'report3',
+            component: Report03Component,
+          },
         ]
       },
       {
