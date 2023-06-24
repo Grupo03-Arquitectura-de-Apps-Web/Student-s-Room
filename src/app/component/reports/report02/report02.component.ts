@@ -42,9 +42,22 @@ export class Report02Component implements OnInit {
       price2: new FormControl()
     });
   }
+  nuevo():void{
+    this.hS.list().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
+    this.form = new FormGroup({
+      price1: new FormControl(),
+      price2: new FormControl()
+    });
+  }
   buscar():void{
-    this.p1 = parseFloat(this.form.value['precio1']);
-    this.p2 = parseFloat(this.form.value['precio2']);
+    this.p1 = parseFloat(this.form.value['price1']);
+    this.p2 = parseFloat(this.form.value['price2']);
+    if(!this.form.valid){
+      return;
+    }
     if(!(this.p1>0 &&this.p2>0) ||!(this.p1!=null &&this.p2!=null)){
       return;
     }

@@ -17,6 +17,7 @@ import { MensajeInsertarComponent } from './component/mensaje/mensaje-insertar/m
 
 import { ContratodealquilerComponent } from './component/contratodealquiler/contratodealquiler.component';
 import { ContratodealquilerInsertarComponent } from './component/contratodealquiler/contratodealquiler-insertar/contratodealquiler-insertar.component';
+import { ContratodealquilerOnlyreadComponent } from './component/contratodealquiler/contratodealquiler-onlyread/contratodealquiler-onlyread.component';
 import { PublicacionComponent } from './component/publicacion/publicacion.component';
 import { PublicacionInsertarComponent } from './component/publicacion/publicacion-insertar/publicacion-insertar.component';
 import { DistritoComponent } from './component/distrito/distrito.component';
@@ -38,6 +39,8 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
 import { ReportsComponent } from './component/reports/reports.component';
 import { Report01Component } from './component/reports/report01/report01.component';
 import { Report02Component } from './component/reports/report02/report02.component';
+import { RegisterUserComponent } from './component/register-user/register-user.component';
+import { Report03Component } from './component/reports/report03/report03.component';
 
 const routes: Routes = [
   {
@@ -114,6 +117,7 @@ const routes: Routes = [
             component: ContratodealquilerInsertarComponent,
           },
           { path: 'edicion/:id', component: ContratodealquilerInsertarComponent },
+          { path: 'onlyread/:id', component: ContratodealquilerOnlyreadComponent },
         ],canActivate:[GuardService]
       },
 
@@ -194,8 +198,15 @@ const routes: Routes = [
             path: 'report2',
             component: Report02Component,
           },
-          //colocar aqui los reportes
+          {
+            path: 'report3',
+            component: Report03Component,
+          },
         ]
+      },
+      {
+        path:'registeruser',
+        component:RegisterUserComponent
       }
     ],
     canActivate:[GuardService]

@@ -107,6 +107,13 @@ import { UsuarioComponent } from './component/usuario/usuario.component';
 import { ReportsComponent } from './component/reports/reports.component';
 import { Report01Component } from './component/reports/report01/report01.component';
 import { Report02Component } from './component/reports/report02/report02.component';
+
+import { ContratodealquilerOnlyreadComponent } from './component/contratodealquiler/contratodealquiler-onlyread/contratodealquiler-onlyread.component';
+
+import { RegisterUserComponent } from './component/register-user/register-user.component';
+import { RegisterRolComponent } from './component/register-rol/register-rol.component';
+import { Report03Component } from './component/reports/report03/report03.component';
+
 //delete
 
 @NgModule({
@@ -174,7 +181,12 @@ import { Report02Component } from './component/reports/report02/report02.compone
     UsuarioComponent,
     ReportsComponent,
     Report01Component,
-    Report02Component
+    Report02Component,
+    ContratodealquilerOnlyreadComponent,
+
+    RegisterUserComponent,
+    RegisterRolComponent,
+    Report03Component
   ],
   imports: [
     BrowserModule,

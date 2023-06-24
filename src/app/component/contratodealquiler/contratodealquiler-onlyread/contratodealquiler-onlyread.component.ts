@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
-import * as moment from 'moment';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 
 import { contratodealquiler } from 'src/app/model/contratodealquier';
@@ -11,21 +10,17 @@ import { EstudianteService } from 'src/app/service/estudiante.service';
 import { HabitacionService } from 'src/app/service/habitacion.service';
 
 @Component({
-  selector: 'app-contratodealquiler-insertar',
-  templateUrl: './contratodealquiler-insertar.component.html',
-  styleUrls: ['./contratodealquiler-insertar.component.css'],
+  selector: 'app-contratodealquiler-onlyread',
+  templateUrl: './contratodealquiler-onlyread.component.html',
+  styleUrls: ['./contratodealquiler-onlyread.component.css']
 })
-export class ContratodealquilerInsertarComponent {
-
-
+export class ContratodealquilerOnlyreadComponent {
   id: number = 0;
-  edicion: boolean = false;
+  onlyread: boolean = false;
 
   //Agregamos lo siguiente
   form: FormGroup = new FormGroup({});
   Contratodealquiler: contratodealquiler = new contratodealquiler();
-  mensaje: string = '';
-  maxFecha: Date = moment().add(-1, 'days').toDate();
 
   //Estudiante
   lista_e: estudiante[] = [];
@@ -35,7 +30,6 @@ export class ContratodealquilerInsertarComponent {
   lista_h: habitacion[] = [];
   idHabitacionSeleccionado: number = 0;
 
-  //agregamos el constructor
   constructor(
 
     private cS: ContratodealquilerService,
@@ -44,16 +38,13 @@ export class ContratodealquilerInsertarComponent {
     private eS:EstudianteService,
     private hS:HabitacionService,
       ){}
-
-
-  //agregamos el ngOninit
   ngOnInit(): void {
     this.eS.list().subscribe(data => { this.lista_e = data });
     this.hS.list().subscribe(data => { this.lista_h = data });
 
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
-      this.edicion = data['id'] != null;
+      this.onlyread = data['id'] != null;
       this.init();
     });
 
@@ -69,7 +60,6 @@ export class ContratodealquilerInsertarComponent {
     });
   }
 
-  //Agregar este aceptar
   aceptar():void{
     this.Contratodealquiler.id_contratodealquier=this.form.value['id'];
     this.Contratodealquiler.descripcion=this.form.value['descripcion'];
@@ -90,14 +80,8 @@ export class ContratodealquilerInsertarComponent {
         let h = new habitacion();
         h.idHabitacion = this.idHabitacionSeleccionado;
         this.Contratodealquiler.habitacion = h;
-      if (this.edicion) {
+      if (this.onlyread) {
         this.cS.update(this.Contratodealquiler).subscribe(() => {
-          this.cS.list().subscribe((data) => {
-            this.cS.setlist(data);
-          });
-        });
-      } else {
-        this.cS.insertar(this.Contratodealquiler).subscribe(() => {
           this.cS.list().subscribe((data) => {
             this.cS.setlist(data);
           });
@@ -105,14 +89,11 @@ export class ContratodealquilerInsertarComponent {
       }
 
       this.router.navigate(['/pages/contratodealquiler']);
-    } else {
-      this.mensaje = 'Ingrese la descripcion del Contrato de Alquiler!!';
     }
   }
 
-  //Se agregar para el actualizar
   init() {
-    if (this.edicion) {
+    if (this.onlyread) {
       this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id_contratodealquier),
@@ -129,4 +110,5 @@ export class ContratodealquilerInsertarComponent {
       });
     }
   }
+
 }
