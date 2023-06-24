@@ -64,6 +64,11 @@
       </td>
     </ng-container>
 
+    <ng-container matColumnDef="ubicacion">
+      <th mat-header-cell *matHeaderCellDef>UBICACIÓN</th>
+      <td mat-cell *matCellDef="let element">{{ element.ubicacion }}</td>
+    </ng-container>
+
     <ng-container matColumnDef="actualizar">
       <th mat-header-cell *matHeaderCellDef>ACTUALIZAR</th>
       <td mat-cell *matCellDef="let element">
@@ -79,10 +84,8 @@
     </ng-container>
 
     <ng-container matColumnDef="eliminar">
-      <th mat-header-cell *matHeaderCellDef [hidden]="role === 'ADMIN'">
-        ELIMINAR
-      </th>
-      <td mat-cell *matCellDef="let element" [hidden]="role === 'ADMIN'">
+      <th mat-header-cell *matHeaderCellDef>ELIMINAR</th>
+      <td mat-cell *matCellDef="let element">
         <button
           mat-raised-button
           color="accent"

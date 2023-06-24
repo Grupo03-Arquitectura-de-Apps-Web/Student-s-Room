@@ -36,11 +36,9 @@ export class PublicacionInsertarComponent {
 
   //agregamos el ngOninit
   ngOnInit(): void {
-    this.hS.list().subscribe(
-      (data)=>{
-        this.lista_h=data;
-      }
-    )
+    this.hS.list().subscribe((data) => {
+      this.lista_h = data;
+    });
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
@@ -64,17 +62,17 @@ export class PublicacionInsertarComponent {
     this.publicacion.num_reacciones = this.form.value['num_reacciones'];
     this.publicacion.num_comentarios = this.form.value['num_comentarios'];
     this.publicacion.num_compartidos = this.form.value['num_compartidos'];
-    this.publicacion.habitacion.idHabitacion = this.form.value['habitacion.id'];
+    this.publicacion.habitacion.ubicacion =
+      this.form.value['habitacion.ubicacion'];
 
     if (!this.form.valid) {
       return;
     }
 
-    if (this.idHabitacionSeleccionado.toString().length > 0)
-    {
+    if (this.idHabitacionSeleccionado.toString().length > 0) {
       let h = new habitacion();
-        h.idHabitacion = this.idHabitacionSeleccionado;
-        this.publicacion.habitacion = h;
+      h.idHabitacion = this.idHabitacionSeleccionado;
+      this.publicacion.habitacion = h;
       if (this.edicion) {
         //guardar lo actualizado
         this.pS.update(this.publicacion).subscribe(() => {
@@ -109,7 +107,7 @@ export class PublicacionInsertarComponent {
           num_compartidos: new FormControl(data.num_compartidos),
           habitacion: new FormControl(data.habitacion.idHabitacion),
         });
-        this.idHabitacionSeleccionado=data.habitacion.idHabitacion;
+        this.idHabitacionSeleccionado = data.habitacion.idHabitacion;
       });
     }
   }

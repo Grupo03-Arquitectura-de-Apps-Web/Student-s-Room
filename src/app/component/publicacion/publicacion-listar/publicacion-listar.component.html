@@ -8,7 +8,7 @@
       color="warn"
       routerLink="/pages/publicacion/publicacioninsertar"
       style="background-color: #0b3ad1"
-      [hidden]="role=='ESTUDIANTE'"
+      [hidden]="role == 'ESTUDIANTE'"
     >
       Nuevo
     </button>
@@ -37,7 +37,7 @@
           alt="Photo of a Shiba Inu"
         />
         <mat-card-content>
-          <p>ID DE HABITACIÓN: {{ element.habitacion.idHabitacion }}</p>
+          <p>UBICACIÓN: {{ element.habitacion.ubicacion }}</p>
           <p>Acerca de este anuncio: {{ element.contenido }}</p>
           <div class="reacciones">
             <p style="margin-right: 5px">
@@ -69,7 +69,8 @@
             color="accent"
             (click)="confirmar(element.idPublicacion)"
             style="background-color: #ff6c00"
-            class="eliminar" [hidden]="role === 'ESTUDIANTE'"
+            class="eliminar"
+            [hidden]="role === 'ESTUDIANTE'"
           >
             <span class="material-icons">delete</span>
           </button>

@@ -10,5 +10,6 @@ export class habitacion {
   disponibilidad: string = '';
   arrendador: Arrendador = new Arrendador();
   distrito: Distrito = new Distrito();
+  ubicacion: string = '';
   universidad: Universidad = new Universidad();
 }

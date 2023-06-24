@@ -79,6 +79,7 @@ export class HabitacionInsertarComponent {
       disponibilidad: new FormControl(),
       arrendador: new FormControl(),
       distrito: new FormControl(),
+      ubicacion: new FormControl(),
       universidad: new FormControl(),
     });
   }
@@ -91,6 +92,7 @@ export class HabitacionInsertarComponent {
     this.habitacion.arrendador.nombre = this.form.value['arrendador.nombre'];
     this.habitacion.distrito.nombreDistrito =
       this.form.value['distrito.nombreDistrito'];
+    this.habitacion.ubicacion = this.form.value['ubicacion'];
     this.habitacion.universidad.nombre = this.form.value['universidad.nombre'];
 
     if (!this.form.valid) {
@@ -146,6 +148,7 @@ export class HabitacionInsertarComponent {
           disponibilidad: new FormControl(data.disponibilidad),
           arrendador: new FormControl(data.arrendador.id_arrendador),
           distrito: new FormControl(data.distrito.idDistrito),
+          ubicacion: new FormControl(data.distrito.idDistrito),
           universidad: new FormControl(data.universidad.idUniversidad),
         });
         this.idArrendadorSeleccionado = data.arrendador.id_arrendador;

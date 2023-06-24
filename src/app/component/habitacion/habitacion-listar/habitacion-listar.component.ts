@@ -23,6 +23,7 @@ export class HabitacionListarComponent implements OnInit {
     'disponibilidad',
     'arrendador',
     'distrito',
+    'ubicacion',
     'universidad',
     'actualizar',
     'eliminar',
