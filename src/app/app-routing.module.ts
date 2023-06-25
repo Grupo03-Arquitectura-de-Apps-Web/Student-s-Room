@@ -46,6 +46,7 @@ import { Report05Component } from './component/reports/report05/report05.compone
 import { Report07Component } from './component/reports/report07/report07.component';
 import { Report09Component } from './component/reports/report09/report09.component';
 import { Report10Component } from './component/reports/report10/report10.component';
+import { Report06Component } from './component/reports/report06/report06.component';
 const routes: Routes = [
   {
     path: '',
@@ -248,6 +249,10 @@ const routes: Routes = [
           {
             path: 'report5',
             component: Report05Component,
+          },
+          {
+            path: 'report6',
+            component: Report06Component,
           },
           {
             path: 'report7',
