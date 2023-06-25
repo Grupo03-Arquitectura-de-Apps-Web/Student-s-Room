@@ -29,15 +29,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
-
-
-
 import { MatListModule } from '@angular/material/list';
 //import { RouterModule, Routes }   from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
 
 import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/pais-dialogo.component';
 import { PlanComponent } from './component/plan/plan.component';
@@ -96,7 +91,7 @@ import { HabitacionEliminarComponent } from './component/habitacion/habitacion-l
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { NavsComponent } from './component/navs/navs.component';
 
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { LoginComponent } from './component/login/login.component';
@@ -114,7 +109,6 @@ import { RegisterUserComponent } from './component/register-user/register-user.c
 import { RegisterRolComponent } from './component/register-rol/register-rol.component';
 import { Report03Component } from './component/reports/report03/report03.component';
 import { Report04Component } from './component/reports/report04/report04.component';
-import { Report05Component } from './component/reports/report05/report05.component';
 
 //delete
 
@@ -190,7 +184,6 @@ import { Report05Component } from './component/reports/report05/report05.compone
     RegisterRolComponent,
     Report03Component,
     Report04Component,
-    Report05Component
   ],
   imports: [
     BrowserModule,
@@ -219,7 +212,7 @@ import { Report05Component } from './component/reports/report05/report05.compone
     MatExpansionModule,
     MatTooltipModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

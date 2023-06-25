@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { habitacion } from '../model/habitacion';
 import { Observable, Subject } from 'rxjs';
 import { disponiblesDTO } from '../model/disponiblesDTO';
+import { cantidadPorUniversidadDTO } from '../model/cantidadPorUniversidadDTO';
 
 const base_url = environment.base;
 
@@ -93,6 +94,16 @@ export class HabitacionService {
     let token = sessionStorage.getItem('token');
 
     return this.http.get<habitacion[]>(`${this.url}/${p1}/${p2}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+  }
+
+  //AGREGANDO REPORTE 07
+  quantityByUniversity(): Observable<cantidadPorUniversidadDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<cantidadPorUniversidadDTO[]>(`${this.url}/cantidad`, {
       headers: new HttpHeaders()
         .set('Authorization', `Bearer ${token}`)
         .set('Content-Type', 'application/json'),
