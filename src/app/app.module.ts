@@ -29,15 +29,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
-
-
-
 import { MatListModule } from '@angular/material/list';
 //import { RouterModule, Routes }   from '@angular/router';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
 
 import { PaisDialogoComponent } from './component/pais/pais-listar/pais-dialogo/pais-dialogo.component';
 import { PlanComponent } from './component/plan/plan.component';
@@ -96,7 +91,7 @@ import { HabitacionEliminarComponent } from './component/habitacion/habitacion-l
 import { ToolbarComponent } from './component/toolbar/toolbar.component';
 import { NavsComponent } from './component/navs/navs.component';
 
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { LoginComponent } from './component/login/login.component';
@@ -113,8 +108,6 @@ import { ContratodealquilerOnlyreadComponent } from './component/contratodealqui
 import { RegisterUserComponent } from './component/register-user/register-user.component';
 import { RegisterRolComponent } from './component/register-rol/register-rol.component';
 import { Report03Component } from './component/reports/report03/report03.component';
-import { Report07Component } from './component/reports/report07/report07.component';
-import { Report08Component } from './component/reports/report08/report08.component';
 
 //delete
 
@@ -189,8 +182,6 @@ import { Report08Component } from './component/reports/report08/report08.compone
     RegisterUserComponent,
     RegisterRolComponent,
     Report03Component,
-    Report07Component,
-    Report08Component
   ],
   imports: [
     BrowserModule,
@@ -219,7 +210,7 @@ import { Report08Component } from './component/reports/report08/report08.compone
     MatExpansionModule,
     MatTooltipModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
