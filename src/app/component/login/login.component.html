@@ -8,34 +8,58 @@
 
 </head>
 <body>
-  <div class="login-box">
-    <h2>Login</h2>
+  <div class="container">
+    <div class="login-box">
+      <h2>Sign in</h2>
 
-      <div class="user-box">
-        <input type="text"  required="" matInput [(ngModel)]="username">
-        <label>Username</label>
-      </div>
-      <div class="user-box">
-        <input type="password" required="" matInput  [(ngModel)]="password">
-        <label>Password</label>
-      </div>
+        <div class="user-box">
+          <input type="text"  required="" matInput [(ngModel)]="username">
+          <label>Username</label>
+        </div>
+        <div class="user-box">
+          <input type="password" required="" matInput  [(ngModel)]="password">
+          <label>Password</label>
+        </div>
+        <div class="button-container">
+          <a routerLink="/" >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Back
+          </a>
+          <a type="submit" (click)="login()" >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </a>
+        </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="login-box">
+      <h2>
+        Sign up as
+      </h2>
       <div class="button-container">
-        <a routerLink="/" >
+        <a type="submit" (click)="loginStudent()">
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          Back
+          Student
         </a>
-        <a type="submit" (click)="login()" >
+        <a type="submit" (click)="loginLessor()" >
           <span></span>
           <span></span>
           <span></span>
           <span></span>
-          Submit
+          Lessor
         </a>
       </div>
-
+    </div>
   </div>
 </body>
 </html>
