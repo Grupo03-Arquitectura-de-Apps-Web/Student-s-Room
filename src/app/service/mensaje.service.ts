@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Mensaje } from '../model/mensaje';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { mensajesDTO } from '../model/mensajesDTO';
 
 const base_url = environment.base;
 @Injectable({
@@ -60,5 +61,15 @@ export class MensajeService {
   }
   setConfirmaEliminacion(estado: Boolean) {
     this.confirmaEliminacion.next(estado);
+  }
+
+  ConteodeMensajesporEstado(): Observable<mensajesDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<mensajesDTO[]>(`${this.url}/reporte05`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+
   }
 }

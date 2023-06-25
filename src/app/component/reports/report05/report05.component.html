@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div style=" text-align: center;">
+      <h1>CONTEO DE MENSAJES POR ESTADO</h1>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="estado">
+        <th mat-header-cell *matHeaderCellDef> ESTADO </th>
+        <td mat-cell *matCellDef="let element of messagecount"> {{element.estado}} </td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="conteo">
+        <th mat-header-cell *matHeaderCellDef> CANTIDAD </th>
+        <td mat-cell *matCellDef="let element of messagecount"> {{element.conteo}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+  </div>
+</body>
+
+</html>
+
