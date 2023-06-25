@@ -3,6 +3,9 @@ import { environment } from 'src/environments/environment';
 import { HttpClient,HttpHeaders  } from '@angular/common/http';
 import { contratodealquiler } from '../model/contratodealquier';
 import { Subject } from 'rxjs';
+import { Plan } from '../model/plan';
+import { DatePipe } from '@angular/common';
+import { ContratodealquilerComponent } from '../component/contratodealquiler/contratodealquiler.component';
 
 const base_url = environment.base;
 
@@ -14,7 +17,7 @@ export class ContratodealquilerService {
   private listaCambio=new Subject<contratodealquiler[]>;
   private confirmaEliminacion = new Subject<Boolean>()
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,private datePipe: DatePipe) {}
   list() {
     let token = sessionStorage.getItem("token");
     return this.http.get<contratodealquiler[]>(this.url, {
@@ -62,5 +65,15 @@ export class ContratodealquilerService {
   }
   setConfirmaEliminacion(estado: Boolean) {
     this.confirmaEliminacion.next(estado);
+  }
+  searchByDate(f1: Date, f2: Date) {
+    let token = sessionStorage.getItem('token');
+    let formattedF1 = this.datePipe.transform(f1, 'yyyy-MM-dd');
+    let formattedF2 = this.datePipe.transform(f2, 'yyyy-MM-dd');
+    return this.http.get<contratodealquiler[]>(`${this.url}/${formattedF1}/${formattedF2}`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
   }
 }

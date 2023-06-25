@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Plan } from '../model/plan';
 import { HttpClient,HttpHeaders } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { ArrendadorPorPlanDTO } from '../model/ArrendadorPorPlanDTO';
 
 const base_url = environment.base;
 @Injectable({
@@ -60,5 +61,15 @@ export class PlanService {
   }
   setConfirmaEliminacion(estado: Boolean) {
     this.confirmaEliminacion.next(estado);
+  }
+
+  ArrendadorPorPlan(): Observable<ArrendadorPorPlanDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<ArrendadorPorPlanDTO[]>(`${this.url}/reporte09`, {
+      headers: new HttpHeaders()
+        .set('Authorization', `Bearer ${token}`)
+        .set('Content-Type', 'application/json'),
+    });
+
   }
 }

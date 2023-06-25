@@ -12,6 +12,7 @@
 
   <mat-list-item
     [hidden]="role == 'ARRENDADOR'"
+    [hidden]="role == 'ARRENDADOR' || role == 'ESTUDIANTE'"
     routerLink="/pages/estudiante"
     class="items-menu"
     routerLinkActive="is-active"
@@ -22,6 +23,7 @@
 
   <mat-list-item
     [hidden]="role == 'ESTUDIANTE'"
+    [hidden]="role == 'ESTUDIANTE' || role == 'ARRENDADOR'"
     routerLink="/pages/arrendador"
     class="items-menu"
     routerLinkActive="is-active"
@@ -32,6 +34,7 @@
 
   <mat-list-item
     [hidden]="role == 'ESTUDIANTE'"
+    [hidden]="role == 'ESTUDIANTE' || role == 'ARRENDADOR'"
     routerLink="/pages/ciudad"
     class="items-menu"
     routerLinkActive="is-active"
@@ -49,6 +52,7 @@
   </mat-list-item>
   <mat-list-item
     [hidden]="role == 'ESTUDIANTE'"
+    [hidden]="role == 'ESTUDIANTE' || role == 'ARRENDADOR'"
     routerLink="/pages/distrito"
     class="items-menu"
     routerLinkActive="is-active"
@@ -67,6 +71,7 @@
   </mat-list-item>
   <mat-list-item
     [hidden]="role == 'ESTUDIANTE'"
+    [hidden]="role == 'ESTUDIANTE' || role == 'ARRENDADOR'"
     routerLink="/pages/universidad"
     class="items-menu"
     routerLinkActive="is-active"
@@ -85,6 +90,7 @@
 
   <mat-list-item
     [hidden]="role == 'ESTUDIANTE'"
+    [hidden]="role == 'ESTUDIANTE' || role == 'ARRENDADOR'"
     routerLink="/pages/paises"
     class="items-menu"
     routerLinkActive="is-active"
@@ -113,6 +119,7 @@
   </mat-list-item>
 
   <mat-list-item
+    [hidden]="role == 'ARRENDADOR'"
     routerLink="/pages/publicacionfavorita"
     class="items-menu"
     routerLinkActive="is-active"
@@ -182,6 +189,20 @@
         routerLinkActive="is-active2"
       >
         <mat-icon>poll</mat-icon><span>Reporte 7</span>
+      </mat-list-item>
+      <mat-list-item
+        routerLink="/pages/reports/report9"
+        class="items-menu"
+        routerLinkActive="is-active2"
+      >
+        <mat-icon>poll</mat-icon><span>Reporte 9</span>
+      </mat-list-item>
+      <mat-list-item
+        routerLink="/pages/reports/report10"
+        class="items-menu"
+        routerLinkActive="is-active2"
+      >
+        <mat-icon>poll</mat-icon><span>Reporte 10</span>
       </mat-list-item>
     </mat-nav-list>
   </mat-expansion-panel>

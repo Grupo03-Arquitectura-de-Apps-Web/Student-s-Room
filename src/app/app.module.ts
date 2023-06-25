@@ -112,6 +112,9 @@ import { Report04Component } from './component/reports/report04/report04.compone
 import { Report05Component } from './component/reports/report05/report05.component';
 
 import { Report07Component } from './component/reports/report07/report07.component';
+import { Report09Component } from './component/reports/report09/report09.component';
+import { Report10Component } from './component/reports/report10/report10.component';
+import { DatePipe } from '@angular/common';
 
 //delete
 
@@ -190,6 +193,8 @@ import { Report07Component } from './component/reports/report07/report07.compone
     Report05Component,
 
     Report07Component,
+    Report09Component,
+    Report10Component
   ],
   imports: [
     BrowserModule,
@@ -219,8 +224,9 @@ import { Report07Component } from './component/reports/report07/report07.compone
     MatTooltipModule,
     MatCardModule,
     MatSnackBarModule,
+    DatePipe
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
