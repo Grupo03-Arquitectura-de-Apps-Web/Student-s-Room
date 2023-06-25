@@ -113,6 +113,8 @@ import { ContratodealquilerOnlyreadComponent } from './component/contratodealqui
 import { RegisterUserComponent } from './component/register-user/register-user.component';
 import { RegisterRolComponent } from './component/register-rol/register-rol.component';
 import { Report03Component } from './component/reports/report03/report03.component';
+import { Report07Component } from './component/reports/report07/report07.component';
+import { Report08Component } from './component/reports/report08/report08.component';
 
 //delete
 
@@ -186,7 +188,9 @@ import { Report03Component } from './component/reports/report03/report03.compone
 
     RegisterUserComponent,
     RegisterRolComponent,
-    Report03Component
+    Report03Component,
+    Report07Component,
+    Report08Component
   ],
   imports: [
     BrowserModule,

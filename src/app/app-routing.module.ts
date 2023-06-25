@@ -41,21 +41,23 @@ import { Report01Component } from './component/reports/report01/report01.compone
 import { Report02Component } from './component/reports/report02/report02.component';
 import { RegisterUserComponent } from './component/register-user/register-user.component';
 import { Report03Component } from './component/reports/report03/report03.component';
+import { Report07Component } from './component/reports/report07/report07.component';
+import { Report08Component } from './component/reports/report08/report08.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent
+    path: '',
+    component: HomeComponent,
   },
   {
-    path: 'login', component: LoginComponent
+    path: 'login',
+    component: LoginComponent,
   },
   {
-    path:'pages',
-    component:MainNavComponent,
-    children:[
+    path: 'pages',
+    component: MainNavComponent,
+    children: [
       {
-
         path: 'paises',
         component: PaisComponent,
         children: [
@@ -67,7 +69,8 @@ const routes: Routes = [
             path: 'edicion/:id',
             component: PaisInsertarComponent,
           },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'plans',
@@ -81,7 +84,8 @@ const routes: Routes = [
             path: 'edicion/:id',
             component: PlanInsertarComponent,
           },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'tipo',
@@ -89,24 +93,33 @@ const routes: Routes = [
         children: [
           { path: 'tipoinsertar', component: TipoInsertarComponent },
           { path: 'edicion/:id', component: TipoInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'estudiante',
         component: EstudianteComponent,
         children: [
-          { path: 'estudianteinsertar', component: EstudianteInsertarComponent },
+          {
+            path: 'estudianteinsertar',
+            component: EstudianteInsertarComponent,
+          },
           { path: 'edicion/:id', component: EstudianteInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
 
       {
         path: 'universidad',
         component: UniversidadComponent,
         children: [
-          { path: 'universidadinsertar', component: UniversidadInsertarComponent },
+          {
+            path: 'universidadinsertar',
+            component: UniversidadInsertarComponent,
+          },
           { path: 'edicion/:id', component: UniversidadInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'contratodealquiler',
@@ -116,9 +129,16 @@ const routes: Routes = [
             path: 'contratodealquilerinsertar',
             component: ContratodealquilerInsertarComponent,
           },
-          { path: 'edicion/:id', component: ContratodealquilerInsertarComponent },
-          { path: 'onlyread/:id', component: ContratodealquilerOnlyreadComponent },
-        ],canActivate:[GuardService]
+          {
+            path: 'edicion/:id',
+            component: ContratodealquilerInsertarComponent,
+          },
+          {
+            path: 'onlyread/:id',
+            component: ContratodealquilerOnlyreadComponent,
+          },
+        ],
+        canActivate: [GuardService],
       },
 
       {
@@ -127,15 +147,20 @@ const routes: Routes = [
         children: [
           { path: 'mensajesinsertar', component: MensajeInsertarComponent },
           { path: 'edicion/:id', component: MensajeInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'publicacion',
         component: PublicacionComponent,
         children: [
-          { path: 'publicacioninsertar', component: PublicacionInsertarComponent },
+          {
+            path: 'publicacioninsertar',
+            component: PublicacionInsertarComponent,
+          },
           { path: 'edicion/:id', component: PublicacionInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'distrito',
@@ -143,7 +168,8 @@ const routes: Routes = [
         children: [
           { path: 'distritoinsertar', component: DistritoInsertarComponent },
           { path: 'edicion/:id', component: DistritoInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'ciudad',
@@ -151,15 +177,20 @@ const routes: Routes = [
         children: [
           { path: 'ciudadinsertar', component: CiudadInsertarComponent },
           { path: 'edicion/:id', component: CiudadInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'habitacion',
         component: HabitacionComponent,
         children: [
-          { path: 'habitacioninsertar', component: HabitacionInsertarComponent },
+          {
+            path: 'habitacioninsertar',
+            component: HabitacionInsertarComponent,
+          },
           { path: 'edicion/:id', component: HabitacionInsertarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'arrendador',
@@ -167,7 +198,8 @@ const routes: Routes = [
         children: [
           { path: 'arrendadorinsertar', component: ArrendadorInsetarComponent },
           { path: 'edicion/:id', component: ArrendadorInsetarComponent },
-        ],canActivate:[GuardService]
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'publicacionfavorita',
@@ -177,19 +209,23 @@ const routes: Routes = [
             path: 'publicacionfavoritainsertar',
             component: PublicacionfavoritaInsertarComponent,
           },
-          { path: 'edicion/:id', component: PublicacionfavoritaInsertarComponent },
-        ],canActivate:[GuardService]
+          {
+            path: 'edicion/:id',
+            component: PublicacionfavoritaInsertarComponent,
+          },
+        ],
+        canActivate: [GuardService],
       },
       {
         path: 'usuario',
-        component: UsuarioComponent
-        ,canActivate:[GuardService]
+        component: UsuarioComponent,
+        canActivate: [GuardService],
       },
 
       {
-        path:'reports',
-        component:ReportsComponent,
-        children:[
+        path: 'reports',
+        component: ReportsComponent,
+        children: [
           {
             path: 'report1',
             component: Report01Component,
@@ -202,19 +238,24 @@ const routes: Routes = [
             path: 'report3',
             component: Report03Component,
           },
-        ]
+          {
+            path: 'report7',
+            component: Report07Component,
+          },
+
+          {
+            path: 'report8',
+            component: Report08Component,
+          },
+        ],
       },
       {
-        path:'registeruser',
-        component:RegisterUserComponent
-      }
+        path: 'registeruser',
+        component: RegisterUserComponent,
+      },
     ],
-    canActivate:[GuardService]
-
+    canActivate: [GuardService],
   },
-
-
-
 ];
 
 @NgModule({

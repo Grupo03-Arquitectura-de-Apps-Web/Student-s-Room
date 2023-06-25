@@ -1,94 +1,180 @@
 <mat-nav-list class="nave-list">
-  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/usuario" class="items-menu" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact:
-    true}">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/usuario"
+    class="items-menu"
+    routerLinkActive="is-active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
     <mat-icon> account_circle </mat-icon>
     <span>Usuario</span>
   </mat-list-item>
 
-  <mat-list-item [hidden]="role=='ARRENDADOR'"  routerLink="/pages/estudiante" class="items-menu" routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ARRENDADOR'"
+    routerLink="/pages/estudiante"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> group </mat-icon>
     <span>Estudiante</span>
   </mat-list-item>
 
-  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/arrendador" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/arrendador"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> person </mat-icon>
     <span>Arrendador</span>
   </mat-list-item>
 
-  <mat-list-item [hidden]="role=='ESTUDIANTE'"  routerLink="/pages/ciudad" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/ciudad"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> location_city </mat-icon>
     <span>Ciudad</span>
   </mat-list-item>
-  <mat-list-item routerLink="/pages/contratodealquiler" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    routerLink="/pages/contratodealquiler"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> description </mat-icon>
     <span>Contrato</span>
   </mat-list-item>
-  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/distrito" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/distrito"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> place </mat-icon>
     <span>Distrito</span>
   </mat-list-item>
-  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/habitacion" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/habitacion"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> hotel </mat-icon>
     <span>Habitación</span>
   </mat-list-item>
-  <mat-list-item  [hidden]="role=='ESTUDIANTE'" routerLink="/pages/universidad" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/universidad"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> school </mat-icon>
     <span>Universidad</span>
   </mat-list-item>
-  <mat-list-item routerLink="/pages/mensaje" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    routerLink="/pages/mensaje"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> message </mat-icon>
     <span>Mensaje</span>
   </mat-list-item>
 
-  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/paises" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/paises"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> public </mat-icon>
     <span>Pais</span>
   </mat-list-item>
 
-  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/plans" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/plans"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> payment </mat-icon>
     <span>Plan</span>
   </mat-list-item>
 
-  <mat-list-item routerLink="/pages/publicacion" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    routerLink="/pages/publicacion"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> post_add </mat-icon>
     <span>Publicacion</span>
   </mat-list-item>
 
-  <mat-list-item routerLink="/pages/publicacionfavorita" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    routerLink="/pages/publicacionfavorita"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> favorite </mat-icon>
     <span>Favoritos</span>
   </mat-list-item>
 
-  <mat-list-item [hidden]="role=='ESTUDIANTE'" routerLink="/pages/tipo" class="items-menu"routerLinkActive="is-active">
+  <mat-list-item
+    [hidden]="role == 'ESTUDIANTE'"
+    routerLink="/pages/tipo"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> domain </mat-icon>
     <span>Tipo</span>
   </mat-list-item>
 
   <mat-expansion-panel [class.mat-elevation-z0]="true">
     <mat-expansion-panel-header class="expansion-men">
-        <mat-icon >description</mat-icon><span>Reportes</span>
+      <mat-icon>description</mat-icon><span>Reportes</span>
     </mat-expansion-panel-header>
     <mat-nav-list class="nave-list2">
-
-        <mat-list-item routerLink="/pages/reports/report1"class="items-menu" routerLinkActive="is-active2">
-            <mat-icon>poll</mat-icon><span>Reporte 1</span>
-        </mat-list-item>
-        <mat-list-item routerLink="/pages/reports/report2"class="items-menu" routerLinkActive="is-active2">
-          <mat-icon>poll</mat-icon><span>Reporte 2</span>
+      <mat-list-item
+        routerLink="/pages/reports/report1"
+        class="items-menu"
+        routerLinkActive="is-active2"
+      >
+        <mat-icon>poll</mat-icon><span>Reporte 1</span>
       </mat-list-item>
-      <mat-list-item routerLink="/pages/reports/report3"class="items-menu" routerLinkActive="is-active2">
+      <mat-list-item
+        routerLink="/pages/reports/report2"
+        class="items-menu"
+        routerLinkActive="is-active2"
+      >
+        <mat-icon>poll</mat-icon><span>Reporte 2</span>
+      </mat-list-item>
+      <mat-list-item
+        routerLink="/pages/reports/report3"
+        class="items-menu"
+        routerLinkActive="is-active2"
+      >
         <mat-icon>poll</mat-icon><span>Reporte 3</span>
-    </mat-list-item>
-
+      </mat-list-item>
+      <mat-list-item
+        routerLink="/pages/reports/report7"
+        class="items-menu"
+        routerLinkActive="is-active2"
+      >
+        <mat-icon>poll</mat-icon><span>Reporte 7</span>
+      </mat-list-item>
     </mat-nav-list>
   </mat-expansion-panel>
-  <br>
-  <br>
-  <mat-list-item routerLink="/login" (click)="cerrar()" class="items-menu"routerLinkActive="is-active">
+  <br />
+  <br />
+  <mat-list-item
+    routerLink="/login"
+    (click)="cerrar()"
+    class="items-menu"
+    routerLinkActive="is-active"
+  >
     <mat-icon> exit_to_app </mat-icon>
     <span>Cerrar sesion</span>
   </mat-list-item>
-
-
 </mat-nav-list>
