@@ -115,6 +115,7 @@ import { Report07Component } from './component/reports/report07/report07.compone
 import { Report09Component } from './component/reports/report09/report09.component';
 import { Report10Component } from './component/reports/report10/report10.component';
 import { DatePipe } from '@angular/common';
+import { mensajesDTO } from 'src/app/model/mensajesDTO';
 
 //delete
 
@@ -194,7 +195,7 @@ import { DatePipe } from '@angular/common';
 
     Report07Component,
     Report09Component,
-    Report10Component
+    Report10Component,
   ],
   imports: [
     BrowserModule,
