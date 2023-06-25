@@ -27,4 +27,10 @@ export class LoginComponent implements OnInit {
       this.mensaje = "Credenciales incorrectas!!!"
       this.snackBar.open(this.mensaje, "Aviso",{duration:2000});});
   }
+  loginStudent() {
+    this.router.navigate(['/pages/estudiante/estudianteinsertar']);
+  }
+  loginLessor(){
+    this.router.navigate(['/pages/arrendador/arrendadorinsertar']);
+  }
 }
