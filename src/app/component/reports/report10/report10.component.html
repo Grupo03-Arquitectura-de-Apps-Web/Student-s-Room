@@ -1,0 +1,97 @@
+<div class="container">
+  <div style="text-align: center">
+    <h1 class="centrar" style="margin-top: 50px">
+      LISTA DE CONTRATOS ENTRE 2 FECHAS
+    </h1>
+  </div>
+
+
+
+  <form [formGroup]="form" class="form">
+    <mat-form-field class="example-full-width">
+      <mat-label style="font-family: 'Quicksand', sans-serif;">DESDE</mat-label>
+      <input matInput [matDatepicker]="picker_f1" formControlName="f1Control">
+      <mat-datepicker-toggle matSuffix [for]="picker_f1"></mat-datepicker-toggle>
+      <mat-datepicker #picker_f1></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label style="font-family: 'Quicksand', sans-serif;">HASTA</mat-label>
+      <input matInput [matDatepicker]="picker_f2" formControlName="f2Control">
+      <mat-datepicker-toggle matSuffix [for]="picker_f2"></mat-datepicker-toggle>
+      <mat-datepicker #picker_f2></mat-datepicker>
+    </mat-form-field>
+  </form>
+  <div style="text-align: right" class="buttons">
+    <button
+      mat-raised-button
+      color="warn"
+      style="background-color: #0b3ad1"
+      (click)="searchByDate()"
+    >
+      Buscar
+    </button>
+  </div>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id_contratodealquier }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="descripcion">
+      <th mat-header-cell *matHeaderCellDef>Descripcion</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.descripcion }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha_inicio">
+      <th mat-header-cell *matHeaderCellDef>Fecha inicio</th>
+      <td mat-cell *matCellDef="let element">{{ element.fecha_inicio }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="fecha_pago">
+      <th mat-header-cell *matHeaderCellDef>Fecha de pago</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fecha_pago }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="fecha_vencimiento">
+      <th mat-header-cell *matHeaderCellDef>Fecha de vencimiento</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.fecha_vencimiento}}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="money">
+      <th mat-header-cell *matHeaderCellDef>Precio</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.money }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="estudiante">
+      <th mat-header-cell *matHeaderCellDef>Estudiante</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.estudiante.nombre }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="habitacion">
+      <th mat-header-cell *matHeaderCellDef>Habitacion</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.habitacion.idHabitacion }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <br />
+  <mat-paginator [pageSizeOptions]="[2, 5, 10]" showFirstLastButtons>
+  </mat-paginator>
+</div>

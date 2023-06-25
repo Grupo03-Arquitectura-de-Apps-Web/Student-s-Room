@@ -42,6 +42,8 @@ import { Report02Component } from './component/reports/report02/report02.compone
 import { RegisterUserComponent } from './component/register-user/register-user.component';
 import { Report03Component } from './component/reports/report03/report03.component';
 import { Report04Component } from './component/reports/report04/report04.component';
+import { Report09Component } from './component/reports/report09/report09.component';
+import { Report10Component } from './component/reports/report10/report10.component';
 const routes: Routes = [
   {
     path:'',
@@ -205,6 +207,14 @@ const routes: Routes = [
           {
             path: 'report4',
             component: Report04Component,
+          },
+          {
+            path: 'report9',
+            component: Report09Component,
+          },
+          {
+            path: 'report10',
+            component: Report10Component,
           },
         ]
       },

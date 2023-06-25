@@ -114,6 +114,9 @@ import { RegisterUserComponent } from './component/register-user/register-user.c
 import { RegisterRolComponent } from './component/register-rol/register-rol.component';
 import { Report03Component } from './component/reports/report03/report03.component';
 import { Report04Component } from './component/reports/report04/report04.component';
+import { Report09Component } from './component/reports/report09/report09.component';
+import { Report10Component } from './component/reports/report10/report10.component';
+import { DatePipe } from '@angular/common';
 
 //delete
 
@@ -188,7 +191,9 @@ import { Report04Component } from './component/reports/report04/report04.compone
     RegisterUserComponent,
     RegisterRolComponent,
     Report03Component,
-    Report04Component
+    Report04Component,
+    Report09Component,
+    Report10Component
   ],
   imports: [
     BrowserModule,
@@ -217,9 +222,10 @@ import { Report04Component } from './component/reports/report04/report04.compone
     MatExpansionModule,
     MatTooltipModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    DatePipe
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
