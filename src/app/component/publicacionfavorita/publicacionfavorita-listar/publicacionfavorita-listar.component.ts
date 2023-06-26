@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { PublicacionfavoritaDialogoComponent } from './publicacionfavorita-dialogo/publicacionfavorita-dialogo.component';
+import { LoginService } from 'src/app/service/login.service';
 @Component({
   selector: 'app-publicacionfavorita-listar',
   templateUrl: './publicacionfavorita-listar.component.html',
@@ -17,6 +18,7 @@ export class PublicacionfavoritaListarComponent implements OnInit {
 
   //delete
   private idMayor: number = 0;
+  role: string = '';
   //
 
   displayedColumns: string[] = [
@@ -27,10 +29,11 @@ export class PublicacionfavoritaListarComponent implements OnInit {
     'ceditar',
     'celiminar'
   ];
-  constructor(private PublicacionfavoritaS: PublicacionfavoritaService, private dialog: MatDialog) {}
+  constructor(private PublicacionfavoritaS: PublicacionfavoritaService, private dialog: MatDialog,private ls: LoginService) {}
 
 
   ngOnInit(): void {
+    this.role = this.ls.showRole();
     this.PublicacionfavoritaS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
