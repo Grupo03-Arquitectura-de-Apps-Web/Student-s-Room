@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Quicksand&display=swap');
+th,h1{
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+td, button{
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+th,td{
+ text-align: center;
+}
+
+.centrar{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 50px;
+}
+.buscador {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; /* Ajusta el valor según el espacio deseado */
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Ajusta el valor según el espacio deseado */
+}
+
+.mat-form-field {
+  margin-right: 10px; /* Espacio entre el campo de búsqueda y los botones */
+}
+
+.mat-raised-button {
+  margin: 0 5px; /* Espacio entre los botones */
+}
+.botones-buscar button:first-child{
+margin-right: 30px;
+}
