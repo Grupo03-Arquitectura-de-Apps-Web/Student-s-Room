@@ -2,7 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Universidad } from '../model/universidad';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { universidadesPorDistritoDTO } from '../model/universidadesPorDistritoDTO';
 
 const base_url = environment.base;
 @Injectable({

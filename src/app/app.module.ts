@@ -110,7 +110,7 @@ import { RegisterRolComponent } from './component/register-rol/register-rol.comp
 import { Report03Component } from './component/reports/report03/report03.component';
 import { Report04Component } from './component/reports/report04/report04.component';
 import { Report05Component } from './component/reports/report05/report05.component';
-
+import { Report08Component } from './component/reports/report08/report08.component';
 import { Report07Component } from './component/reports/report07/report07.component';
 import { Report09Component } from './component/reports/report09/report09.component';
 import { Report10Component } from './component/reports/report10/report10.component';
@@ -193,7 +193,7 @@ import { Report06Component } from './component/reports/report06/report06.compone
     Report03Component,
     Report04Component,
     Report05Component,
-
+    Report08Component,
     Report07Component,
     Report09Component,
     Report10Component,
@@ -227,7 +227,7 @@ import { Report06Component } from './component/reports/report06/report06.compone
     MatTooltipModule,
     MatCardModule,
     MatSnackBarModule,
-    DatePipe
+    DatePipe,
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent],

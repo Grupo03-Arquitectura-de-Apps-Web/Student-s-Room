@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Distrito } from '../model/distrito';
-import { Subject } from 'rxjs';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { Subject, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { universidadesPorDistritoDTO } from '../model/universidadesPorDistritoDTO';
 
 const base_url = environment.base;
 
@@ -79,5 +80,17 @@ export class DistritoService {
   }
   setConfirmaEliminacion(estado: Boolean) {
     this.confirmaEliminacion.next(estado);
+  }
+
+  quantityByDistrict(): Observable<universidadesPorDistritoDTO[]> {
+    let token = sessionStorage.getItem('token');
+    return this.http.get<universidadesPorDistritoDTO[]>(
+      `${this.url}/quantityByDisctrict`,
+      {
+        headers: new HttpHeaders()
+          .set('Authorization', `Bearer ${token}`)
+          .set('Content-Type', 'application/json'),
+      }
+    );
   }
 }
